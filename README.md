@@ -1,6 +1,10 @@
 # LeicaExperiment #
 This is an python class which can be used to read the structured output from a Leica LAS Matrix Scan when using the data exporter (ome.tifs organized in slide/chamber/field folders).
 
+## Install ##
+```
+pip install leicaexperiment
+```
 
 ## Examples ##
 ### merge z-stack ###
