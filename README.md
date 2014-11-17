@@ -1,9 +1,9 @@
-# LeicaExperiment
+# LeicaExperiment #
 This is an python class which can be used to read the structured output from a Leica LAS Matrix Scan when using the data exporter (ome.tifs organized in slide/chamber/field folders).
 
 
-## Examples
-### merge z-stack
+## Examples ##
+### merge z-stack ###
 ```
 from leicaexperiment import LeicaExperiment
 experiment = LeicaExperiment('path/to/experiment--')
@@ -14,7 +14,7 @@ for well in experiment.wells:
             do stuff...
 ```
 
-### do stuff on all images
+### do stuff on all images ###
 ```
 experiment = LeicaExperiment('path/to/experiment--')
 for well in experiment.wells:
@@ -23,10 +23,9 @@ for well in experiment.wells:
             image_data = imread(image.fullpath)
             do stuff...
 ```
-
 Also see (merger.py)[/merger.py] example.
 
 
-## Dependencies
+## Dependencies ##
 - tifffile
 - numpy
