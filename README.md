@@ -23,7 +23,7 @@ for well in experiment.wells:
             image_data = imread(image.fullpath)
             do stuff...
 ```
-Also see (merger.py)[/merger.py] example.
+Also see [merger.py](/merger.py) example.
 
 
 ## Dependencies ##
