@@ -9,6 +9,6 @@ setup(name='LeicaExperiment',
       author='Arve Seljebu',
       author_email='arve.seljebu@gmail.com',
       license='MIT',
-      url='https://github.com/arve0/leicaexperiement',
+      url='https://github.com/arve0/leicaexperiment',
       py_modules=['leicaexperiment'],
       install_requires=['tifffile', 'numpy'])
