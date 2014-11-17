@@ -24,7 +24,7 @@ for well in experiment.wells:
             do stuff...
 ```
 
-Also see [merger.py] example.
+Also see (merger.py)[merger.py] example.
 
 
 ## Dependencies
