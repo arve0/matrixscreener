@@ -6,7 +6,7 @@ Example of how to use LeicaExperiment.
 
 from glob import glob
 from tifffile import imsave, imshow
-from leicaexperiment import LeicaExperiment
+from leicaexperiment import Experiment
 
 # get file names
 experiments = glob('/path/to/experiment--*')
@@ -14,7 +14,7 @@ experiments = glob('/path/to/experiment--*')
 # create experiments in a list
 leica_experiments = []
 for e in experiments:
-    leica_experiments.append(LeicaExperiment(e))
+    leica_experiments.append(Experiment(e))
 
 # merge and invert
 for experiment in leica_experiments:

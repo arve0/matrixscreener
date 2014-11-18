@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-Class LeicaExperiment(path) to organize matrix scans from Leica LAS Software (data explorer's ome.tif).
+Class Experiment(path) to organize matrix scans from Leica LAS MatrixScreener (data explorer's ome.tif).
 """
 # format https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt
 
@@ -17,7 +17,7 @@ import os, glob, tifffile, numpy
 #
 
 # classes
-class LeicaExperiment(object):
+class Experiment(object):
     def __init__(self, path):
         """Leica LAS matrixscreener scan job.
 

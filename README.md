@@ -9,8 +9,8 @@ pip install leicaexperiment
 ## Examples ##
 ### merge z-stack ###
 ```
-from leicaexperiment import LeicaExperiment
-experiment = LeicaExperiment('path/to/experiment--')
+from leicaexperiment import Experiment
+experiment = Experiment('path/to/experiment--')
 for well in experiment.wells:
     for channel in range(well.channels):
         for z in range(well.z_stacks):
@@ -20,7 +20,7 @@ for well in experiment.wells:
 
 ### do stuff on all images ###
 ```
-experiment = LeicaExperiment('path/to/experiment--')
+experiment = Experiment('path/to/experiment--')
 for well in experiment.wells:
     for field in well.fields:
         for image in field.images:
