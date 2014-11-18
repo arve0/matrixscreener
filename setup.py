@@ -4,7 +4,7 @@
 from setuptools import setup, find_packages
 
 setup(name='LeicaExperiment',
-      version='0.1',
+      version='0.0.2',
       description='Class based approach to reading ome.tifs from Leica LAS Matrix Screener',
       author='Arve Seljebu',
       author_email='arve.seljebu@gmail.com',
