@@ -2,3 +2,4 @@
 build/*
 dist/*
 LeicaExperiment.egg-info/*
+README.rst
