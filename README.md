@@ -1,21 +1,24 @@
 # LeicaExperiment #
 This is an python class which can be used to read the structured output from a Leica LAS Matrix Scan when using the data exporter (ome.tifs organized in slide/chamber/field folders).
 
+
+## Features
+- ImageJ stitching
+
+
 ## Install ##
 ```
 pip install leicaexperiment
 ```
 
+
 ## Examples ##
-### merge z-stack ###
+### stitch well ###
 ```
 from leicaexperiment import Experiment
 experiment = Experiment('path/to/experiment--')
-for well in experiment.wells:
-    for channel in range(well.channels):
-        for z in range(well.z_stacks):
-            img = well.merge(z, channel)
-            do stuff...
+well = experiment.wells[0]
+well.stitch('/path/to/output/files/')
 ```
 
 ### do stuff on all images ###
@@ -27,9 +30,9 @@ for well in experiment.wells:
             image_data = imread(image.fullpath)
             do stuff...
 ```
-Also see [merger.py](/merger.py) example.
 
 
 ## Dependencies ##
 - tifffile
 - numpy
+- imagej with Grid stitching plugin (fiji is recommended)

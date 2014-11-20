@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # encoding: utf-8
 """
 Class Experiment(path) to organize matrix scans from Leica LAS MatrixScreener (data explorer's ome.tif).
@@ -7,6 +6,7 @@ Class Experiment(path) to organize matrix scans from Leica LAS MatrixScreener (d
 
 # libaries
 import os, glob, tifffile, numpy
+from .imagej import stitch_macro, run_imagej
 
 ## notes
 #
@@ -66,6 +66,15 @@ class Experiment(object):
         return 'leicaexperiment at path {}'.format(self.path)
 
 
+    def stitch(self):
+        """
+        Stitches all wells in experiement and save them in experiment root.
+        """
+        for well in self.wells:
+            well.stitch(self.path)
+
+
+
 class Well(object):
     def __init__(self, path):
         """Well of Leica matrix scan.
@@ -83,7 +92,6 @@ class Well(object):
 
         # setup position - U(x) and V(y)
         u, v = self.path.split('--U')[1].split('--V')
-        self.str_u, self.str_v = u, v
         self.u = int(u)
         self.v = int(v)
 
@@ -113,49 +121,40 @@ class Well(object):
         self.channels = self.fields[0].channels
 
 
-    def stitch(self, z_stack=0, channel=0, overlap=None):
-        """Merge images from specified z-stack.
+    def stitch(self, folder=None):
+        """Stitch all z-stacks and channels in well.
 
         Parameters
         ----------
-        z-stack: int
-            Which Z-stack to stitch.
-        channel: int
-            Which channel to stitch.
-        overlap: float
-            If images should be cut when stitched.
+        folder: string
+            Folder to store images. Default is well.path.
 
         Returns
         -------
-        ndarray of stitched image.
+        Exit code from ImageJ.
         """
-        if z_stack >= self.z_stacks or channel >= self.channels:
-            return None
+        if folder is None:
+            folder = self.path
 
-        # filter out the images we want
-        images = [image for field in self.fields
-                        for image in field.images
-                            if image.z == z_stack and
-                               image.channel == channel]
+        # create macro
+        macro = []
+        for z in range(self.z_stacks):
+            for ch in range(self.channels):
+                filenames = ('field--X{xx}--Y{yy}/' +
+                        'image--L00--S00--U{:02}'.format(self.u) +
+                        '--V{:02}'.format(self.v) +
+                        '--J20--E00--O00--X{xx}--Y{yy}--T00' +
+                        '--Z{:02}'.format(z) +
+                        '--C{:02}'.format(ch) +
+                        '.ome.tif')
+                filename = 'u{}v{}ch{}z{}.tif'.format(self.u, self.v, ch, z)
+                output = os.path.join(folder, filename)
+                macro.append(stitch_macro(self.path, filenames, output))
 
-        # create empty array for stiched image
-        y = images[0].shape[0]
-        x = images[0].shape[1]
-        shape = (self.fields_y * y, self.fields_x * x)
-        stitched_image = numpy.zeros(shape, dtype=numpy.uint8) # TODO do not hard code type
+        # stitch images with ImageJ
+        exit_code = run_imagej(' '.join(macro))
 
-        # stitch images
-        for image in images:
-            start_y = image.y * y
-            start_x = image.x * x
-            stop_y = start_y + y
-            stop_x = start_x + x
-            image_data = tifffile.imread(image.fullpath, key=0)
-            image_data = numpy.rot90(image_data, k=3)
-            # TODO: possible to detect rotation?
-            stitched_image[start_y:stop_y, start_x:stop_x] = image_data
-
-        return stitched_image
+        return exit_code
 
 
 
@@ -263,32 +262,6 @@ class Image():
 
 
 # functions
-def main():
-    #TODO
-    """Run when executed as script."""
-
-    path = raw_input('What directory is the files in (relative or absolute)?\n')
-    # set as working directory, instead of concatenate path + filename
-    os.chdir(path)
-    files = os.listdir('.')
-    print('First file: ' + files[0])
-    try:
-        y_size = getYSize(files)
-    except Exception:
-        print('Error: Files in right format?')
-        exit(1)
-    print('Y size: ' + str(y_size))
-    if raw_input('Seems right? Continue? (y/n) ').lower() == 'y':
-        for f in files:
-            x = getX(f)
-            r = x * y_size + getY(f)
-            ch = 'ch' + str(getChannel(f)) + '-'
-            new_name = ch + str(r) + '.tif'
-            os.rename(f, new_name)
-            print('Renaming ' + f + ' to ' + new_name)
-
-
-
 def between(before, after, string):
     """Strip string and return whats between before and after.
 
@@ -306,8 +279,3 @@ def between(before, after, string):
     String between before and after.
     """
     return string.split(before)[1].split(after)[0]
-
-
-
-if __name__ == '__main__':
-    main()
