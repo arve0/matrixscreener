@@ -62,6 +62,10 @@ class Experiment(object):
             self.wells.append(Well(p))
 
 
+    def __str__(self):
+        return 'leicaexperiment at path {}'.format(self.path)
+
+
 class Well(object):
     def __init__(self, path):
         """Well of Leica matrix scan.
@@ -109,19 +113,21 @@ class Well(object):
         self.channels = self.fields[0].channels
 
 
-    def merge(self, z_stack, channel, overlap=None):
+    def stitch(self, z_stack=0, channel=0, overlap=None):
         """Merge images from specified z-stack.
 
         Parameters
         ----------
         z-stack: int
-            Which Z-stack to merge.
+            Which Z-stack to stitch.
+        channel: int
+            Which channel to stitch.
         overlap: float
-            If images should be cut when merged.
+            If images should be cut when stitched.
 
         Returns
         -------
-        ndarray of merged image.
+        ndarray of stitched image.
         """
         if z_stack >= self.z_stacks or channel >= self.channels:
             return None
@@ -132,13 +138,13 @@ class Well(object):
                             if image.z == z_stack and
                                image.channel == channel]
 
-        # create empty array for merged image
+        # create empty array for stiched image
         y = images[0].shape[0]
         x = images[0].shape[1]
         shape = (self.fields_y * y, self.fields_x * x)
-        merged_image = numpy.zeros(shape, dtype=numpy.uint8) # TODO do not hard code type
+        stitched_image = numpy.zeros(shape, dtype=numpy.uint8) # TODO do not hard code type
 
-        # merge images
+        # stitch images
         for image in images:
             start_y = image.y * y
             start_x = image.x * x
@@ -147,9 +153,9 @@ class Well(object):
             image_data = tifffile.imread(image.fullpath, key=0)
             image_data = numpy.rot90(image_data, k=3)
             # TODO: possible to detect rotation?
-            merged_image[start_y:stop_y, start_x:stop_x] = image_data
+            stitched_image[start_y:stop_y, start_x:stop_x] = image_data
 
-        return merged_image
+        return stitched_image
 
 
 
