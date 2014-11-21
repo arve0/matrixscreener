@@ -25,7 +25,7 @@ well = experiment.wells[0]
 
 print(matrixscreener.imagej.IMAGEJ_PATH) # default is for fiji on mac os x
 matrixscreener.imagej.IMAGEJ_PATH = '/path/to/imagej'
-matrixscreener.imagej.DEBUG = True # turn on output from imagej
+matrixscreener.imagej.DEBUG = True # turn on output from ImageJ
 
 well.stitch('/path/to/output/files/')
 ```
@@ -45,7 +45,7 @@ for well in experiment.wells:
 ## Dependencies ##
 - tifffile
 - numpy
-- imagej with Grid stitching plugin (fiji is recommended)
+- ImageJ with Grid stitching plugin (fiji is recommended)
 
 
 ## Develop ##
