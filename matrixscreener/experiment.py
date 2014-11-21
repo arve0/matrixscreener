@@ -46,8 +46,6 @@ class Experiment(object):
             raise FileNotFoundError
         last_chamber = chambers[-1]
         u, v = last_chamber.split('--U')[1].split('--V')
-        self.last_well_u = u # string of last u,v
-        self.last_well_v = v
         self.wells_u = int(u) + 1 # directory string start at 0
         self.wells_v = int(v) + 1
 
@@ -86,6 +84,14 @@ class Well(object):
     def __init__(self, path):
         """Well of Leica matrix experiment.
 
+        Provides
+        --------
+        channels:
+        fields:
+        fields_x, fields_y:
+        u,v:
+        z_stacks:
+
         Parameters
         ----------
         path: string
@@ -108,8 +114,6 @@ class Well(object):
             raise FileNotFoundError
         last_field = fields[-1]
         x, y = last_field.split('--X')[1].split('--Y')
-        self.last_field_x = x # string of last x,y
-        self.last_wells_y = y
         self.fields_x = int(x) + 1 # directory string start at 0
         self.fields_y = int(y) + 1
 
@@ -158,7 +162,7 @@ class Well(object):
                 filename = 'u{}v{}ch{}z{}.tif'.format(self.u, self.v, ch, z)
                 output = os.path.join(folder, filename)
                 output_files.append(output)
-                macro.append(stitch_macro(self.path, filenames, output))
+                macro.append(stitch_macro(self.path, filenames, output, self.fields_x, self.fields_y))
 
         # stitch images with ImageJ
         run_imagej(' '.join(macro))
@@ -205,11 +209,9 @@ class Field(object):
         images = glob.glob(self.path + '/image--*.ome.tif')
         last_image = images[-1]
         last_z_stack = between('--Z', '--', last_image)
-        self.str_z_stacks = last_z_stack
         self.z_stacks = int(last_z_stack) + 1
         # number of channels
         last_channel = between('--C', '.ome.tif', last_image)
-        self.str_channels = last_channel
         self.channels = int(last_channel) + 1
 
         # add images
