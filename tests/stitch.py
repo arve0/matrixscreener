@@ -1,5 +1,7 @@
 import matrixscreener
 
+print('matrixscreener version {}'.format(matrixscreener.VERSION))
+
 experiment = matrixscreener.Experiment('experiment--test')
 well = experiment.wells[0]
 
