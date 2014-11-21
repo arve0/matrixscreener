@@ -3,6 +3,7 @@ This is an python module which can be used to read and stitch the structured out
 
 
 ## Features
+- Access experiment as python object
 - ImageJ stitching
 
 
