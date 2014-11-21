@@ -19,11 +19,14 @@ pip install matrixscreener
 ### stitch well ###
 ```
 import matrixscreener
+
 experiment = matrixscreener.Experiment('path/to/experiment--')
 well = experiment.wells[0]
+
 print(matrixscreener.imagej.IMAGEJ_PATH) # default is for fiji on mac os x
 matrixscreener.imagej.IMAGEJ_PATH = '/path/to/imagej'
 matrixscreener.imagej.DEBUG = True # turn on output from imagej
+
 well.stitch('/path/to/output/files/')
 ```
 
