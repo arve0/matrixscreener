@@ -95,7 +95,8 @@ def run_imagej(macro):
             cmd = IMAGEJ_PATH + ' --headless {}'.format(m.name)
         else:
             cmd = IMAGEJ_PATH + ' --headless {} >> /dev/null 2>&1'.format(m.name)
-    exit_code = os.system(cmd)
+        exit_code = os.system(cmd)
+
     if exit_code != 0:
         msg = 'ERROR: ImageJ did not exit correctly, exit code {}.'.format(exit_code)
         if not DEBUG:
