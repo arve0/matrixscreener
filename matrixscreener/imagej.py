@@ -6,7 +6,7 @@ import os
 from tempfile import NamedTemporaryFile
 
 # lazy hardcode, TODO windows, linux
-imagej_path = '/Applications/Fiji.app/Contents/MacOS/ImageJ-macosx'
+IMAGEJ_PATH = '/Applications/Fiji.app/Contents/MacOS/ImageJ-macosx'
 
 
 def stitch_macro(folder, filenames, output_filename, x_size=5, y_size=5,
@@ -90,6 +90,6 @@ def run_imagej(macro):
     with NamedTemporaryFile(mode='w', suffix='.ijm') as m:
         m.write(macro)
         m.flush() # make sure macro is written before running ImageJ
-        exit_code = os.system(imagej_path + ' --headless {}'.format(m.name))
+        exit_code = os.system(IMAGEJ_PATH + ' --headless {}'.format(m.name))
 
     return exit_code

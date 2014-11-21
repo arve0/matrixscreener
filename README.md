@@ -1,5 +1,5 @@
-# LeicaExperiment #
-This is an python class which can be used to read the structured output from a Leica LAS Matrix Scan when using the data exporter (ome.tifs organized in slide/chamber/field folders).
+# MatrixScreener #
+This is an python module which can be used to read and stitch the structured output from a Leica LAS AF Matrix Screener when using the data exporter (ome.tifs organized in slide/chamber/field folders).
 
 
 ## Features
@@ -8,14 +8,14 @@ This is an python class which can be used to read the structured output from a L
 
 ## Install ##
 ```
-pip install leicaexperiment
+pip install matrixscreener
 ```
 
 
 ## Examples ##
 ### stitch well ###
 ```
-from leicaexperiment import Experiment
+from matrixscreener import Experiment
 experiment = Experiment('path/to/experiment--')
 well = experiment.wells[0]
 well.stitch('/path/to/output/files/')
@@ -36,3 +36,12 @@ for well in experiment.wells:
 - tifffile
 - numpy
 - imagej with Grid stitching plugin (fiji is recommended)
+
+
+## Develop ##
+```
+git clone https://github.com/arve0/matrixscreener.git
+cd matrixscreener
+# hack
+./setup.py install
+```

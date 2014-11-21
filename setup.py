@@ -10,13 +10,13 @@ else:
 
 from setuptools import setup, find_packages
 
-setup(name='LeicaExperiment',
+setup(name='MatrixScreener',
       version='0.2.0',
-      description='Class based approach to reading ome.tifs from Leica LAS Matrix Screener',
+      description='Read and stitch ome.tifs from Leica LAS AF MatrixScreener Data exporter',
       author='Arve Seljebu',
       author_email='arve.seljebu@gmail.com',
       license='MIT',
-      url='https://github.com/arve0/leicaexperiment',
+      url='https://github.com/arve0/matrixscreener',
       packages=find_packages(),
       install_requires=['tifffile', 'numpy'],
       long_description=long_description)

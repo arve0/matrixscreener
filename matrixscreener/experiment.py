@@ -19,7 +19,7 @@ from .imagej import stitch_macro, run_imagej
 # classes
 class Experiment(object):
     def __init__(self, path):
-        """Leica LAS matrixscreener scan job.
+        """Leica LAS AF MatrixScreener experiment.
 
         Parameters
         ----------
@@ -63,21 +63,28 @@ class Experiment(object):
 
 
     def __str__(self):
-        return 'leicaexperiment at path {}'.format(self.path)
+        return 'matrixscreener.Experiment at path {}'.format(self.path)
 
 
     def stitch(self):
         """
-        Stitches all wells in experiement and save them in experiment root.
+        Stitches all wells in experiment and save them in experiment root.
+
+        Returns
+        -------
+        List of filnames of stitched images.
         """
+        output_files = []
         for well in self.wells:
-            well.stitch(self.path)
+            output_files.extend(well.stitch(self.path))
+
+        return output_files
 
 
 
 class Well(object):
     def __init__(self, path):
-        """Well of Leica matrix scan.
+        """Well of Leica matrix experiment.
 
         Parameters
         ----------
@@ -131,13 +138,14 @@ class Well(object):
 
         Returns
         -------
-        Exit code from ImageJ.
+        List of filenames for stitched images.
         """
         if folder is None:
             folder = self.path
 
         # create macro
         macro = []
+        output_files = []
         for z in range(self.z_stacks):
             for ch in range(self.channels):
                 filenames = ('field--X{xx}--Y{yy}/' +
@@ -149,18 +157,19 @@ class Well(object):
                         '.ome.tif')
                 filename = 'u{}v{}ch{}z{}.tif'.format(self.u, self.v, ch, z)
                 output = os.path.join(folder, filename)
+                output_files.append(output)
                 macro.append(stitch_macro(self.path, filenames, output))
 
         # stitch images with ImageJ
-        exit_code = run_imagej(' '.join(macro))
+        run_imagej(' '.join(macro))
 
-        return exit_code
+        return output_files
 
 
 
 class Field(object):
     def __init__(self, path):
-        """Field of Leica matrix scan.
+        """Field of Leica matrix experiment.
 
         Provides
         --------
