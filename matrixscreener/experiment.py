@@ -162,10 +162,14 @@ class Well(object):
                 filename = 'u{}v{}ch{}z{}.tif'.format(self.u, self.v, ch, z)
                 output = os.path.join(folder, filename)
                 output_files.append(output)
+                if os.path.isfile(output):
+                    # file already exists
+                    continue
                 macro.append(stitch_macro(self.path, filenames, output, self.fields_x, self.fields_y))
 
         # stitch images with ImageJ
-        run_imagej(' '.join(macro))
+        if len(macro) != 0:
+            run_imagej(' '.join(macro))
 
         # remove files which are not created
         output_files = [filename for filename in output_files
