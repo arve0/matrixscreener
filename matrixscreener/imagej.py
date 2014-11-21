@@ -10,41 +10,44 @@ IMAGEJ_PATH = '/Applications/Fiji.app/Contents/MacOS/ImageJ-macosx'
 DEBUG = False
 
 
-def stitch_macro(folder, filenames, output_filename, x_size=5, y_size=5,
+def stitch_macro(folder, filenames, output_filename, x_size, y_size,
            x_start=0, y_start=0, overlap=10):
     """
-    Creates a stitch macro for ImageJ with Grid/Collection stitching plugin.
-    Parameters are the same as in the plugin and are described in further detail
-    here: http://fiji.sc/Image_Stitching#Grid.2FCollection_Stitching.
+    Creates a ImageJ Grid/Collection stitching macro. Parameters are the same as
+    in the plugin and are described in further detail here:
+    http://fiji.sc/Image_Stitching#Grid.2FCollection_Stitching.
 
-    Default parameters:
-    - Compute overlap
-    - Subpixel accurancy
-    - Save computation time (but use more RAM)
-    - Fusion method: Linear blending
-    - Regression threshold: 0.30
-    - Max/avg displacement threshold: 2.50
-    - Absolute displacement threshold: 3.50
+    **Default stitch parameters:**
+
+    * Filename defined positions
+    * Compute overlap
+    * Subpixel accurancy
+    * Save computation time (but use more RAM)
+    * Fusion method: Linear blending
+    * Regression threshold: 0.30
+    * Max/avg displacement threshold: 2.50
+    * Absolute displacement threshold: 3.50
 
 
     Parameters
     ----------
-    folder: string
-        Folder to find images. Example: /path/to/slide--S00/chamber--U01--V02/
-    filenames: string
-        Filenames of images. Example: field-X{xx}-Y{yy}/image-X{xx}-Y{yy}.ome.tif
-    output_filename: string
-        Filename of fused image.
-    x_size, y_size: int
+    folder : string
+        Folder to find images. Example: */path/to/slide--S00/chamber--U01--V02/*
+    filenames : string
+        Filenames of images. Example: *field-X{xx}-Y{yy}/image-X{xx}-Y{yy}.ome.tif*
+    output_filename : string
+        Filename of fused image. Example: */path/to/image.tif*
+    x_size, y_size : int
         Number of images in x and y direction.
-    x_start, y_start:
+    x_start, y_start : int
         Which number to start with.
-    overlap:
+    overlap : number
         Amount of overlap in images.
 
     Returns
     -------
-    String with macro.
+    string
+        IJM-macro.
     """
 
     macro = []
@@ -81,12 +84,13 @@ def run_imagej(macro):
 
     Parameters
     ----------
-    macro: string
-        Macro to send to ImageJ.
+    macro : string
+        IJM-macro to run.
 
     Returns
     -------
-    Exit code to ImageJ.
+    int
+        ImageJ exit code.
     """
     with NamedTemporaryFile(mode='w', suffix='.ijm') as m:
         m.write(macro)

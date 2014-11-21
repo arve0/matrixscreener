@@ -1,8 +1,9 @@
 # encoding: utf-8
 """
-Class Experiment(path) to organize matrix scans from Leica LAS MatrixScreener (data explorer's ome.tif).
+Access matrix scans from Leica LAS AF MatrixScreener (Data Explorer)
+through an object.
 """
-# format https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt
+# doc-format https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt
 
 # libaries
 import os, glob, tifffile, numpy
@@ -17,28 +18,34 @@ from .imagej import stitch_macro, run_imagej
 #
 
 # classes
-class Experiment(object):
+class Experiment:
     def __init__(self, path):
         """Leica LAS AF MatrixScreener experiment.
 
         Parameters
         ----------
-        path: string
+        path : string
             Path to matrix scan containing 'slide-S00'(assumed) and 'AdditinalData'.
 
         Raises
         ------
-        FileNotFoundError:
-            If slide--S00 is not found.
+        FileNotFoundError
+            If *slide--S00* isn't found.
 
-        Returns
-        -------
-        None
+        Attributes
+        ----------
+        path : string
+            Path to experiment.
+        slide_path : string
+            Path to *experiment/slide--S00*
+        wells : list
+            List of *matrixscreener.experiment._Well* objects.
+        wells_u, wells_v : int
+            Number of wells in u and v direction.
         """
         assumed_slide = 'slide--S00'
         self.path = os.path.abspath(path)
         self.slide_path = os.path.join(self.path, assumed_slide)
-        self.str_time = self.path.split('experiment--')[1]
 
         # number of wells in U(x), V(y) direction
         chambers = glob.glob(self.slide_path + '/chamber--*')
@@ -51,55 +58,65 @@ class Experiment(object):
 
         # check number of chambers
         if len(chambers) != self.wells_u * self.wells_v:
-            print('Warning: Did scan complete? Number of chambers != wells_u * wells_v in ' + self.path)
+            print('Warning: Did scan complete? ' +
+                  'Number of chambers != wells_u * wells_v in ' + self.path)
 
         # add wells (assume slide--S00)
         self.wells = []
         for chamber in chambers:
             p = os.path.join(self.slide_path, chamber)
-            self.wells.append(Well(p))
+            self.wells.append(_Well(p))
 
 
     def __str__(self):
         return 'matrixscreener.Experiment at path {}'.format(self.path)
 
 
-    def stitch(self):
+    def stitch(self, folder=None):
         """
-        Stitches all wells in experiment and save them in experiment root.
+        Stitches all wells in experiment. Stitched images are saved in
+        experiment root.
+
+        Images which already exists are omitted from ImageJ stitching.
+
+        Parameters
+        ----------
+        folder : string
+            Where to store stitched images. Defaults to experiment path.
 
         Returns
         -------
-        List of filnames of stitched images.
+        list
+            Filenames of stitched images. Files which already exists are also
+            returned.
         """
+        if not folder:
+            folder = self.path
+
         output_files = []
         for well in self.wells:
-            output_files.extend(well.stitch(self.path))
+            output_files.extend(well.stitch(folder))
 
         return output_files
 
 
 
-class Well(object):
+class _Well:
     def __init__(self, path):
         """Well of Leica matrix experiment.
 
         Provides
         --------
-        channels:
-        fields:
-        fields_x, fields_y:
-        u,v:
-        z_stacks:
+        channels : int
+        fields : list
+        fields_x, fields_y : int
+        u, v : int
+        z_stacks : int
 
         Parameters
         ----------
-        path: string
+        path : string
             Path to 'chamber--UXX-VXX' containing field folders
-
-        Returns
-        -------
-        None
         """
         self.path = path
 
@@ -125,7 +142,7 @@ class Well(object):
         self.fields = []
         for field in fields:
             p = os.path.join(self.path, field)
-            self.fields.append(Field(p))
+            self.fields.append(_Field(p))
 
         # z-stacks, assume they are the same for all fields
         self.z_stacks = self.fields[0].z_stacks
@@ -142,7 +159,8 @@ class Well(object):
 
         Returns
         -------
-        List of filenames for stitched images.
+        list
+            Filenames for stitched images.
         """
         if folder is None:
             folder = self.path
@@ -179,7 +197,7 @@ class Well(object):
 
 
 
-class Field(object):
+class _Field:
     def __init__(self, path):
         """Field of Leica matrix experiment.
 
@@ -196,10 +214,6 @@ class Field(object):
         ----------
         path: string
             Path to 'field--Xnn-Ynn' containing image...ome.tifs
-
-        Returns
-        -------
-        None
         """
         self.path = path
 
@@ -212,21 +226,21 @@ class Field(object):
         # find number of z scans
         images = glob.glob(self.path + '/image--*.ome.tif')
         last_image = images[-1]
-        last_z_stack = between('--Z', '--', last_image)
+        last_z_stack = _between('--Z', '--', last_image)
         self.z_stacks = int(last_z_stack) + 1
         # number of channels
-        last_channel = between('--C', '.ome.tif', last_image)
+        last_channel = _between('--C', '.ome.tif', last_image)
         self.channels = int(last_channel) + 1
 
         # add images
         self.images = []
         for image in images:
             f = os.path.join(self.path, image)
-            self.images.append(Image(f))
+            self.images.append(_Image(f))
 
 
 
-class Image():
+class _Image:
     def __init__(self, filename):
         """OME-TIFF image.
 
@@ -244,28 +258,24 @@ class Image():
         ----------
         filename:
             Complete filename including path to image...ome.tif
-
-        Returns
-        -------
-        None
         """
         self.fullpath = filename
         self.filename = os.path.basename(filename)
         self.path = os.path.dirname(filename)
 
-        u = between('--U', '--', self.filename)
-        v = between('--V', '--', self.filename)
+        u = _between('--U', '--', self.filename)
+        v = _between('--V', '--', self.filename)
         self.u = int(u)
         self.v = int(v)
 
-        x = between('--X', '--', self.filename)
-        y = between('--Y', '--', self.filename)
-        z = between('--Z', '--', self.filename)
+        x = _between('--X', '--', self.filename)
+        y = _between('--Y', '--', self.filename)
+        z = _between('--Z', '--', self.filename)
         self.x = int(x)
         self.y = int(y)
         self.z = int(z)
 
-        channel = between('--C', '.ome.tif', self.filename)
+        channel = _between('--C', '.ome.tif', self.filename)
         self.channel = int(channel)
 
         # image properties, xml
@@ -281,20 +291,21 @@ class Image():
 
 
 # functions
-def between(before, after, string):
+def _between(before, after, string):
     """Strip string and return whats between before and after.
 
     Parameters
     ----------
-    before:
+    before : string
         String to match before wanted portion
-    after:
+    after : string
         String to match after wanted portion
-    string:
+    string : string
         String to parse
 
     Returns
     -------
-    String between before and after.
+    string
+        String between before and after.
     """
     return string.split(before)[1].split(after)[0]
