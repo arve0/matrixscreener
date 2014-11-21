@@ -45,8 +45,10 @@ sys.path.insert(0, os.path.abspath('..'))
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
-    'sphinxcontrib.napoleon' # use numpy docstrings
+    'sphinxcontrib.napoleon', # use numpy docstrings
 ]
+napoleon_use_ivar = True
+napoleon_use_rtype = False
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

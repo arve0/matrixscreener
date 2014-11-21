@@ -1,30 +1,29 @@
-matrixscreener module
-=====================
+============================
+matrixscreener API reference
+============================
 
+***************************
+main module: matrixscreener
+***************************
 .. automodule:: matrixscreener
     :members:
     :undoc-members:
     :show-inheritance:
 
-Submodules
-----------
 
-matrixscreener.experiment
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
+************************************
+submodule: matrixscreener.experiment
+************************************
 .. automodule:: matrixscreener.experiment
     :members:
     :undoc-members:
     :show-inheritance:
 
-matrixscreener.imagej
-^^^^^^^^^^^^^^^^^^^^^
 
+********************************
+submodule: matrixscreener.imagej
+********************************
 .. automodule:: matrixscreener.imagej
     :members:
     :undoc-members:
     :show-inheritance:
-
-
-
-

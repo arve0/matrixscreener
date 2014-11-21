@@ -1,6 +1,9 @@
 # encoding: utf-8
 """
 Stitch images with ImageJ.
+
+* ``matrixscreener.imagej.DEBUG`` will turn on ImageJ output.
+* ``matrixscreener.imagej.IMAGEJ_PATH`` should be set if you are on Windows or Linux.
 """
 import os
 from tempfile import NamedTemporaryFile
