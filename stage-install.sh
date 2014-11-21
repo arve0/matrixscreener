@@ -1,0 +1,2 @@
+#!/bin/bash
+pip install -i https://testpypi.python.org/pypi matrixscreener
