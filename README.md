@@ -15,14 +15,17 @@ pip install matrixscreener
 ## Examples ##
 ### stitch well ###
 ```
-from matrixscreener import Experiment
-experiment = Experiment('path/to/experiment--')
+import matrixscreener
+experiment = matrixscreener.Experiment('path/to/experiment--')
 well = experiment.wells[0]
+print(matrixscreener.imagej.IMAGEJ_PATH) # default is for fiji on mac os x
+matrixscreener.imagej.IMAGEJ_PATH = '/path/to/imagej'
 well.stitch('/path/to/output/files/')
 ```
 
 ### do stuff on all images ###
 ```
+from matrixscreener import Experiment
 experiment = Experiment('path/to/experiment--')
 for well in experiment.wells:
     for field in well.fields:
