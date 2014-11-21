@@ -5,3 +5,7 @@ MatrixScreener.egg-info/*
 README.rst
 __pycache__
 .DS_STORE
+*.pyc
+doc/_build
+doc/_static
+doc/_templates
