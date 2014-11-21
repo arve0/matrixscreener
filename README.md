@@ -57,3 +57,6 @@ cd matrixscreener
 # hack
 ./setup.py install
 ```
+
+## API Reference ##
+Use `pydoc matrixscreener`, `pydoc matrixscreener.experiment`, `pydoc matrixscreener.imagej` or read it [online](http://matrixscreener.readthedocs.org).
