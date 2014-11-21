@@ -39,7 +39,7 @@ class Experiment:
         slide_path : string
             Path to *experiment/slide--S00*
         wells : list
-            List of *matrixscreener.experiment._Well* objects.
+            List of *matrixscreener.experiment.Well* objects.
         wells_u, wells_v : int
             Number of wells in u and v direction.
         """
@@ -65,7 +65,7 @@ class Experiment:
         self.wells = []
         for chamber in chambers:
             p = os.path.join(self.slide_path, chamber)
-            self.wells.append(_Well(p))
+            self.wells.append(Well(p))
 
 
     def __str__(self):
@@ -101,22 +101,22 @@ class Experiment:
 
 
 
-class _Well:
+class Well:
     def __init__(self, path):
         """Well of Leica matrix experiment.
-
-        Provides
-        --------
-        channels : int
-        fields : list
-        fields_x, fields_y : int
-        u, v : int
-        z_stacks : int
 
         Parameters
         ----------
         path : string
             Path to 'chamber--UXX-VXX' containing field folders
+
+        Attributes
+        ----------
+        channels : int
+        fields : list
+        fields_x, fields_y : int
+        u, v : int
+        z_stacks : int
         """
         self.path = path
 
@@ -142,7 +142,7 @@ class _Well:
         self.fields = []
         for field in fields:
             p = os.path.join(self.path, field)
-            self.fields.append(_Field(p))
+            self.fields.append(Field(p))
 
         # z-stacks, assume they are the same for all fields
         self.z_stacks = self.fields[0].z_stacks
@@ -197,23 +197,23 @@ class _Well:
 
 
 
-class _Field:
+class Field:
     def __init__(self, path):
         """Field of Leica matrix experiment.
 
-        Provides
-        --------
+        Parameters
+        ----------
+        path: string
+            Path to 'field--Xnn-Ynn' containing image...ome.tifs
+
+        Attributes
+        ----------
         channels:
         images:
         path:
         str_x, str_y, str_z_stacks:
         x, y:
         z_stacks:
-
-        Parameters
-        ----------
-        path: string
-            Path to 'field--Xnn-Ynn' containing image...ome.tifs
         """
         self.path = path
 
@@ -236,16 +236,21 @@ class _Field:
         self.images = []
         for image in images:
             f = os.path.join(self.path, image)
-            self.images.append(_Image(f))
+            self.images.append(Image(f))
 
 
 
-class _Image:
+class Image:
     def __init__(self, filename):
         """OME-TIFF image.
 
-        Provides TODO:description
-        --------
+        Parameters
+        ----------
+        filename:
+            Complete path to image file.
+
+        Attributes
+        ----------
         channel:
         filename:
         fullpath:
@@ -253,11 +258,6 @@ class _Image:
         u,v:
         x,y,z:
         xml:
-
-        Parameters
-        ----------
-        filename:
-            Complete filename including path to image...ome.tif
         """
         self.fullpath = filename
         self.filename = os.path.basename(filename)
