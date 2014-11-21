@@ -7,6 +7,7 @@ from tempfile import NamedTemporaryFile
 
 # lazy hardcode, TODO windows, linux
 IMAGEJ_PATH = '/Applications/Fiji.app/Contents/MacOS/ImageJ-macosx'
+DEBUG = False
 
 
 def stitch_macro(folder, filenames, output_filename, x_size=5, y_size=5,
@@ -90,6 +91,15 @@ def run_imagej(macro):
     with NamedTemporaryFile(mode='w', suffix='.ijm') as m:
         m.write(macro)
         m.flush() # make sure macro is written before running ImageJ
-        exit_code = os.system(IMAGEJ_PATH + ' --headless {}'.format(m.name))
+        if DEBUG:
+            cmd = IMAGEJ_PATH + ' --headless {}'.format(m.name)
+        else:
+            cmd = IMAGEJ_PATH + ' --headless {} >> /dev/null 2>&1'.format(m.name)
+    exit_code = os.system(cmd)
+    if exit_code != 0:
+        msg = 'ERROR: ImageJ did not exit correctly, exit code {}.'.format(exit_code)
+        if not DEBUG:
+            msg += '\nTry using matrixscreener.imagej.DEBUG = True'
+        print(msg)
 
     return exit_code

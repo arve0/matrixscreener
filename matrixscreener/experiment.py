@@ -163,6 +163,10 @@ class Well(object):
         # stitch images with ImageJ
         run_imagej(' '.join(macro))
 
+        # remove files which are not created
+        output_files = [filename for filename in output_files
+                            if os.path.isfile(filename)]
+
         return output_files
 
 

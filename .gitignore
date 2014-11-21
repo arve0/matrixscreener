@@ -1,6 +1,6 @@
 *.swp
 build/*
 dist/*
-LeicaExperiment.egg-info/*
+MatrixScreener.egg-info/*
 README.rst
 __pycache__
