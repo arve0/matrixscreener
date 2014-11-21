@@ -1,0 +1,998 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!-- Warning: this comment is an OME-XML metadata block, which contains crucial dimensional parameters and other important metadata. Please edit cautiously (if at all), and back up the original data before doing so. For more information, see the OME-TIFF web site: http://loci.wisc.edu/ome/ome-tiff.html. --><OME xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.openmicroscopy.org/Schemas/OME/2008-09" xmlns:Bin="http://www.openmicroscopy.org/Schemas/BinaryFile/2008-09" xmlns:CA="http://www.openmicroscopy.org/Schemas/CA/2008-09" xmlns:SA="http://www.openmicroscopy.org/Schemas/SA/2008-09" xmlns:SPW="http://www.openmicroscopy.org/Schemas/SPW/2008-09" xmlns:STD="http://www.openmicroscopy.org/Schemas/STD/2008-09" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openmicroscopy.org/Schemas/OME/2008-09 http://www.openmicroscopy.org/Schemas/OME/2008-09/ome.xsd http://www.openmicroscopy.org/Schemas/BinaryFile/2008-09 http://www.openmicroscopy.org/Schemas/BinaryFile/2008-09/BinaryFile.xsd http://www.openmicroscopy.org/Schemas/CA/2008-09 http://www.openmicroscopy.org/Schemas/CA/2008-09/CA.xsd http://www.openmicroscopy.org/Schemas/SPW/2008-09 http://www.openmicroscopy.org/Schemas/SPW/2008-09/SPW.xsd http://www.openmicroscopy.org/Schemas/STD/2008-09 http://www.openmicroscopy.org/Schemas/STD/2008-09/STD.xsd" UUID="urn:uuid:2924e314-709f-11e4-8274-eccd6d63b139"><Experiment Type="Other" ID="Experiment:0"><Description>Experiment</Description><ExperimenterRef ID="Experimenter:0"/></Experiment><Experimenter ID="Experimenter:0"><FirstName>Frank</FirstName><LastName>Sieckmann</LastName><Email>Frank.Sieckmann@leica-microsystems.com</Email><Institution>Leica Microsystems CMS GmbH</Institution><OMEName>Frank</OMEName><GroupRef ID="Group:0"/></Experimenter><Group ID="Group:0" Name="MatrixScreener Group"><Leader ID="Experimenter:0"/><Contact ID="Experimenter:0"/></Group><Instrument ID="Instrument:0"><Microscope Manufacturer="Leica Microsystems" Model="DMI6000B-CS" SerialNumber="8100000303" Type="Upright"/><Detector ID="Detector:1003" Manufacturer="Leica Microsystems" Gain="0.65000000000000000E3" Offset="0.0" Zoom="0.75000000000000E0" Type="PMT"/><Detector ID="Detector:1201" Manufacturer="Leica Microsystems" Gain="0.1000000000000000E2" Offset="-0.666666666666E-2" Zoom="0.75000000000000E0" Type="PMT"/><Objective ID="Objective:11506350" Manufacturer="Leica Microsystems" Model="HC PL APO CS" SerialNumber="11506350"><Correction>Unknown</Correction><Immersion>Oil</Immersion><LensNA>0.140000000000000E1</LensNA><NominalMagnification>2</NominalMagnification></Objective></Instrument><Image ID="Image:0" Name="D:\MatrixScreenerImages\3.3.0_10134\experiment--2014_11_20_10_22_14\slide--S00\chamber--U00--V00\field--X00--Y01\image--L00--S00--U00--V00--J20--E00--O00--X00--Y01--T00--Z00--C00.ome.tif" DefaultPixels="Pixels:0" AcquiredPixels="Pixels:0"><CreationDate>2014-11-20T10:22:49.811</CreationDate><ExperimenterRef ID="Experimenter:0"/><Description>D:\MatrixScreenerImages\3.3.0_10134\experiment--2014_11_20_10_22_14\slide--S00\chamber--U00--V00\field--X00--Y01\image--L00--S00--U00--V00--J20--E00--O00--X00--Y01--T00--Z00--C00.ome.tif</Description><ExperimentRef ID="Experiment:0"/><GroupRef ID="Group:0"/><InstrumentRef ID="Instrument:0"/><ObjectiveRef RefractiveIndex="0.151800000000000E1" ID="Objective:11506350"/><LogicalChannel ID="LogicalChannel:0" Name="" SamplesPerPixel="1" PinholeSize="0.9547569837E-4" PhotometricInterpretation="ColorMap" Mode="Other"><DetectorRef ID="Detector:1003" Gain="0.65000000000000000E3" Offset="0.0" ReadOutRate="0.61440000000000000000E6"/><ChannelComponent Pixels="Pixels:0" Index="0"/></LogicalChannel><Pixels DimensionOrder="XYZCT" PixelType="uint8" BigEndian="false" SizeX="1024" SizeY="1024" SizeZ="1" SizeC="1" SizeT="1" PhysicalSizeX="0.24050019550342E0" PhysicalSizeY="0.24050019550342E0" PhysicalSizeZ="0.0" TimeIncrement="0.0" ID="urn:lsid:loci.wisc.edu:Pixels:ows581"><TiffData FirstC="0" FirstZ="0"><UUID FileName="image--L00--S00--U00--V00--J20--E00--O00--X00--Y01--T00--Z00--C00.ome.tif">urn:uuid:2924e314-709f-11e4-8274-eccd6d63b139</UUID></TiffData><TiffData FirstC="1" FirstZ="0"><UUID FileName="image--L00--S00--U00--V00--J20--E00--O00--X00--Y01--T00--Z00--C01.ome.tif">urn:uuid:2924e315-709f-11e4-8274-eccd6d63b139</UUID></TiffData><Plane TheZ="0" TheT="0" TheC="0"><StagePosition PositionX="0.4270212657400E-1" PositionY="0.3214992494548E-1" PositionZ="-0.23842E-9"/></Plane></Pixels></Image><SemanticTypeDefinitions xmlns="http://www.openmicroscopy.org/Schemas/STD/2008-09">
+<SemanticType xmlns="http://www.openmicroscopy.org/Schemas/STD/2008-09" AppliesTo="I" Name="OriginalMetadata"><Label xmlns="http://www.openmicroscopy.org/Schemas/STD/2008-09"/><Element xmlns="http://www.openmicroscopy.org/Schemas/STD/2008-09" DBLocation="ORIGINAL_METADATA.NAME" DataType="string" Name="Name"/><Element xmlns="http://www.openmicroscopy.org/Schemas/STD/2008-09" DBLocation="ORIGINAL_METADATA.VALUE" DataType="string" Name="Value"/></SemanticType>
+</SemanticTypeDefinitions>
+<CustomAttributes xmlns="http://www.openmicroscopy.org/Schemas/CA/2008-09">
+<OriginalMetadata ID="OriginalMetadata:0" Name="Data - Number of Attributes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:1" Name="Data - Number of Subnodes" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:2" Name="Data - Image - Number of Attributes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:3" Name="Data - Image - Number of Subnodes" Value="8" />
+<OriginalMetadata ID="OriginalMetadata:4" Name="Data - Image - ImageDescription - Number of Attributes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:5" Name="Data - Image - ImageDescription - Number of Subnodes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:6" Name="Data - Image - ImageDescription - Channels - Number of Attributes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:7" Name="Data - Image - ImageDescription - Channels - Number of Subnodes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:8" Name="Data - Image - ImageDescription - Channels - ChannelDescription - Number of Attributes" Value="11" />
+<OriginalMetadata ID="OriginalMetadata:9" Name="Data - Image - ImageDescription - Channels - ChannelDescription - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:10" Name="Data - Image - ImageDescription - Channels - ChannelDescription - DataType" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:11" Name="Data - Image - ImageDescription - Channels - ChannelDescription - ChannelTag" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:12" Name="Data - Image - ImageDescription - Channels - ChannelDescription - Resolution" Value="8" />
+<OriginalMetadata ID="OriginalMetadata:13" Name="Data - Image - ImageDescription - Channels - ChannelDescription - NameOfMeasuredQuantity" Value="" />
+<OriginalMetadata ID="OriginalMetadata:14" Name="Data - Image - ImageDescription - Channels - ChannelDescription - Min" Value="0.000000e+000" />
+<OriginalMetadata ID="OriginalMetadata:15" Name="Data - Image - ImageDescription - Channels - ChannelDescription - Max" Value="2.550000e+002" />
+<OriginalMetadata ID="OriginalMetadata:16" Name="Data - Image - ImageDescription - Channels - ChannelDescription - Unit" Value="" />
+<OriginalMetadata ID="OriginalMetadata:17" Name="Data - Image - ImageDescription - Channels - ChannelDescription - LUTName" Value="Green" />
+<OriginalMetadata ID="OriginalMetadata:18" Name="Data - Image - ImageDescription - Channels - ChannelDescription - IsLUTInverted" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:19" Name="Data - Image - ImageDescription - Channels - ChannelDescription - BytesInc" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:20" Name="Data - Image - ImageDescription - Channels - ChannelDescription - BitInc" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:21" Name="Data - Image - ImageDescription - Channels - ChannelDescription - Number of Attributes" Value="11" />
+<OriginalMetadata ID="OriginalMetadata:22" Name="Data - Image - ImageDescription - Channels - ChannelDescription - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:23" Name="Data - Image - ImageDescription - Channels - ChannelDescription - DataType" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:24" Name="Data - Image - ImageDescription - Channels - ChannelDescription - ChannelTag" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:25" Name="Data - Image - ImageDescription - Channels - ChannelDescription - Resolution" Value="8" />
+<OriginalMetadata ID="OriginalMetadata:26" Name="Data - Image - ImageDescription - Channels - ChannelDescription - NameOfMeasuredQuantity" Value="" />
+<OriginalMetadata ID="OriginalMetadata:27" Name="Data - Image - ImageDescription - Channels - ChannelDescription - Min" Value="0.000000e+000" />
+<OriginalMetadata ID="OriginalMetadata:28" Name="Data - Image - ImageDescription - Channels - ChannelDescription - Max" Value="2.550000e+002" />
+<OriginalMetadata ID="OriginalMetadata:29" Name="Data - Image - ImageDescription - Channels - ChannelDescription - Unit" Value="" />
+<OriginalMetadata ID="OriginalMetadata:30" Name="Data - Image - ImageDescription - Channels - ChannelDescription - LUTName" Value="Green" />
+<OriginalMetadata ID="OriginalMetadata:31" Name="Data - Image - ImageDescription - Channels - ChannelDescription - IsLUTInverted" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:32" Name="Data - Image - ImageDescription - Channels - ChannelDescription - BytesInc" Value="1048576" />
+<OriginalMetadata ID="OriginalMetadata:33" Name="Data - Image - ImageDescription - Channels - ChannelDescription - BitInc" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:34" Name="Data - Image - ImageDescription - Dimensions - Number of Attributes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:35" Name="Data - Image - ImageDescription - Dimensions - Number of Subnodes" Value="3" />
+<OriginalMetadata ID="OriginalMetadata:36" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - Number of Attributes" Value="7" />
+<OriginalMetadata ID="OriginalMetadata:37" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:38" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - DimID" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:39" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - NumberOfElements" Value="1024" />
+<OriginalMetadata ID="OriginalMetadata:40" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - Origin" Value="1.376765e-020" />
+<OriginalMetadata ID="OriginalMetadata:41" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - Length" Value="2.460317e-004" />
+<OriginalMetadata ID="OriginalMetadata:42" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - Unit" Value="m" />
+<OriginalMetadata ID="OriginalMetadata:43" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - BitInc" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:44" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - BytesInc" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:45" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - Number of Attributes" Value="7" />
+<OriginalMetadata ID="OriginalMetadata:46" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:47" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - DimID" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:48" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - NumberOfElements" Value="1024" />
+<OriginalMetadata ID="OriginalMetadata:49" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - Origin" Value="1.376765e-020" />
+<OriginalMetadata ID="OriginalMetadata:50" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - Length" Value="2.460317e-004" />
+<OriginalMetadata ID="OriginalMetadata:51" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - Unit" Value="m" />
+<OriginalMetadata ID="OriginalMetadata:52" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - BitInc" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:53" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - BytesInc" Value="1024" />
+<OriginalMetadata ID="OriginalMetadata:54" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - Number of Attributes" Value="7" />
+<OriginalMetadata ID="OriginalMetadata:55" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:56" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - DimID" Value="3" />
+<OriginalMetadata ID="OriginalMetadata:57" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - NumberOfElements" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:58" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - Origin" Value="0.000000e+000" />
+<OriginalMetadata ID="OriginalMetadata:59" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - Length" Value="0.000000e+000" />
+<OriginalMetadata ID="OriginalMetadata:60" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - Unit" Value="" />
+<OriginalMetadata ID="OriginalMetadata:61" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - BitInc" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:62" Name="Data - Image - ImageDescription - Dimensions - DimensionDescription - BytesInc" Value="2097152" />
+<OriginalMetadata ID="OriginalMetadata:63" Name="Data - Image - Attachment - Number of Attributes" Value="3" />
+<OriginalMetadata ID="OriginalMetadata:64" Name="Data - Image - Attachment - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:65" Name="Data - Image - Attachment - Name" Value="PreviewMarker" />
+<OriginalMetadata ID="OriginalMetadata:66" Name="Data - Image - Attachment - Application" Value="LAS AF" />
+<OriginalMetadata ID="OriginalMetadata:67" Name="Data - Image - Attachment - IsPreviewImage" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:68" Name="Data - Image - Attachment - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:69" Name="Data - Image - Attachment - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:70" Name="Data - Image - Attachment - Name" Value="ChannelAttachment" />
+<OriginalMetadata ID="OriginalMetadata:71" Name="Data - Image - Attachment - Application" Value="LAS AF" />
+<OriginalMetadata ID="OriginalMetadata:72" Name="Data - Image - Attachment - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:73" Name="Data - Image - Attachment - Number of Subnodes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:74" Name="Data - Image - Attachment - Name" Value="ViewerScaling" />
+<OriginalMetadata ID="OriginalMetadata:75" Name="Data - Image - Attachment - Application" Value="LAS AF" />
+<OriginalMetadata ID="OriginalMetadata:76" Name="Data - Image - Attachment - ChannelScalingInfo - Number of Attributes" Value="5" />
+<OriginalMetadata ID="OriginalMetadata:77" Name="Data - Image - Attachment - ChannelScalingInfo - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:78" Name="Data - Image - Attachment - ChannelScalingInfo - BackgroundLutName" Value="" />
+<OriginalMetadata ID="OriginalMetadata:79" Name="Data - Image - Attachment - ChannelScalingInfo - WhiteValue" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:80" Name="Data - Image - Attachment - ChannelScalingInfo - BlackValue" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:81" Name="Data - Image - Attachment - ChannelScalingInfo - GammaValue" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:82" Name="Data - Image - Attachment - ChannelScalingInfo - Automatic" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:83" Name="Data - Image - Attachment - ChannelScalingInfo - Number of Attributes" Value="5" />
+<OriginalMetadata ID="OriginalMetadata:84" Name="Data - Image - Attachment - ChannelScalingInfo - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:85" Name="Data - Image - Attachment - ChannelScalingInfo - BackgroundLutName" Value="" />
+<OriginalMetadata ID="OriginalMetadata:86" Name="Data - Image - Attachment - ChannelScalingInfo - WhiteValue" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:87" Name="Data - Image - Attachment - ChannelScalingInfo - BlackValue" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:88" Name="Data - Image - Attachment - ChannelScalingInfo - GammaValue" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:89" Name="Data - Image - Attachment - ChannelScalingInfo - Automatic" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:90" Name="Data - Image - Attachment - Number of Attributes" Value="8" />
+<OriginalMetadata ID="OriginalMetadata:91" Name="Data - Image - Attachment - Number of Subnodes" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:92" Name="Data - Image - Attachment - Name" Value="HardwareSetting" />
+<OriginalMetadata ID="OriginalMetadata:93" Name="Data - Image - Attachment - Application" Value="LAS AF" />
+<OriginalMetadata ID="OriginalMetadata:94" Name="Data - Image - Attachment - Software" Value="LAS-AF 3.3.0.10134" />
+<OriginalMetadata ID="OriginalMetadata:95" Name="Data - Image - Attachment - HardwareServerVersion" Value="Build 10134" />
+<OriginalMetadata ID="OriginalMetadata:96" Name="Data - Image - Attachment - SystemType" Value="12" />
+<OriginalMetadata ID="OriginalMetadata:97" Name="Data - Image - Attachment - SystemTypeName" Value="TCS SP8" />
+<OriginalMetadata ID="OriginalMetadata:98" Name="Data - Image - Attachment - DataSourceType" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:99" Name="Data - Image - Attachment - DataSourceTypeName" Value="Confocal" />
+<OriginalMetadata ID="OriginalMetadata:100" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Number of Attributes" Value="78" />
+<OriginalMetadata ID="OriginalMetadata:101" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Number of Subnodes" Value="14" />
+<OriginalMetadata ID="OriginalMetadata:102" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - VersionNumber" Value="6" />
+<OriginalMetadata ID="OriginalMetadata:103" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - UserSettingName" Value="S159" />
+<OriginalMetadata ID="OriginalMetadata:104" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - CanDoSTED" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:105" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - IsSTEDActive" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:106" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - UseSystemOptimizedVoxelCalculation" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:107" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - IsUserSettingNameSet" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:108" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BitSize" Value="8" />
+<OriginalMetadata ID="OriginalMetadata:109" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ScanMode" Value="xyz" />
+<OriginalMetadata ID="OriginalMetadata:110" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ZUseMode" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:111" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ZUseModeName" Value="z-galvo" />
+<OriginalMetadata ID="OriginalMetadata:112" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ZPosition" Value="-2.3841880645312E-10" />
+<OriginalMetadata ID="OriginalMetadata:113" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - IsSuperZ" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:114" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ValidBeginStack" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:115" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ValidEndStack" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:116" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Sections" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:117" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - StackCalculationMode" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:118" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - StackCalculationModeName" Value="System optimized step size" />
+<OriginalMetadata ID="OriginalMetadata:119" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - IsZStackAroundCurrent" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:120" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - IsMPFormulaForStepSizerUsageActive" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:121" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - IsFastZStack" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:122" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ZStackDirectionMode" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:123" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ZStackDirectionModeName" Value="Unidirectional" />
+<OriginalMetadata ID="OriginalMetadata:124" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - StagePosX" Value="0.042702126574" />
+<OriginalMetadata ID="OriginalMetadata:125" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - StagePosY" Value="0.03214992494548" />
+<OriginalMetadata ID="OriginalMetadata:126" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - StageRangeX" Value="0.11279073814955" />
+<OriginalMetadata ID="OriginalMetadata:127" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - StageRangeY" Value="0.07933255215515" />
+<OriginalMetadata ID="OriginalMetadata:128" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Magnification" Value="63" />
+<OriginalMetadata ID="OriginalMetadata:129" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ObjectivePos" Value="3" />
+<OriginalMetadata ID="OriginalMetadata:130" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ObjectiveName" Value="HC PL APO CS2    63x/1.40 OIL " />
+<OriginalMetadata ID="OriginalMetadata:131" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ObjectiveNumber" Value="11506350" />
+<OriginalMetadata ID="OriginalMetadata:132" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - MicroscopeModel" Value="DMI6000B-CS" />
+<OriginalMetadata ID="OriginalMetadata:133" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - IsInverseMicroscopeModel" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:134" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Immersion" Value="OIL" />
+<OriginalMetadata ID="OriginalMetadata:135" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - NumericalAperture" Value="1.4" />
+<OriginalMetadata ID="OriginalMetadata:136" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - RefractionIndex" Value="1.518" />
+<OriginalMetadata ID="OriginalMetadata:137" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AdaptiveFocusControlActive" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:138" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AdaptiveFocusControlAutonomousOffset" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:139" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AdaptiveFocusControlAutonomousModeActive" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:140" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - IsFCSFilterAutomationActive" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:141" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - IsSMDChaserUVAOTFAutomationActive" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:142" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - CanDoCSMode" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:143" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ActiveCS_SubModeForTLD" Value="1000" />
+<OriginalMetadata ID="OriginalMetadata:144" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ActiveCS_SubModeForTLDName" Value="TLD/RLD" />
+<OriginalMetadata ID="OriginalMetadata:145" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ActiveCS_SubModeForRLD" Value="1000" />
+<OriginalMetadata ID="OriginalMetadata:146" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ActiveCS_SubModeForRLDName" Value="TLD/RLD" />
+<OriginalMetadata ID="OriginalMetadata:147" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LastNonMP_MFP_FW_Name" Value="Substrate " />
+<OriginalMetadata ID="OriginalMetadata:148" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LastNonMP_Pol_FW_Name" Value="Empty" />
+<OriginalMetadata ID="OriginalMetadata:149" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ScanSpeed" Value="600" />
+<OriginalMetadata ID="OriginalMetadata:150" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - InDimension" Value="1024" />
+<OriginalMetadata ID="OriginalMetadata:151" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - OutDimension" Value="1024" />
+<OriginalMetadata ID="OriginalMetadata:152" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - UseScanFormatRestriction" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:153" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Zoom" Value="0.75" />
+<OriginalMetadata ID="OriginalMetadata:154" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BaseZoom" Value="0.75" />
+<OriginalMetadata ID="OriginalMetadata:155" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - PanFirstDim" Value="8.67361737988404E-19" />
+<OriginalMetadata ID="OriginalMetadata:156" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - PanSecondDim" Value="8.67361737988404E-19" />
+<OriginalMetadata ID="OriginalMetadata:157" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ScanDirectionX" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:158" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ScanDirectionXName" Value="Unidirectional" />
+<OriginalMetadata ID="OriginalMetadata:159" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - RotatorAngle" Value="91.7979297929793" />
+<OriginalMetadata ID="OriginalMetadata:160" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LambdaExcitationMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:161" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LambdaExcitationModeBegin" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:162" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LambdaExcitationModeEnd" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:163" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Pinhole" Value="9.54756983702171E-05" />
+<OriginalMetadata ID="OriginalMetadata:164" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - PinholeAiry" Value="0.999473424724338" />
+<OriginalMetadata ID="OriginalMetadata:165" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - EmissionWavelengthForPinholeAiryCalculation" Value="580" />
+<OriginalMetadata ID="OriginalMetadata:166" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FrameAverage" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:167" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LineAverage" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:168" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FrameAccumulation" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:169" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Line_Accumulation" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:170" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AreBleachPointsEnabled" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:171" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - InTrigger" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:172" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - OutTrigger" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:173" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - IsRoiScanEnable" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:174" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Is3DLimitedRoiScanEnable" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:175" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ZIntensityCompensationMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:176" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ZIntensityCompensationModeName" Value="None" />
+<OriginalMetadata ID="OriginalMetadata:177" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - IsConstantIntegrationTimeActive" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:178" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - PixelDwellTime" Value="0.0000004" />
+<OriginalMetadata ID="OriginalMetadata:179" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - SystemSerialNumber" Value="8100000303" />
+<OriginalMetadata ID="OriginalMetadata:180" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - EasySRMappingArray - Number of Attributes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:181" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - EasySRMappingArray - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:182" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - EasySRSlider - Number of Attributes" Value="3" />
+<OriginalMetadata ID="OriginalMetadata:183" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - EasySRSlider - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:184" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - EasySRSlider - SRRelative" Value="75" />
+<OriginalMetadata ID="OriginalMetadata:185" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - EasySRSlider - ThreeDRelative" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:186" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - EasySRSlider - GentleRelative" Value="25" />
+<OriginalMetadata ID="OriginalMetadata:187" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Quantity - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:188" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Quantity - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:189" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Quantity - Value" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:190" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Quantity - Unit" Value="" />
+<OriginalMetadata ID="OriginalMetadata:191" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AdditionalZPositionList - Number of Attributes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:192" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AdditionalZPositionList - Number of Subnodes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:193" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AdditionalZPositionList - AdditionalZPosition - Number of Attributes" Value="6" />
+<OriginalMetadata ID="OriginalMetadata:194" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AdditionalZPositionList - AdditionalZPosition - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:195" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AdditionalZPositionList - AdditionalZPosition - Valid" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:196" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AdditionalZPositionList - AdditionalZPosition - SuperZMode" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:197" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AdditionalZPositionList - AdditionalZPosition - SuperZModeName" Value="RestrictedRange" />
+<OriginalMetadata ID="OriginalMetadata:198" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AdditionalZPositionList - AdditionalZPosition - ZMode" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:199" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AdditionalZPositionList - AdditionalZPosition - ZUseModeName" Value="z-galvo" />
+<OriginalMetadata ID="OriginalMetadata:200" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AdditionalZPositionList - AdditionalZPosition - ZPosition" Value="-2.3841880645312E-10" />
+<OriginalMetadata ID="OriginalMetadata:201" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AdditionalZPositionList - AdditionalZPosition - Number of Attributes" Value="6" />
+<OriginalMetadata ID="OriginalMetadata:202" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AdditionalZPositionList - AdditionalZPosition - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:203" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AdditionalZPositionList - AdditionalZPosition - Valid" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:204" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AdditionalZPositionList - AdditionalZPosition - SuperZMode" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:205" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AdditionalZPositionList - AdditionalZPosition - SuperZModeName" Value="RestrictedRange" />
+<OriginalMetadata ID="OriginalMetadata:206" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AdditionalZPositionList - AdditionalZPosition - ZMode" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:207" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AdditionalZPositionList - AdditionalZPosition - ZUseModeName" Value="z-wide" />
+<OriginalMetadata ID="OriginalMetadata:208" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AdditionalZPositionList - AdditionalZPosition - ZPosition" Value="0.004127541" />
+<OriginalMetadata ID="OriginalMetadata:209" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Number of Attributes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:210" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Number of Subnodes" Value="3" />
+<OriginalMetadata ID="OriginalMetadata:211" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Shutter - Number of Attributes" Value="5" />
+<OriginalMetadata ID="OriginalMetadata:212" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Shutter - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:213" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Shutter - LightSourceQualifier" Value="70" />
+<OriginalMetadata ID="OriginalMetadata:214" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Shutter - ShutterQualifier" Value="8" />
+<OriginalMetadata ID="OriginalMetadata:215" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Shutter - LightSourceName" Value="SuperCont" />
+<OriginalMetadata ID="OriginalMetadata:216" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Shutter - ShutterName" Value="WLL" />
+<OriginalMetadata ID="OriginalMetadata:217" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Shutter - IsActive" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:218" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Shutter - Number of Attributes" Value="5" />
+<OriginalMetadata ID="OriginalMetadata:219" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Shutter - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:220" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Shutter - LightSourceQualifier" Value="10" />
+<OriginalMetadata ID="OriginalMetadata:221" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Shutter - ShutterQualifier" Value="3" />
+<OriginalMetadata ID="OriginalMetadata:222" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Shutter - LightSourceName" Value="Vis" />
+<OriginalMetadata ID="OriginalMetadata:223" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Shutter - ShutterName" Value="Visible" />
+<OriginalMetadata ID="OriginalMetadata:224" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Shutter - IsActive" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:225" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Shutter - Number of Attributes" Value="5" />
+<OriginalMetadata ID="OriginalMetadata:226" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Shutter - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:227" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Shutter - LightSourceQualifier" Value="40" />
+<OriginalMetadata ID="OriginalMetadata:228" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Shutter - ShutterQualifier" Value="4" />
+<OriginalMetadata ID="OriginalMetadata:229" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Shutter - LightSourceName" Value="MP" />
+<OriginalMetadata ID="OriginalMetadata:230" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Shutter - ShutterName" Value="MP" />
+<OriginalMetadata ID="OriginalMetadata:231" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ShutterList - Shutter - IsActive" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:232" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - Number of Attributes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:233" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - Number of Subnodes" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:234" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - LMSDC_H - Number of Attributes" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:235" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - LMSDC_H - Number of Subnodes" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:236" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - LMSDC_H - Version" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:237" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - LMSDC_H - Element - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:238" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - LMSDC_H - Element - Number of Subnodes" Value="3" />
+<OriginalMetadata ID="OriginalMetadata:239" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - LMSDC_H - Element - Name" Value="BleachPointROISet" />
+<OriginalMetadata ID="OriginalMetadata:240" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - LMSDC_H - Element - UniqueID" Value="2a073014-709f-11e4-8274-eccd6d63b139" />
+<OriginalMetadata ID="OriginalMetadata:241" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - LMSDC_H - Element - Data - Number of Attributes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:242" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - LMSDC_H - Element - Data - Number of Subnodes" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:243" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - LMSDC_H - Element - Data - ROISet - Number of Attributes" Value="4" />
+<OriginalMetadata ID="OriginalMetadata:244" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - LMSDC_H - Element - Data - ROISet - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:245" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - LMSDC_H - Element - Data - ROISet - ROISetType" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:246" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - LMSDC_H - Element - Data - ROISet - PossibleChildROITypes" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:247" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - LMSDC_H - Element - Data - ROISet - PossibleROITransforms" Value="65535" />
+<OriginalMetadata ID="OriginalMetadata:248" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - LMSDC_H - Element - Data - ROISet - PossibleROIActions" Value="65535" />
+<OriginalMetadata ID="OriginalMetadata:249" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - LMSDC_H - Element - Memory - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:250" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - LMSDC_H - Element - Memory - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:251" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - LMSDC_H - Element - Memory - Size" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:252" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - LMSDC_H - Element - Memory - MemoryBlockID" Value="MemBlock_493" />
+<OriginalMetadata ID="OriginalMetadata:253" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - LMSDC_H - Element - Children - Number of Attributes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:254" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - BleachPoints - LMSDC_H - Element - Children - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:255" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ATLConfocalBleachPointsSettings - Number of Attributes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:256" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - ATLConfocalBleachPointsSettings - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:257" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Number of Attributes" Value="3" />
+<OriginalMetadata ID="OriginalMetadata:258" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Number of Subnodes" Value="10" />
+<OriginalMetadata ID="OriginalMetadata:259" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - FluorifierAutoSelection" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:260" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - BeamSplitterAutoSelection" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:261" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - StedBeamSelectionPinholeCoupling" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:262" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Number of Attributes" Value="10" />
+<OriginalMetadata ID="OriginalMetadata:263" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:264" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Qualifier" Value="214" />
+<OriginalMetadata ID="OriginalMetadata:265" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterWheelName" Value="Attenuation MP" />
+<OriginalMetadata ID="OriginalMetadata:266" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - LightSourceQualifier" Value="40" />
+<OriginalMetadata ID="OriginalMetadata:267" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:268" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterName" Value="Min" />
+<OriginalMetadata ID="OriginalMetadata:269" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - IsSpectrumTurnMode" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:270" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterSpectrumPos" Value="38572" />
+<OriginalMetadata ID="OriginalMetadata:271" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterSpectrumValue" Value="14.9997962367146" />
+<OriginalMetadata ID="OriginalMetadata:272" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - IndexChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:273" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - SpectrumChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:274" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Number of Attributes" Value="8" />
+<OriginalMetadata ID="OriginalMetadata:275" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:276" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Qualifier" Value="140" />
+<OriginalMetadata ID="OriginalMetadata:277" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterWheelName" Value="External Detection FW" />
+<OriginalMetadata ID="OriginalMetadata:278" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterIndex" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:279" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterName" Value="Mirror " />
+<OriginalMetadata ID="OriginalMetadata:280" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - IsSpectrumTurnMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:281" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterSpectrumPos" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:282" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - IndexChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:283" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - SpectrumChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:284" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Number of Attributes" Value="8" />
+<OriginalMetadata ID="OriginalMetadata:285" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:286" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Qualifier" Value="26" />
+<OriginalMetadata ID="OriginalMetadata:287" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterWheelName" Value="FCS-FW" />
+<OriginalMetadata ID="OriginalMetadata:288" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:289" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterName" Value="--- " />
+<OriginalMetadata ID="OriginalMetadata:290" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - IsSpectrumTurnMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:291" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterSpectrumPos" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:292" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - IndexChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:293" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - SpectrumChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:294" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Number of Attributes" Value="8" />
+<OriginalMetadata ID="OriginalMetadata:295" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:296" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Qualifier" Value="160" />
+<OriginalMetadata ID="OriginalMetadata:297" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterWheelName" Value="Galvo Slider" />
+<OriginalMetadata ID="OriginalMetadata:298" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:299" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterName" Value="Galvo X Normal " />
+<OriginalMetadata ID="OriginalMetadata:300" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - IsSpectrumTurnMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:301" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterSpectrumPos" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:302" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - IndexChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:303" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - SpectrumChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:304" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Number of Attributes" Value="8" />
+<OriginalMetadata ID="OriginalMetadata:305" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:306" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Qualifier" Value="180" />
+<OriginalMetadata ID="OriginalMetadata:307" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterWheelName" Value="Multi Function Port" />
+<OriginalMetadata ID="OriginalMetadata:308" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterIndex" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:309" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterName" Value="SP 815" />
+<OriginalMetadata ID="OriginalMetadata:310" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - IsSpectrumTurnMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:311" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterSpectrumPos" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:312" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - IndexChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:313" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - SpectrumChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:314" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Number of Attributes" Value="8" />
+<OriginalMetadata ID="OriginalMetadata:315" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:316" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Qualifier" Value="131" />
+<OriginalMetadata ID="OriginalMetadata:317" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterWheelName" Value="Notch FW 2" />
+<OriginalMetadata ID="OriginalMetadata:318" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterIndex" Value="9" />
+<OriginalMetadata ID="OriginalMetadata:319" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterName" Value="OPO SP 800" />
+<OriginalMetadata ID="OriginalMetadata:320" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - IsSpectrumTurnMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:321" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterSpectrumPos" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:322" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - IndexChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:323" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - SpectrumChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:324" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Number of Attributes" Value="8" />
+<OriginalMetadata ID="OriginalMetadata:325" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:326" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Qualifier" Value="130" />
+<OriginalMetadata ID="OriginalMetadata:327" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterWheelName" Value="Polarization FW" />
+<OriginalMetadata ID="OriginalMetadata:328" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:329" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterName" Value="Empty" />
+<OriginalMetadata ID="OriginalMetadata:330" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - IsSpectrumTurnMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:331" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterSpectrumPos" Value="79246" />
+<OriginalMetadata ID="OriginalMetadata:332" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - IndexChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:333" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - SpectrumChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:334" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Number of Attributes" Value="8" />
+<OriginalMetadata ID="OriginalMetadata:335" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:336" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Qualifier" Value="200" />
+<OriginalMetadata ID="OriginalMetadata:337" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterWheelName" Value="Galvo Resonant Pan" />
+<OriginalMetadata ID="OriginalMetadata:338" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:339" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterName" Value="Galvo X Pan Center " />
+<OriginalMetadata ID="OriginalMetadata:340" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - IsSpectrumTurnMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:341" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterSpectrumPos" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:342" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - IndexChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:343" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - SpectrumChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:344" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Number of Attributes" Value="8" />
+<OriginalMetadata ID="OriginalMetadata:345" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:346" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Qualifier" Value="170" />
+<OriginalMetadata ID="OriginalMetadata:347" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterWheelName" Value="Target Slider" />
+<OriginalMetadata ID="OriginalMetadata:348" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:349" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterName" Value="Target Park " />
+<OriginalMetadata ID="OriginalMetadata:350" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - IsSpectrumTurnMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:351" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterSpectrumPos" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:352" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - IndexChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:353" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - SpectrumChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:354" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Number of Attributes" Value="8" />
+<OriginalMetadata ID="OriginalMetadata:355" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:356" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - Qualifier" Value="31" />
+<OriginalMetadata ID="OriginalMetadata:357" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterWheelName" Value="X2 Lens Changer" />
+<OriginalMetadata ID="OriginalMetadata:358" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:359" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterName" Value="CS2 UV Optics 1 " />
+<OriginalMetadata ID="OriginalMetadata:360" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - IsSpectrumTurnMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:361" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - FilterSpectrumPos" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:362" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - IndexChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:363" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - FilterWheel - Wheel - SpectrumChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:364" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - Number of Attributes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:365" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - Number of Subnodes" Value="4" />
+<OriginalMetadata ID="OriginalMetadata:366" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - Number of Attributes" Value="5" />
+<OriginalMetadata ID="OriginalMetadata:367" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:368" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - Channel" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:369" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - ChannelName" Value="Channel 1" />
+<OriginalMetadata ID="OriginalMetadata:370" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - LeftWorld" Value="406.25" />
+<OriginalMetadata ID="OriginalMetadata:371" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - RightWorld" Value="458.75" />
+<OriginalMetadata ID="OriginalMetadata:372" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - DyeName" Value="" />
+<OriginalMetadata ID="OriginalMetadata:373" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - Number of Attributes" Value="5" />
+<OriginalMetadata ID="OriginalMetadata:374" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:375" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - Channel" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:376" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - ChannelName" Value="Channel 2" />
+<OriginalMetadata ID="OriginalMetadata:377" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - LeftWorld" Value="511.25" />
+<OriginalMetadata ID="OriginalMetadata:378" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - RightWorld" Value="563.75" />
+<OriginalMetadata ID="OriginalMetadata:379" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - DyeName" Value="" />
+<OriginalMetadata ID="OriginalMetadata:380" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - Number of Attributes" Value="5" />
+<OriginalMetadata ID="OriginalMetadata:381" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:382" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - Channel" Value="3" />
+<OriginalMetadata ID="OriginalMetadata:383" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - ChannelName" Value="Channel 3" />
+<OriginalMetadata ID="OriginalMetadata:384" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - LeftWorld" Value="616.25" />
+<OriginalMetadata ID="OriginalMetadata:385" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - RightWorld" Value="668.75" />
+<OriginalMetadata ID="OriginalMetadata:386" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - DyeName" Value="" />
+<OriginalMetadata ID="OriginalMetadata:387" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - Number of Attributes" Value="5" />
+<OriginalMetadata ID="OriginalMetadata:388" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:389" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - Channel" Value="4" />
+<OriginalMetadata ID="OriginalMetadata:390" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - ChannelName" Value="Channel 4" />
+<OriginalMetadata ID="OriginalMetadata:391" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - LeftWorld" Value="721.25" />
+<OriginalMetadata ID="OriginalMetadata:392" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - RightWorld" Value="773.75" />
+<OriginalMetadata ID="OriginalMetadata:393" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - Spectro - MultiBand - DyeName" Value="" />
+<OriginalMetadata ID="OriginalMetadata:394" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Number of Attributes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:395" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Number of Subnodes" Value="3" />
+<OriginalMetadata ID="OriginalMetadata:396" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - Number of Attributes" Value="14" />
+<OriginalMetadata ID="OriginalMetadata:397" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - Number of Subnodes" Value="8" />
+<OriginalMetadata ID="OriginalMetadata:398" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - AotfQualifier" Value="90" />
+<OriginalMetadata ID="OriginalMetadata:399" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - AotfQualifierName" Value="WLL" />
+<OriginalMetadata ID="OriginalMetadata:400" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LightSourceQualifier" Value="70" />
+<OriginalMetadata ID="OriginalMetadata:401" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LightSourceQualifierName" Value="SuperCont" />
+<OriginalMetadata ID="OriginalMetadata:402" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - OpenVirtual" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:403" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - IsChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:404" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - ExcitationControlMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:405" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - ExcitationControlModeBegin" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:406" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - ExcitationControlModeEnd" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:407" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - CanDoPulseFreq" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:408" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - PulsFreq" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:409" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - CanDoTwoLaserPIE" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:410" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - TwoLaserPIEPossibleLastState" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:411" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - TwoLaserPIEActive" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:412" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Attributes" Value="14" />
+<OriginalMetadata ID="OriginalMetadata:413" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:414" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LaserLine" Value="470" />
+<OriginalMetadata ID="OriginalMetadata:415" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:416" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityLowDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:417" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:418" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityLowDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:419" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - EnableDoubleMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:420" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LineIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:421" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Qualifier" Value="90" />
+<OriginalMetadata ID="OriginalMetadata:422" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SequenceIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:423" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineDeactivated" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:424" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineChecked" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:425" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - OutCheckedIntensity" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:426" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SuppressionMode" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:427" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsVisible" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:428" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Attributes" Value="14" />
+<OriginalMetadata ID="OriginalMetadata:429" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:430" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LaserLine" Value="471" />
+<OriginalMetadata ID="OriginalMetadata:431" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:432" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityLowDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:433" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:434" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityLowDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:435" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - EnableDoubleMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:436" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LineIndex" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:437" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Qualifier" Value="90" />
+<OriginalMetadata ID="OriginalMetadata:438" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SequenceIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:439" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineDeactivated" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:440" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineChecked" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:441" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - OutCheckedIntensity" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:442" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SuppressionMode" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:443" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsVisible" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:444" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Attributes" Value="14" />
+<OriginalMetadata ID="OriginalMetadata:445" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:446" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LaserLine" Value="472" />
+<OriginalMetadata ID="OriginalMetadata:447" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:448" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityLowDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:449" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:450" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityLowDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:451" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - EnableDoubleMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:452" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LineIndex" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:453" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Qualifier" Value="90" />
+<OriginalMetadata ID="OriginalMetadata:454" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SequenceIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:455" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineDeactivated" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:456" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineChecked" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:457" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - OutCheckedIntensity" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:458" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SuppressionMode" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:459" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsVisible" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:460" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Attributes" Value="14" />
+<OriginalMetadata ID="OriginalMetadata:461" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:462" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LaserLine" Value="473" />
+<OriginalMetadata ID="OriginalMetadata:463" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:464" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityLowDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:465" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:466" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityLowDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:467" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - EnableDoubleMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:468" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LineIndex" Value="3" />
+<OriginalMetadata ID="OriginalMetadata:469" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Qualifier" Value="90" />
+<OriginalMetadata ID="OriginalMetadata:470" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SequenceIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:471" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineDeactivated" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:472" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineChecked" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:473" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - OutCheckedIntensity" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:474" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SuppressionMode" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:475" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsVisible" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:476" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Attributes" Value="14" />
+<OriginalMetadata ID="OriginalMetadata:477" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:478" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LaserLine" Value="667" />
+<OriginalMetadata ID="OriginalMetadata:479" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:480" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityLowDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:481" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:482" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityLowDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:483" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - EnableDoubleMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:484" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LineIndex" Value="4" />
+<OriginalMetadata ID="OriginalMetadata:485" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Qualifier" Value="90" />
+<OriginalMetadata ID="OriginalMetadata:486" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SequenceIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:487" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineDeactivated" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:488" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineChecked" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:489" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - OutCheckedIntensity" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:490" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SuppressionMode" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:491" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsVisible" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:492" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Attributes" Value="14" />
+<OriginalMetadata ID="OriginalMetadata:493" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:494" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LaserLine" Value="668" />
+<OriginalMetadata ID="OriginalMetadata:495" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:496" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityLowDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:497" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:498" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityLowDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:499" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - EnableDoubleMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:500" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LineIndex" Value="5" />
+<OriginalMetadata ID="OriginalMetadata:501" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Qualifier" Value="90" />
+<OriginalMetadata ID="OriginalMetadata:502" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SequenceIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:503" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineDeactivated" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:504" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineChecked" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:505" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - OutCheckedIntensity" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:506" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SuppressionMode" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:507" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsVisible" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:508" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Attributes" Value="14" />
+<OriginalMetadata ID="OriginalMetadata:509" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:510" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LaserLine" Value="669" />
+<OriginalMetadata ID="OriginalMetadata:511" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:512" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityLowDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:513" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:514" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityLowDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:515" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - EnableDoubleMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:516" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LineIndex" Value="6" />
+<OriginalMetadata ID="OriginalMetadata:517" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Qualifier" Value="90" />
+<OriginalMetadata ID="OriginalMetadata:518" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SequenceIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:519" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineDeactivated" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:520" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineChecked" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:521" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - OutCheckedIntensity" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:522" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SuppressionMode" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:523" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsVisible" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:524" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Attributes" Value="14" />
+<OriginalMetadata ID="OriginalMetadata:525" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:526" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LaserLine" Value="670" />
+<OriginalMetadata ID="OriginalMetadata:527" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:528" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityLowDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:529" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:530" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityLowDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:531" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - EnableDoubleMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:532" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LineIndex" Value="7" />
+<OriginalMetadata ID="OriginalMetadata:533" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Qualifier" Value="90" />
+<OriginalMetadata ID="OriginalMetadata:534" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SequenceIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:535" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineDeactivated" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:536" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineChecked" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:537" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - OutCheckedIntensity" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:538" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SuppressionMode" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:539" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsVisible" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:540" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - Number of Attributes" Value="11" />
+<OriginalMetadata ID="OriginalMetadata:541" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - Number of Subnodes" Value="5" />
+<OriginalMetadata ID="OriginalMetadata:542" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - AotfQualifier" Value="10" />
+<OriginalMetadata ID="OriginalMetadata:543" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - AotfQualifierName" Value="Visible" />
+<OriginalMetadata ID="OriginalMetadata:544" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LightSourceQualifier" Value="10" />
+<OriginalMetadata ID="OriginalMetadata:545" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LightSourceQualifierName" Value="Vis" />
+<OriginalMetadata ID="OriginalMetadata:546" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - OpenVirtual" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:547" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - IsChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:548" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - CanDoPulseFreq" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:549" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - PulsFreq" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:550" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - CanDoTwoLaserPIE" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:551" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - TwoLaserPIEPossibleLastState" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:552" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - TwoLaserPIEActive" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:553" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Attributes" Value="14" />
+<OriginalMetadata ID="OriginalMetadata:554" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:555" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LaserLine" Value="458" />
+<OriginalMetadata ID="OriginalMetadata:556" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:557" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityLowDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:558" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:559" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityLowDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:560" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - EnableDoubleMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:561" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LineIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:562" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Qualifier" Value="10" />
+<OriginalMetadata ID="OriginalMetadata:563" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SequenceIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:564" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineDeactivated" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:565" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineChecked" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:566" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - OutCheckedIntensity" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:567" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SuppressionMode" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:568" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsVisible" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:569" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Attributes" Value="14" />
+<OriginalMetadata ID="OriginalMetadata:570" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:571" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LaserLine" Value="476" />
+<OriginalMetadata ID="OriginalMetadata:572" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:573" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityLowDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:574" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:575" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityLowDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:576" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - EnableDoubleMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:577" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LineIndex" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:578" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Qualifier" Value="10" />
+<OriginalMetadata ID="OriginalMetadata:579" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SequenceIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:580" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineDeactivated" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:581" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineChecked" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:582" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - OutCheckedIntensity" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:583" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SuppressionMode" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:584" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsVisible" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:585" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Attributes" Value="14" />
+<OriginalMetadata ID="OriginalMetadata:586" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:587" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LaserLine" Value="488" />
+<OriginalMetadata ID="OriginalMetadata:588" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:589" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityLowDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:590" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:591" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityLowDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:592" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - EnableDoubleMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:593" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LineIndex" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:594" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Qualifier" Value="10" />
+<OriginalMetadata ID="OriginalMetadata:595" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SequenceIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:596" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineDeactivated" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:597" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineChecked" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:598" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - OutCheckedIntensity" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:599" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SuppressionMode" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:600" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsVisible" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:601" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Attributes" Value="14" />
+<OriginalMetadata ID="OriginalMetadata:602" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:603" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LaserLine" Value="496" />
+<OriginalMetadata ID="OriginalMetadata:604" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:605" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityLowDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:606" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:607" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityLowDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:608" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - EnableDoubleMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:609" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LineIndex" Value="3" />
+<OriginalMetadata ID="OriginalMetadata:610" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Qualifier" Value="10" />
+<OriginalMetadata ID="OriginalMetadata:611" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SequenceIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:612" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineDeactivated" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:613" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineChecked" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:614" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - OutCheckedIntensity" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:615" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SuppressionMode" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:616" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsVisible" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:617" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Attributes" Value="14" />
+<OriginalMetadata ID="OriginalMetadata:618" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:619" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LaserLine" Value="514" />
+<OriginalMetadata ID="OriginalMetadata:620" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:621" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityLowDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:622" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:623" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityLowDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:624" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - EnableDoubleMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:625" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LineIndex" Value="4" />
+<OriginalMetadata ID="OriginalMetadata:626" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Qualifier" Value="10" />
+<OriginalMetadata ID="OriginalMetadata:627" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SequenceIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:628" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineDeactivated" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:629" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineChecked" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:630" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - OutCheckedIntensity" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:631" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SuppressionMode" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:632" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsVisible" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:633" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - Number of Attributes" Value="17" />
+<OriginalMetadata ID="OriginalMetadata:634" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - Number of Subnodes" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:635" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - AotfQualifier" Value="50" />
+<OriginalMetadata ID="OriginalMetadata:636" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - AotfQualifierName" Value="MP" />
+<OriginalMetadata ID="OriginalMetadata:637" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LightSourceQualifier" Value="40" />
+<OriginalMetadata ID="OriginalMetadata:638" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LightSourceQualifierName" Value="MP" />
+<OriginalMetadata ID="OriginalMetadata:639" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - OpenVirtual" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:640" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - IsChanged" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:641" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - CanDoGainOffset" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:642" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - Gain" Value="100" />
+<OriginalMetadata ID="OriginalMetadata:643" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - Offset" Value="43.8879987792782" />
+<OriginalMetadata ID="OriginalMetadata:644" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - ExcitationControlMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:645" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - ExcitationControlModeBegin" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:646" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - ExcitationControlModeEnd" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:647" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - CanDoPulseFreq" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:648" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - PulsFreq" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:649" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - CanDoTwoLaserPIE" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:650" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - TwoLaserPIEPossibleLastState" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:651" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - TwoLaserPIEActive" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:652" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Attributes" Value="14" />
+<OriginalMetadata ID="OriginalMetadata:653" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:654" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LaserLine" Value="890" />
+<OriginalMetadata ID="OriginalMetadata:655" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityDev" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:656" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IntensityLowDev" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:657" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:658" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - AOBSIntensityLowDev" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:659" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - EnableDoubleMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:660" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - LineIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:661" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - Qualifier" Value="50" />
+<OriginalMetadata ID="OriginalMetadata:662" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SequenceIndex" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:663" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineDeactivated" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:664" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsLineChecked" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:665" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - OutCheckedIntensity" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:666" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - SuppressionMode" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:667" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - AotfList - Aotf - LaserLineSetting - IsVisible" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:668" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - Number of Attributes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:669" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - Number of Subnodes" Value="8" />
+<OriginalMetadata ID="OriginalMetadata:670" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:671" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:672" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Channel" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:673" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - LutName" Value="Green" />
+<OriginalMetadata ID="OriginalMetadata:674" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:675" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:676" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Channel" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:677" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - LutName" Value="Red" />
+<OriginalMetadata ID="OriginalMetadata:678" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:679" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:680" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Channel" Value="3" />
+<OriginalMetadata ID="OriginalMetadata:681" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - LutName" Value="Blue" />
+<OriginalMetadata ID="OriginalMetadata:682" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:683" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:684" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Channel" Value="4" />
+<OriginalMetadata ID="OriginalMetadata:685" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - LutName" Value="Gray" />
+<OriginalMetadata ID="OriginalMetadata:686" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:687" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:688" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Channel" Value="1002" />
+<OriginalMetadata ID="OriginalMetadata:689" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - LutName" Value="Red" />
+<OriginalMetadata ID="OriginalMetadata:690" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:691" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:692" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Channel" Value="1003" />
+<OriginalMetadata ID="OriginalMetadata:693" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - LutName" Value="Green" />
+<OriginalMetadata ID="OriginalMetadata:694" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:695" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:696" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Channel" Value="1200" />
+<OriginalMetadata ID="OriginalMetadata:697" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - LutName" Value="Red" />
+<OriginalMetadata ID="OriginalMetadata:698" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:699" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:700" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - Channel" Value="1201" />
+<OriginalMetadata ID="OriginalMetadata:701" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LUT_List - LUT - LutName" Value="Green" />
+<OriginalMetadata ID="OriginalMetadata:702" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Number of Attributes" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:703" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Number of Subnodes" Value="8" />
+<OriginalMetadata ID="OriginalMetadata:704" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - DetectorAutoSelection" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:705" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Number of Attributes" Value="21" />
+<OriginalMetadata ID="OriginalMetadata:706" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:707" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Name" Value="HyD 1" />
+<OriginalMetadata ID="OriginalMetadata:708" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Type" Value="HyD" />
+<OriginalMetadata ID="OriginalMetadata:709" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - ScanType" Value="Internal" />
+<OriginalMetadata ID="OriginalMetadata:710" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Channel" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:711" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - ChannelName" Value="Channel 1" />
+<OriginalMetadata ID="OriginalMetadata:712" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsActive" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:713" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Gain" Value="10" />
+<OriginalMetadata ID="OriginalMetadata:714" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Offset" Value="-6.6666666666606E-03" />
+<OriginalMetadata ID="OriginalMetadata:715" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsSTEDDetector" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:716" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsFlimDetector" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:717" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsHPDDetector" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:718" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsEnabled" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:719" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsHPDOverloaded" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:720" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - CanDoPhotonCounting" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:721" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - AcquisitionMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:722" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - AcquisitionModeName" Value="PhotonIntegration" />
+<OriginalMetadata ID="OriginalMetadata:723" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - CanDoTimeGate" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:724" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsTimeGateActivated" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:725" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - TimeGatePulseStart" Value="300" />
+<OriginalMetadata ID="OriginalMetadata:726" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - TimeGateWavelength" Value="470" />
+<OriginalMetadata ID="OriginalMetadata:727" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - TimeGatePulseEnd" Value="6000" />
+<OriginalMetadata ID="OriginalMetadata:728" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Number of Attributes" Value="12" />
+<OriginalMetadata ID="OriginalMetadata:729" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:730" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Name" Value="PMT 2" />
+<OriginalMetadata ID="OriginalMetadata:731" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Type" Value="PMT" />
+<OriginalMetadata ID="OriginalMetadata:732" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - ScanType" Value="Internal" />
+<OriginalMetadata ID="OriginalMetadata:733" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Channel" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:734" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - ChannelName" Value="Channel 2" />
+<OriginalMetadata ID="OriginalMetadata:735" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsActive" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:736" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Gain" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:737" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Offset" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:738" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsSTEDDetector" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:739" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsFlimDetector" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:740" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsHPDDetector" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:741" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - CanDoTimeGate" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:742" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Number of Attributes" Value="21" />
+<OriginalMetadata ID="OriginalMetadata:743" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:744" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Name" Value="HyD 3" />
+<OriginalMetadata ID="OriginalMetadata:745" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Type" Value="HyD" />
+<OriginalMetadata ID="OriginalMetadata:746" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - ScanType" Value="Internal" />
+<OriginalMetadata ID="OriginalMetadata:747" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Channel" Value="3" />
+<OriginalMetadata ID="OriginalMetadata:748" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - ChannelName" Value="Channel 3" />
+<OriginalMetadata ID="OriginalMetadata:749" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsActive" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:750" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Gain" Value="10" />
+<OriginalMetadata ID="OriginalMetadata:751" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Offset" Value="-6.6666666666606E-03" />
+<OriginalMetadata ID="OriginalMetadata:752" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsSTEDDetector" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:753" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsFlimDetector" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:754" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsHPDDetector" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:755" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsEnabled" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:756" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsHPDOverloaded" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:757" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - CanDoPhotonCounting" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:758" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - AcquisitionMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:759" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - AcquisitionModeName" Value="PhotonIntegration" />
+<OriginalMetadata ID="OriginalMetadata:760" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - CanDoTimeGate" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:761" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsTimeGateActivated" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:762" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - TimeGatePulseStart" Value="300" />
+<OriginalMetadata ID="OriginalMetadata:763" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - TimeGateWavelength" Value="470" />
+<OriginalMetadata ID="OriginalMetadata:764" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - TimeGatePulseEnd" Value="6000" />
+<OriginalMetadata ID="OriginalMetadata:765" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Number of Attributes" Value="12" />
+<OriginalMetadata ID="OriginalMetadata:766" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:767" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Name" Value="PMT 4" />
+<OriginalMetadata ID="OriginalMetadata:768" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Type" Value="PMT" />
+<OriginalMetadata ID="OriginalMetadata:769" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - ScanType" Value="Internal" />
+<OriginalMetadata ID="OriginalMetadata:770" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Channel" Value="4" />
+<OriginalMetadata ID="OriginalMetadata:771" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - ChannelName" Value="Channel 4" />
+<OriginalMetadata ID="OriginalMetadata:772" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsActive" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:773" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Gain" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:774" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Offset" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:775" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsSTEDDetector" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:776" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsFlimDetector" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:777" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsHPDDetector" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:778" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - CanDoTimeGate" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:779" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Number of Attributes" Value="12" />
+<OriginalMetadata ID="OriginalMetadata:780" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:781" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Name" Value="PMT NDD3" />
+<OriginalMetadata ID="OriginalMetadata:782" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Type" Value="PMT" />
+<OriginalMetadata ID="OriginalMetadata:783" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - ScanType" Value="TLD" />
+<OriginalMetadata ID="OriginalMetadata:784" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Channel" Value="1002" />
+<OriginalMetadata ID="OriginalMetadata:785" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - ChannelName" Value="NDD3" />
+<OriginalMetadata ID="OriginalMetadata:786" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsActive" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:787" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Gain" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:788" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Offset" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:789" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsSTEDDetector" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:790" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsFlimDetector" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:791" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsHPDDetector" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:792" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - CanDoTimeGate" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:793" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Number of Attributes" Value="12" />
+<OriginalMetadata ID="OriginalMetadata:794" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:795" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Name" Value="PMT NDD4" />
+<OriginalMetadata ID="OriginalMetadata:796" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Type" Value="PMT" />
+<OriginalMetadata ID="OriginalMetadata:797" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - ScanType" Value="TLD" />
+<OriginalMetadata ID="OriginalMetadata:798" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Channel" Value="1003" />
+<OriginalMetadata ID="OriginalMetadata:799" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - ChannelName" Value="NDD4" />
+<OriginalMetadata ID="OriginalMetadata:800" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsActive" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:801" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Gain" Value="650" />
+<OriginalMetadata ID="OriginalMetadata:802" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Offset" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:803" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsSTEDDetector" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:804" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsFlimDetector" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:805" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsHPDDetector" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:806" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - CanDoTimeGate" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:807" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Number of Attributes" Value="17" />
+<OriginalMetadata ID="OriginalMetadata:808" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:809" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Name" Value="HyD6" />
+<OriginalMetadata ID="OriginalMetadata:810" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Type" Value="HyD" />
+<OriginalMetadata ID="OriginalMetadata:811" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - ScanType" Value="RLD" />
+<OriginalMetadata ID="OriginalMetadata:812" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Channel" Value="1200" />
+<OriginalMetadata ID="OriginalMetadata:813" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - ChannelName" Value="APD1" />
+<OriginalMetadata ID="OriginalMetadata:814" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsActive" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:815" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Gain" Value="10" />
+<OriginalMetadata ID="OriginalMetadata:816" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Offset" Value="-6.6666666666606E-03" />
+<OriginalMetadata ID="OriginalMetadata:817" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsSTEDDetector" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:818" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsFlimDetector" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:819" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsHPDDetector" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:820" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsEnabled" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:821" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsHPDOverloaded" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:822" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - CanDoPhotonCounting" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:823" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - AcquisitionMode" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:824" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - AcquisitionModeName" Value="PhotonIntegration" />
+<OriginalMetadata ID="OriginalMetadata:825" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - CanDoTimeGate" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:826" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Number of Attributes" Value="17" />
+<OriginalMetadata ID="OriginalMetadata:827" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:828" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Name" Value="HyD7" />
+<OriginalMetadata ID="OriginalMetadata:829" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Type" Value="HyD" />
+<OriginalMetadata ID="OriginalMetadata:830" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - ScanType" Value="RLD" />
+<OriginalMetadata ID="OriginalMetadata:831" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Channel" Value="1201" />
+<OriginalMetadata ID="OriginalMetadata:832" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - ChannelName" Value="APD2" />
+<OriginalMetadata ID="OriginalMetadata:833" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsActive" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:834" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Gain" Value="10" />
+<OriginalMetadata ID="OriginalMetadata:835" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - Offset" Value="-6.6666666666606E-03" />
+<OriginalMetadata ID="OriginalMetadata:836" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsSTEDDetector" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:837" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsFlimDetector" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:838" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsHPDDetector" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:839" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsEnabled" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:840" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - IsHPDOverloaded" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:841" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - CanDoPhotonCounting" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:842" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - AcquisitionMode" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:843" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - AcquisitionModeName" Value="PhotonCounting" />
+<OriginalMetadata ID="OriginalMetadata:844" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - DetectorList - Detector - CanDoTimeGate" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:845" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Number of Attributes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:846" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Number of Subnodes" Value="3" />
+<OriginalMetadata ID="OriginalMetadata:847" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - Number of Attributes" Value="14" />
+<OriginalMetadata ID="OriginalMetadata:848" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:849" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - Qualifier" Value="90" />
+<OriginalMetadata ID="OriginalMetadata:850" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - QualifierName" Value="WLL" />
+<OriginalMetadata ID="OriginalMetadata:851" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - LightSourceQualifier" Value="70" />
+<OriginalMetadata ID="OriginalMetadata:852" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - LightSourceName" Value="SuperCont" />
+<OriginalMetadata ID="OriginalMetadata:853" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - LaserName" Value="WLL" />
+<OriginalMetadata ID="OriginalMetadata:854" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - PowerState" Value="Off" />
+<OriginalMetadata ID="OriginalMetadata:855" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - CanDoLinearOutputPower" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:856" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - CanDoOutputPowerWatt" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:857" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - OutputPower" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:858" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - OutputPowerMin" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:859" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - OutputPowerMax" Value="100" />
+<OriginalMetadata ID="OriginalMetadata:860" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - Wavelength" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:861" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - PulsePickerRatio" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:862" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - CanDoChangeWavelength" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:863" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - Number of Attributes" Value="14" />
+<OriginalMetadata ID="OriginalMetadata:864" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:865" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - Qualifier" Value="10" />
+<OriginalMetadata ID="OriginalMetadata:866" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - QualifierName" Value="Visible" />
+<OriginalMetadata ID="OriginalMetadata:867" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - LightSourceQualifier" Value="10" />
+<OriginalMetadata ID="OriginalMetadata:868" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - LightSourceName" Value="Vis" />
+<OriginalMetadata ID="OriginalMetadata:869" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - LaserName" Value="Argon" />
+<OriginalMetadata ID="OriginalMetadata:870" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - PowerState" Value="Off" />
+<OriginalMetadata ID="OriginalMetadata:871" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - CanDoLinearOutputPower" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:872" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - CanDoOutputPowerWatt" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:873" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - OutputPowerWatt" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:874" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - OutputPower" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:875" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - OutputPowerMin" Value="14" />
+<OriginalMetadata ID="OriginalMetadata:876" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - OutputPowerMax" Value="140" />
+<OriginalMetadata ID="OriginalMetadata:877" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - Wavelength" Value="458" />
+<OriginalMetadata ID="OriginalMetadata:878" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - CanDoChangeWavelength" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:879" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - Number of Attributes" Value="14" />
+<OriginalMetadata ID="OriginalMetadata:880" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:881" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - Qualifier" Value="50" />
+<OriginalMetadata ID="OriginalMetadata:882" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - QualifierName" Value="MP" />
+<OriginalMetadata ID="OriginalMetadata:883" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - LightSourceQualifier" Value="40" />
+<OriginalMetadata ID="OriginalMetadata:884" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - LightSourceName" Value="MP" />
+<OriginalMetadata ID="OriginalMetadata:885" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - LaserName" Value="MP" />
+<OriginalMetadata ID="OriginalMetadata:886" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - PowerState" Value="On" />
+<OriginalMetadata ID="OriginalMetadata:887" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - CanDoLinearOutputPower" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:888" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - CanDoOutputPowerWatt" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:889" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - OutputPowerWatt" Value="2003" />
+<OriginalMetadata ID="OriginalMetadata:890" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - Wavelength" Value="890" />
+<OriginalMetadata ID="OriginalMetadata:891" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - GDDCurveID" Value="7" />
+<OriginalMetadata ID="OriginalMetadata:892" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - CanDoChangeWavelength" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:893" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - TuningRangeMin" Value="690" />
+<OriginalMetadata ID="OriginalMetadata:894" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - LaserArray - Laser - TuningRangeMax" Value="1050" />
+<OriginalMetadata ID="OriginalMetadata:895" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - OnlineDyeSeparation - Number of Attributes" Value="5" />
+<OriginalMetadata ID="OriginalMetadata:896" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - OnlineDyeSeparation - Number of Subnodes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:897" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - OnlineDyeSeparation - Enabled" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:898" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - OnlineDyeSeparation - KeepRawImage" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:899" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - OnlineDyeSeparation - Detectors" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:900" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - OnlineDyeSeparation - Channels" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:901" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - OnlineDyeSeparation - Normalize" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:902" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - OnlineDyeSeparation - OnlineDyeSeparationDetectorList - Number of Attributes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:903" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - OnlineDyeSeparation - OnlineDyeSeparationDetectorList - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:904" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - OnlineDyeSeparation - OnlineDyeSeparationChannelList - Number of Attributes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:905" Name="Data - Image - Attachment - ATLConfocalSettingDefinition - OnlineDyeSeparation - OnlineDyeSeparationChannelList - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:906" Name="Data - Image - Attachment - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:907" Name="Data - Image - Attachment - Number of Subnodes" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:908" Name="Data - Image - Attachment - Name" Value="ImageXMLDocument" />
+<OriginalMetadata ID="OriginalMetadata:909" Name="Data - Image - Attachment - Application" Value="LAS AF" />
+<OriginalMetadata ID="OriginalMetadata:910" Name="Data - Image - Attachment - RootNode - Number of Attributes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:911" Name="Data - Image - Attachment - RootNode - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:912" Name="Data - Image - Attachment - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:913" Name="Data - Image - Attachment - Number of Subnodes" Value="18" />
+<OriginalMetadata ID="OriginalMetadata:914" Name="Data - Image - Attachment - Name" Value="Coordinate" />
+<OriginalMetadata ID="OriginalMetadata:915" Name="Data - Image - Attachment - Application" Value="LAS AF" />
+<OriginalMetadata ID="OriginalMetadata:916" Name="Data - Image - Attachment - Coordinate - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:917" Name="Data - Image - Attachment - Coordinate - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:918" Name="Data - Image - Attachment - Coordinate - Name" Value="Action" />
+<OriginalMetadata ID="OriginalMetadata:919" Name="Data - Image - Attachment - Coordinate - Value" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:920" Name="Data - Image - Attachment - Coordinate - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:921" Name="Data - Image - Attachment - Coordinate - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:922" Name="Data - Image - Attachment - Coordinate - Name" Value="BaseName" />
+<OriginalMetadata ID="OriginalMetadata:923" Name="Data - Image - Attachment - Coordinate - Value" Value="Job 8_010" />
+<OriginalMetadata ID="OriginalMetadata:924" Name="Data - Image - Attachment - Coordinate - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:925" Name="Data - Image - Attachment - Coordinate - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:926" Name="Data - Image - Attachment - Coordinate - Name" Value="ChamberU" />
+<OriginalMetadata ID="OriginalMetadata:927" Name="Data - Image - Attachment - Coordinate - Value" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:928" Name="Data - Image - Attachment - Coordinate - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:929" Name="Data - Image - Attachment - Coordinate - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:930" Name="Data - Image - Attachment - Coordinate - Name" Value="ChamberV" />
+<OriginalMetadata ID="OriginalMetadata:931" Name="Data - Image - Attachment - Coordinate - Value" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:932" Name="Data - Image - Attachment - Coordinate - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:933" Name="Data - Image - Attachment - Coordinate - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:934" Name="Data - Image - Attachment - Coordinate - Name" Value="ExperimentCreationTime" />
+<OriginalMetadata ID="OriginalMetadata:935" Name="Data - Image - Attachment - Coordinate - Value" Value="2014-11-20T10:22:14" />
+<OriginalMetadata ID="OriginalMetadata:936" Name="Data - Image - Attachment - Coordinate - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:937" Name="Data - Image - Attachment - Coordinate - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:938" Name="Data - Image - Attachment - Coordinate - Name" Value="ExperimentName" />
+<OriginalMetadata ID="OriginalMetadata:939" Name="Data - Image - Attachment - Coordinate - Value" Value="Experiment" />
+<OriginalMetadata ID="OriginalMetadata:940" Name="Data - Image - Attachment - Coordinate - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:941" Name="Data - Image - Attachment - Coordinate - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:942" Name="Data - Image - Attachment - Coordinate - Name" Value="FieldX" />
+<OriginalMetadata ID="OriginalMetadata:943" Name="Data - Image - Attachment - Coordinate - Value" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:944" Name="Data - Image - Attachment - Coordinate - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:945" Name="Data - Image - Attachment - Coordinate - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:946" Name="Data - Image - Attachment - Coordinate - Name" Value="FieldY" />
+<OriginalMetadata ID="OriginalMetadata:947" Name="Data - Image - Attachment - Coordinate - Value" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:948" Name="Data - Image - Attachment - Coordinate - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:949" Name="Data - Image - Attachment - Coordinate - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:950" Name="Data - Image - Attachment - Coordinate - Name" Value="Hostname" />
+<OriginalMetadata ID="OriginalMetadata:951" Name="Data - Image - Attachment - Coordinate - Value" Value="Leica-SP8PR-WS" />
+<OriginalMetadata ID="OriginalMetadata:952" Name="Data - Image - Attachment - Coordinate - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:953" Name="Data - Image - Attachment - Coordinate - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:954" Name="Data - Image - Attachment - Coordinate - Name" Value="IsFirstLevelCAM" />
+<OriginalMetadata ID="OriginalMetadata:955" Name="Data - Image - Attachment - Coordinate - Value" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:956" Name="Data - Image - Attachment - Coordinate - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:957" Name="Data - Image - Attachment - Coordinate - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:958" Name="Data - Image - Attachment - Coordinate - Name" Value="IsSecondLevelCAM" />
+<OriginalMetadata ID="OriginalMetadata:959" Name="Data - Image - Attachment - Coordinate - Value" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:960" Name="Data - Image - Attachment - Coordinate - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:961" Name="Data - Image - Attachment - Coordinate - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:962" Name="Data - Image - Attachment - Coordinate - Name" Value="Loop" />
+<OriginalMetadata ID="OriginalMetadata:963" Name="Data - Image - Attachment - Coordinate - Value" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:964" Name="Data - Image - Attachment - Coordinate - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:965" Name="Data - Image - Attachment - Coordinate - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:966" Name="Data - Image - Attachment - Coordinate - Name" Value="OrderOfJobInField" />
+<OriginalMetadata ID="OriginalMetadata:967" Name="Data - Image - Attachment - Coordinate - Value" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:968" Name="Data - Image - Attachment - Coordinate - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:969" Name="Data - Image - Attachment - Coordinate - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:970" Name="Data - Image - Attachment - Coordinate - Name" Value="PatternElement" />
+<OriginalMetadata ID="OriginalMetadata:971" Name="Data - Image - Attachment - Coordinate - Value" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:972" Name="Data - Image - Attachment - Coordinate - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:973" Name="Data - Image - Attachment - Coordinate - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:974" Name="Data - Image - Attachment - Coordinate - Name" Value="ScanBlockID" />
+<OriginalMetadata ID="OriginalMetadata:975" Name="Data - Image - Attachment - Coordinate - Value" Value="20" />
+<OriginalMetadata ID="OriginalMetadata:976" Name="Data - Image - Attachment - Coordinate - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:977" Name="Data - Image - Attachment - Coordinate - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:978" Name="Data - Image - Attachment - Coordinate - Name" Value="SerialNumber" />
+<OriginalMetadata ID="OriginalMetadata:979" Name="Data - Image - Attachment - Coordinate - Value" Value="8100000303" />
+<OriginalMetadata ID="OriginalMetadata:980" Name="Data - Image - Attachment - Coordinate - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:981" Name="Data - Image - Attachment - Coordinate - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:982" Name="Data - Image - Attachment - Coordinate - Name" Value="Slide" />
+<OriginalMetadata ID="OriginalMetadata:983" Name="Data - Image - Attachment - Coordinate - Value" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:984" Name="Data - Image - Attachment - Coordinate - Number of Attributes" Value="2" />
+<OriginalMetadata ID="OriginalMetadata:985" Name="Data - Image - Attachment - Coordinate - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:986" Name="Data - Image - Attachment - Coordinate - Name" Value="SubPatternElement" />
+<OriginalMetadata ID="OriginalMetadata:987" Name="Data - Image - Attachment - Coordinate - Value" Value="-1" />
+<OriginalMetadata ID="OriginalMetadata:988" Name="Data - Image - TimeStampList - Number of Attributes" Value="1" />
+<OriginalMetadata ID="OriginalMetadata:989" Name="Data - Image - TimeStampList - Number of Subnodes" Value="0" />
+<OriginalMetadata ID="OriginalMetadata:990" Name="Data - Image - TimeStampList - NumberOfTimeStamps" Value="2" />
+
+</CustomAttributes>
+<StructuredAnnotations xmlns="http://www.openmicroscopy.org/Schemas/SA/2008-09"/></OME>

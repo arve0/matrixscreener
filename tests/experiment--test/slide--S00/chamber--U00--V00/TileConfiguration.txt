@@ -1,0 +1,6 @@
+# Define the number of dimensions we are working on
+dim = 2
+
+# Define the image coordinates
+image--L00--S00--U00--V00--J20--E00--O00--X00--Y00--T00--Z00--C01.ome.tif; ; (0.0, 0.0)
+image--L00--S00--U00--V00--J20--E00--O00--X00--Y01--T00--Z00--C01.ome.tif; ; (0.0, 921.0)
