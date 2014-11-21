@@ -33,6 +33,8 @@ well.stitch('/path/to/output/files/')
 ### do stuff on all images ###
 ```
 from matrixscreener import Experiment
+from tifffile import imread
+
 experiment = Experiment('path/to/experiment--')
 for well in experiment.wells:
     for field in well.fields:
