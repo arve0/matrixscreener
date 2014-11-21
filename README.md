@@ -1,6 +1,8 @@
 # MatrixScreener #
 This is an python module which can be used to read and stitch the structured output from a Leica LAS AF Matrix Screener when using the data exporter (ome.tifs organized in slide/chamber/field folders).
 
+This modules is developed on Mac OS X. If you find any bugs on Linux or Windows, please report them as an issue on github or send a pull request.
+
 
 ## Features
 - Access experiment as python object
