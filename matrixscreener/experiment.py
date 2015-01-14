@@ -6,7 +6,7 @@ through an object.
 # doc-format https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt
 
 # libaries
-import os, glob, tifffile, numpy
+import os, glob
 from .imagej import stitch_macro, run_imagej
 
 ## notes
@@ -278,10 +278,11 @@ class Image:
         channel = _between('--C', '.ome.tif', self.filename)
         self.channel = int(channel)
 
+        # TODO: Use scanning template xml
         # image properties, xml
-        page = tifffile.TIFFfile(filename).pages[0]
-        self.shape = page.shape
-        self.xml = page.tags['image_description'].value
+        #page = tifffile.TIFFfile(filename).pages[0]
+        #self.shape = page.shape
+        #self.xml = page.tags['image_description'].value
 
 
     def __str__(self):
