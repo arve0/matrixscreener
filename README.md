@@ -45,8 +45,6 @@ for well in experiment.wells:
 
 
 ## Dependencies ##
-- tifffile
-- numpy
 - ImageJ with Grid stitching plugin (fiji is recommended)
 
 
@@ -56,6 +54,12 @@ git clone https://github.com/arve0/matrixscreener.git
 cd matrixscreener
 # hack
 ./setup.py install
+```
+
+## Test ##
+```
+pip install tox
+tox
 ```
 
 ## API Reference ##
