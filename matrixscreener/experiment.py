@@ -29,7 +29,7 @@ class Experiment:
 
         Raises
         ------
-        FileNotFoundError
+        IOError
             If *slide--S00* isn't found.
 
         Attributes
@@ -50,7 +50,7 @@ class Experiment:
         # number of wells in U(x), V(y) direction
         chambers = glob.glob(self.slide_path + '/chamber--*')
         if len(chambers) == 0:
-            raise FileNotFoundError
+            raise IOError
         last_chamber = chambers[-1]
         u, v = last_chamber.split('--U')[1].split('--V')
         self.wells_u = int(u) + 1 # directory string start at 0
@@ -128,7 +128,7 @@ class Well:
         # find number of fields
         fields = glob.glob(self.path + '/field--*')
         if len(fields) == 0:
-            raise FileNotFoundError
+            raise IOError
         last_field = fields[-1]
         x, y = last_field.split('--X')[1].split('--Y')
         self.fields_x = int(x) + 1 # directory string start at 0
