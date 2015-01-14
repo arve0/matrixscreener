@@ -226,11 +226,9 @@ class Field:
         # find number of z scans
         images = glob.glob(self.path + '/image--*.ome.tif')
         last_image = images[-1]
-        last_z_stack = _between('--Z', '--', last_image)
-        self.z_stacks = int(last_z_stack) + 1
+        self.z_stacks = _between('--Z', '--', last_image) + 1
         # number of channels
-        last_channel = _between('--C', '.ome.tif', last_image)
-        self.channels = int(last_channel) + 1
+        self.channels = _between('--C', '.ome.tif', last_image) + 1
 
         # add images
         self.images = []
@@ -263,20 +261,14 @@ class Image:
         self.filename = os.path.basename(filename)
         self.path = os.path.dirname(filename)
 
-        u = _between('--U', '--', self.filename)
-        v = _between('--V', '--', self.filename)
-        self.u = int(u)
-        self.v = int(v)
+        self.u = _between('--U', '--', self.filename)
+        self.v = _between('--V', '--', self.filename)
 
-        x = _between('--X', '--', self.filename)
-        y = _between('--Y', '--', self.filename)
-        z = _between('--Z', '--', self.filename)
-        self.x = int(x)
-        self.y = int(y)
-        self.z = int(z)
+        self.x = _between('--X', '--', self.filename)
+        self.y = _between('--Y', '--', self.filename)
+        self.z = _between('--Z', '--', self.filename)
 
-        channel = _between('--C', '.ome.tif', self.filename)
-        self.channel = int(channel)
+        self.channel = _between('--C', '.ome.tif', self.filename)
 
         # TODO: Use scanning template xml
         # image properties, xml
@@ -286,14 +278,14 @@ class Image:
 
 
     def __str__(self):
-        return '{}, z:{}, channel:{}'.format(self.filename, self.z, self.channel)
+        return 'matrixscreener.Field({})'.format(self.filename)
 
 
 
 
 # functions
 def _between(before, after, string):
-    """Strip string and return whats between before and after.
+    """Strip string and return whats between before and after as integer.
 
     Parameters
     ----------
@@ -306,7 +298,7 @@ def _between(before, after, string):
 
     Returns
     -------
-    string
-        String between before and after.
+    int
+        Partion between before and after as integer.
     """
     return string.split(before)[1].split(after)[0]
