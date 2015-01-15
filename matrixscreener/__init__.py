@@ -1,13 +1,7 @@
 """
-Read and stitch ome.tifs from Leica LAS AF MatrixScreener Data Exporter.
+Interfacing with Leica LAS AF MatrixScreener.
 """
-from .experiment import Experiment
-from .cam import *
+__all__ = [ 'cam', 'experiment', 'imagej',]
+from matrixscreener import cam, experiment, imagej
 
 VERSION = '0.2.1'
-
-__all__ = [ 'Experiment',
-            'CAM',
-            'tuples_as_bytes',
-            'tuples_as_dict',
-            'bytes_as_dict' ]
