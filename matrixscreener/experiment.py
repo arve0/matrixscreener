@@ -120,8 +120,8 @@ def stitch(path, output_folder=None):
     fields = glob.glob(_pattern(path, _field))
 
     # assume we have rectangle of fields
-    xs = [int(_attribute(field, 'X')) for field in fields]
-    ys = [int(_attribute(field, 'Y')) for field in fields]
+    xs = [attribute_as_int(field, 'X') for field in fields]
+    ys = [attribute_as_int(field, 'Y') for field in fields]
     x_min, x_max = min(xs), max(xs)
     y_min, y_max = min(ys), max(ys)
     fields_x = len(set(xs))
@@ -132,17 +132,17 @@ def stitch(path, output_folder=None):
     images = glob.glob(_pattern(fields[0], _image))
 
     # assume attributes are the same on all images
-    attr = _attributes(images[0])
+    attr = attributes(images[0])
 
     # find all channels and z-stacks
     channels = []
     z_stacks = []
     for image in images:
-        channel = _attribute(image, 'C')
+        channel = attribute(image, 'C')
         if channel not in channels:
             channels.append(channel)
 
-        z = _attribute(image, 'Z')
+        z = attribute(image, 'Z')
         if z not in z_stacks:
             z_stacks.append(z)
 
@@ -192,14 +192,7 @@ def stitch(path, output_folder=None):
     return output_files
 
 
-
-# helper functions
-def _pattern(*names):
-    "Returns globbing pattern for name1/name2/../lastname + '--*'"
-    return os.path.join(*names) + '--*'
-
-
-def _attribute(path, name):
+def attribute(path, name):
     """Returns the two numbers found behind --[A-Z] in path. name should be
     [A-Z]. If several matches are found, the last one is returned
     """
@@ -209,8 +202,11 @@ def _attribute(path, name):
     else:
         return None
 
+def attribute_as_int(*args):
+    "Short hand for int(attributes(*args))"
+    return int(attribute(*args))
 
-def _attributes(path):
+def attributes(path):
     """Get attributes from path based on format --[A-Z]. Returns namedtuple
     with upper case attributes equal to what found in path (string) and lower
     case as int. If path holds several occurrences of same character, only the
@@ -240,6 +236,13 @@ def _attributes(path):
     attributes = namedtuple('attributes', keys + lower_keys)
 
     return attributes(*values + int_values)
+
+
+
+# helper functions
+def _pattern(*names):
+    "Returns globbing pattern for name1/name2/../lastname + '--*'"
+    return os.path.join(*names) + '--*'
 
 
 def _set_path(self, path):
