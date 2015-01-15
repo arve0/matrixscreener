@@ -26,7 +26,7 @@ pip install matrixscreener
 
 ## Examples ##
 **stitch experiment**
-```
+```python
 import matrixscreener
 # create short hand
 Experiment = matrixscreener.experiment.Experiment
@@ -42,7 +42,7 @@ stitched_images = experiment.stitch('/path/to/output/files/')
 ```
 
 **stitch specific well**
-```
+```python
 from matrixscreener import experiment
 
 # path should contain AditionalData and slide--S*
@@ -50,7 +50,7 @@ stitched_images = experiment.stitch('/path/to/well')
 ```
 
 **do stuff on images**
-```
+```python
 from matrixscreener import experiment
 
 scan = experiment.Experiment('path/to/experiment--')
@@ -71,14 +71,14 @@ for field in selected_fields:
 ```
 
 **subtract data**
-```
+```python
 # get all channels
 channels = [attribute_as_int(image, 'C') for image in scan.images]
 min_ch, max_ch = min(channels), max(channels)
 ```
 
 **speak with microscope**
-```
+```python
 from matrixscreener.cam import CAM
 
 cam = CAM()   # initiate
