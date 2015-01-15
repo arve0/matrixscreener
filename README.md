@@ -72,6 +72,8 @@ for field in selected_fields:
 
 **subtract data**
 ```
+from matrixscreener.experiment import attribute_as_int
+
 # get all channels
 channels = [attribute_as_int(image, 'C') for image in scan.images]
 min_ch, max_ch = min(channels), max(channels)
