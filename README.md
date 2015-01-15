@@ -1,4 +1,4 @@
-# MatrixScreener #
+# matrixscreener #
 This is an python module for interfacing with Leica LAS AF MatrixScreener.
 It can read experiments and communicate with microscope over network.
 
@@ -12,7 +12,7 @@ If you find any bugs, please report them as an issue on github. Pull request
 are also welcome.
 
 
-## Features
+## Features ##
 - Access experiment as python object
 - ImageJ stitching
 - Communicate with microscope over CAM TCP/IP socket
