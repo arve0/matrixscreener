@@ -18,5 +18,5 @@ setup(name='MatrixScreener',
       license='MIT',
       url='https://github.com/arve0/matrixscreener',
       packages=find_packages(),
-      install_requires=['tifffile', 'numpy'],
+      install_requires=['pydebug'],
       long_description=long_description)
