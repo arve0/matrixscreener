@@ -1,2 +1,2 @@
 #!/bin/bash
-pip install -i https://testpypi.python.org/pypi matrixscreener
+pip install -U -i https://testpypi.python.org/pypi matrixscreener
