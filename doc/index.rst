@@ -12,6 +12,15 @@ main module: matrixscreener
 
 
 ************************************
+submodule: matrixscreener.cam
+************************************
+.. automodule:: matrixscreener.cam
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+************************************
 submodule: matrixscreener.experiment
 ************************************
 .. automodule:: matrixscreener.experiment
