@@ -2,19 +2,20 @@
 """
 Stitch images with ImageJ.
 
-* ``matrixscreener.imagej.DEBUG`` will turn on ImageJ output.
-* ``matrixscreener.imagej.IMAGEJ_PATH`` should be set if you are on Windows or Linux.
+* ``matrixscreener.imagej._bin`` should be set if you are on Windows or Linux.
 """
-import os
+import pydebug, subprocess, os
 from tempfile import NamedTemporaryFile
 
+# debug with DEBUG=matrixscreener python script.py
+debug = pydebug.debug('matrixscreener')
+
 # lazy hardcode, TODO windows, linux
-IMAGEJ_PATH = '/Applications/Fiji.app/Contents/MacOS/ImageJ-macosx'
-DEBUG = False
+_bin = '/Applications/Fiji.app/Contents/MacOS/ImageJ-macosx'
 
-
-def stitch_macro(folder, filenames, output_filename, x_size, y_size,
-           x_start=0, y_start=0, overlap=10):
+def stitch_macro(folder, filenames, x_size, y_size,
+                 output_filename='stitched.tif',
+                 x_start=0, y_start=0, overlap=10):
     """
     Creates a ImageJ Grid/Collection stitching macro. Parameters are the same as
     in the plugin and are described in further detail here:
@@ -35,13 +36,16 @@ def stitch_macro(folder, filenames, output_filename, x_size, y_size,
     Parameters
     ----------
     folder : string
-        Folder to find images. Example: */path/to/slide--S00/chamber--U01--V02/*
+        Path to folder with images or folders with images.
+        Example: */path/to/slide--S00/chamber--U01--V02/*
     filenames : string
-        Filenames of images. Example: *field-X{xx}-Y{yy}/image-X{xx}-Y{yy}.ome.tif*
-    output_filename : string
-        Filename of fused image. Example: */path/to/image.tif*
+        Filenames of images.
+        Example: *field-X{xx}-Y{yy}/image-X{xx}-Y{yy}.ome.tif*
     x_size, y_size : int
-        Number of images in x and y direction.
+        Size of grid, number of images in x and y direction.
+    output_filename : string
+        Filename of fused image relative to given path. Example: *../image.tif*
+        Default: *stitched.tif*
     x_start, y_start : int
         Which number to start with.
     overlap : number
@@ -52,6 +56,8 @@ def stitch_macro(folder, filenames, output_filename, x_size, y_size,
     string
         IJM-macro.
     """
+
+    output_filename = os.path.join(folder, output_filename)
 
     macro = []
     macro.append('run("Grid/Collection stitching",')
@@ -83,7 +89,8 @@ def stitch_macro(folder, filenames, output_filename, x_size, y_size,
 
 def run_imagej(macro):
     """
-    Runs ImageJ with the suplied macro.
+    Runs ImageJ with the suplied macro. Output of ImageJ can be viewed by
+    running python script with environment variable DEBUG=matrixscreener.
 
     Parameters
     ----------
@@ -95,19 +102,30 @@ def run_imagej(macro):
     int
         ImageJ exit code.
     """
+    # avoid verbose output of ImageJ when DEBUG environment variable set
+    env = os.environ.copy()
+    debugging = False
+    if 'DEBUG' in env:
+        if env['DEBUG'] == 'matrixscreener' or env['DEBUG'] == '*':
+            debugging = True
+        del env['DEBUG']
+
     with NamedTemporaryFile(mode='w', suffix='.ijm') as m:
         m.write(macro)
         m.flush() # make sure macro is written before running ImageJ
-        if DEBUG:
-            cmd = IMAGEJ_PATH + ' --headless {}'.format(m.name)
-        else:
-            cmd = IMAGEJ_PATH + ' --headless {} >> /dev/null 2>&1'.format(m.name)
-        exit_code = os.system(cmd)
 
-    if exit_code != 0:
-        msg = 'ERROR: ImageJ did not exit correctly, exit code {}.'.format(exit_code)
-        if not DEBUG:
-            msg += '\nTry using matrixscreener.imagej.DEBUG = True'
-        print(msg)
+        cmd = [_bin, '--headless', m.name]
+        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE,
+                                stderr=subprocess.PIPE, env=env)
+        out, err = proc.communicate()
 
-    return exit_code
+        for line in out.decode().splitlines():
+            debug('stdout:' + line)
+        for line in err.decode().splitlines():
+            debug('stderr:' + line)
+
+    if proc.returncode != 0 and not debugging:
+        print('matrixscreener - ERROR: ImageJ exited with code {}.'.format(proc.returncode))
+        print('matrixscreener - Try running script with DEBUG=matrixscreener python script.py')
+
+    return proc.returncode
