@@ -2,12 +2,14 @@
 This is an python module for interfacing with Leica LAS AF MatrixScreener.
 It can read experiments and communicate with microscope over network.
 
-MatrixScreener can be used to stitch wells from an experiment exported with
-the *Data Exporter*, as well as programmatically selecting slides/wells/fields
-given by position attributes (U, V, X, Y, z-stack), channel, etc.
+The module can be used to stitch wells from an experiment exported with the
+LAS AF *Data Exporter*, as well as programmatically selecting
+slides/wells/fields/images given by position attributes (U, V, X, Y, z-stack),
+channel, etc.
 
-This modules is developed on Mac OS X. If you find any bugs on Linux or
-Windows, please report them as an issue on github or send a pull request.
+The module is developed on Mac OS X, but should work on Linux and Windows too.
+If you find any bugs, please report them as an issue on github. Pull request
+are also welcome.
 
 
 ## Features
