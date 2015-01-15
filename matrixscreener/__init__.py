@@ -4,4 +4,4 @@ Interfacing with Leica LAS AF MatrixScreener.
 __all__ = [ 'cam', 'experiment', 'imagej',]
 from matrixscreener import cam, experiment, imagej
 
-VERSION = '0.2.1'
+VERSION = '0.3.0'

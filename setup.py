@@ -11,8 +11,8 @@ else:
 from setuptools import setup, find_packages
 
 setup(name='MatrixScreener',
-      version='0.2.1',
-      description='Read and stitch ome.tifs from Leica LAS AF MatrixScreener Data exporter',
+      version='0.3.0',
+      description='Python API for Leica LAS AF MatrixScreener',
       author='Arve Seljebu',
       author_email='arve.seljebu@gmail.com',
       license='MIT',
