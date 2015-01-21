@@ -1,19 +1,20 @@
 # matrixscreener #
-This is an python module for interfacing with Leica LAS AF MatrixScreener.
-It can read experiments and communicate with microscope over network.
+This is a python module for interfacing with *Leica LAS AF MatrixScreener*.
+It can read experiments and communicate with the microscope over network.
 
-The module can be used to stitch wells from an experiment exported with the
-LAS AF *Data Exporter*, as well as programmatically selecting
+For example, the module can be used to stitch wells from an experiment exported
+with the *LAS AF Data Exporter*, as well as programmatically selecting
 slides/wells/fields/images given by position attributes (U, V, X, Y, z-stack),
 channel, etc.
 
 The module is developed on Mac OS X, but should work on Linux and Windows too.
-If you find any bugs, please report them as an issue on github. Pull request
-are also welcome.
+If you find any bugs, please report them as an
+[issue](https://github.com/arve0/matrixscreener/issues/new) on github. Pull
+request are also welcome.
 
 
 ## Features ##
-- Access experiment as python object
+- Access experiment as a python object
 - ImageJ stitching
 - Communicate with microscope over CAM TCP/IP socket
 
@@ -49,11 +50,19 @@ from matrixscreener import experiment
 stitched_images = experiment.stitch('/path/to/well')
 ```
 
-**do stuff on images**
+**do stuff on all images**
 ```python
 from matrixscreener import experiment
 
 scan = experiment.Experiment('path/to/experiment--')
+
+for image in scan.images:
+    do stuff...
+```
+
+**do stuff on specific wells/fields**
+```python
+from matrixscreener import experiment
 
 # select specific parts
 selected_wells = [well for well in scan.wells if 'U00' in well]
