@@ -1,5 +1,6 @@
 from time import sleep
 from collections import OrderedDict
+import socket
 
 
 def tuples_as_bytes(cmds):
@@ -51,7 +52,7 @@ def bytes_as_dict(msg):
 
     Parameters
     ----------
-    command : bytes
+    msg : bytes
         Sequence of /key:val.
 
     Returns
@@ -78,20 +79,28 @@ class CAM:
         # prefix for all commands
         self.prefix = [('cli', 'python-matrixscreener'),
                        ('app', 'matrix')]
+        self.prefix_bytes = b'/cli:python-matrixscreener /app:matrix '
         self.buffer_size = 1024
         self.delay = 50e-3 # wait 50ms after sending commands
-        self.connected = False
-        self.socket = None
+        self.connect()
 
 
     def connect(self):
         "Connects to LASAF through a CAM-socket."
-        import socket
         self.socket = socket.socket()
+        self.socket.settimeout(False) # non-blocking
         self.socket.connect((self.host, self.port))
         sleep(self.delay) # wait for response
-        self.last_msg = self.socket.recv(self.buffer_size) # receive welcome message
-        self.connected = True
+        self.welcome_msg = self.socket.recv(self.buffer_size) # receive welcome message
+
+
+    def flush(self):
+        "Flush incomming socket messages."
+        try:
+            while(True):
+                self.socket.recv(self.buffer_size)
+        except socket.error:
+            pass
 
 
     def send(self, commands):
@@ -99,19 +108,39 @@ class CAM:
 
         Paramenters
         -----------
-        commands : list of tuples
-            Commands as a list of tuples. matrixscreener.CMD_PREFIX is
-            prepended to commands.
+        commands : list of tuples or bytes string
+            Commands as a list of tuples or a bytes string.
+            matrixscreener.prefix is allways prepended before sending.
             Example: [('cmd', 'enableall'), ('value', 'true')]
 
         Returns
         -------
-        bytes
-            Response message from LASAF.
+        OrderedDict
+            Response message from LAS AF as an OrderedDict.
         """
-        self.socket.send(tuples_as_bytes(self.prefix + commands))
+        self.flush() # discard any waiting messages
+        if type(commands) == bytes:
+            self.socket.send(self.prefix_bytes + commands)
+        else:
+            self.socket.send(tuples_as_bytes(self.prefix + commands))
         sleep(self.delay)
-        return self.socket.recv(self.buffer_size)
+        return self.receive()
+
+
+    def receive(self):
+        "Receive message from socket interface."
+
+        try:
+            msg = self.socket.recv(self.buffer_size)
+        except socket.error:
+            return None
+
+        # assume the first message is what we want
+        msg = msg.splitlines()
+        assert len(msg) == 1
+        msg = msg[0]
+
+        return bytes_as_dict(msg)
 
 
     # convinience functions for commands
@@ -133,7 +162,7 @@ class CAM:
         return self.send(cmd)
 
 
-    def enable(self, slide=1, wellx=1, welly=1,
+    def enable(self, slide=0, wellx=1, welly=1,
                fieldx=1, fieldy=1, value='true'):
         "Enable a given scan field."
         cmd = [
@@ -167,7 +196,7 @@ class CAM:
     def save_template(self, filename="{ScanningTemplate}matrixscreener.xml"):
         "Save scanning template to filename."
         cmd = [
-            ('sys', '1'),
+            ('sys', '0'),
             ('cmd', 'save'),
             ('fil', str(filename))
         ]
@@ -179,7 +208,7 @@ class CAM:
         in database, otherwise it will not load.
         """
         cmd = [
-            ('sys', '1'),
+            ('sys', '0'),
             ('cmd', 'load'),
             ('fil', str(filename))
         ]

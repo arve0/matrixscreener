@@ -88,22 +88,27 @@ channels = [attribute(image, 'C') for image in scan.images]
 min_ch, max_ch = min(channels), max(channels)
 ```
 
-**speak with microscope**
+**communicate with microscope**
 ```python
 from matrixscreener.cam import CAM
 
-cam = CAM()   # initiate
-cam.connect() # default localhost:8895
+cam = CAM()   # initiate and connect, default localhost:8895
 
-# command as tuples in list with keys and values
+# some commands are created as short hands
+# start matrix scan
+response = cam.start_scan()
+print(response)
+
+# but you could also create your own command with a list of tuples
 command = [('cmd', 'enableall'),
            ('value', 'true')]
 response = cam.send(command)
+print(response)
 
-# command as bytes string
-command = b"/cmd:enableall /value:true"
-bytes_sent = cam.socket.send(command)
-response = cam.socket.recv(cam.buffer_size)
+# or even send it as a bytes string (note the b)
+command = b'/cmd:enableall /value:true'
+response = cam.send(command)
+print(response)
 ```
 
 
