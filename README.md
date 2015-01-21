@@ -126,6 +126,18 @@ tox
 ```
 
 ## API Reference ##
-Use `pydoc matrixscreener`, `pydoc matrixscreener.cam`,
-`pydoc matrixscreener.experiment`, `pydoc matrixscreener.imagej` or read it
-[online](http://matrixscreener.readthedocs.org).
+All commands should be documented in docstrings in
+[numpy format](https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt).
+
+An [online](http://matrixscreener.readthedocs.org) version is available.
+
+It can also be read with [pydoc](https://docs.python.org/3.4/library/pydoc.html)
+or any editor that does autocomplete with docstrings.
+
+In example:
+```
+pydoc matrixscreener
+pydoc matrixscreener.cam
+pydoc matrixscreener.experiment
+pydoc matrixscreener.imagej
+```

@@ -3,7 +3,6 @@
 Access matrix scans from Leica LAS AF MatrixScreener (Data Explorer)
 through an object.
 """
-# doc-format https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt
 
 # imports
 import os, glob, re
