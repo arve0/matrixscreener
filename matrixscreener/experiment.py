@@ -119,8 +119,8 @@ def stitch(path, output_folder=None):
     fields = glob.glob(_pattern(path, _field))
 
     # assume we have rectangle of fields
-    xs = [attribute_as_int(field, 'X') for field in fields]
-    ys = [attribute_as_int(field, 'Y') for field in fields]
+    xs = [attribute(field, 'X') for field in fields]
+    ys = [attribute(field, 'Y') for field in fields]
     x_min, x_max = min(xs), max(xs)
     y_min, y_max = min(ys), max(ys)
     fields_x = len(set(xs))
@@ -137,11 +137,11 @@ def stitch(path, output_folder=None):
     channels = []
     z_stacks = []
     for image in images:
-        channel = attribute(image, 'C')
+        channel = attribute_as_str(image, 'C')
         if channel not in channels:
             channels.append(channel)
 
-        z = attribute(image, 'Z')
+        z = attribute_as_str(image, 'Z')
         if z not in z_stacks:
             z_stacks.append(z)
 
@@ -192,18 +192,51 @@ def stitch(path, output_folder=None):
 
 
 def attribute(path, name):
-    """Returns the two numbers found behind --[A-Z] in path. name should be
-    [A-Z]. If several matches are found, the last one is returned
+    """Returns the two numbers found behind --[A-Z] in path. If several matches
+    are found, the last one is returned.
+
+    Parameters
+    ----------
+    path : string
+        String with path of file/folder to get attribute from.
+    name : string
+        Name of attribute to get. Should be A-Z or a-z (implicit converted to
+        uppercase).
+
+    Returns
+    -------
+    integer
+        Returns number found in path behind --name as an integer.
     """
-    matches = re.findall('--' + name + '([0-9]{2})', path)
+    matches = re.findall('--' + name.upper() + '([0-9]{2})', path)
+    if matches:
+        return int(matches[-1])
+    else:
+        return None
+
+
+def attribute_as_str(path, name):
+    """Returns the two numbers found behind --[A-Z] in path. If several matches
+    are found, the last one is returned.
+
+    Parameters
+    ----------
+    path : string
+        String with path of file/folder to get attribute from.
+    name : string
+        Name of attribute to get. Should be A-Z or a-z (implicit converted to
+        uppercase).
+
+    Returns
+    -------
+    string
+        Returns two digit number found in path behind --name.
+    """
+    matches = re.findall('--' + name.upper() + '([0-9]{2})', path)
     if matches:
         return matches[-1]
     else:
         return None
-
-def attribute_as_int(*args):
-    "Short hand for int(attributes(*args))"
-    return int(attribute(*args))
 
 def attributes(path):
     """Get attributes from path based on format --[A-Z]. Returns namedtuple

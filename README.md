@@ -70,8 +70,8 @@ for well in selected_wells:
     do stuff...
 
 def condition(path):
-    x_above = experiment.attribute_as_int(path, 'X') > 1
-    x_below = experiment.attribute_as_int(path, 'X') < 5
+    x_above = experiment.attribute(path, 'X') > 1
+    x_below = experiment.attribute(path, 'X') < 5
     return x_above and x_below
 
 selected_fields = [field for field in scan.fields if condition(field)]
@@ -81,10 +81,10 @@ for field in selected_fields:
 
 **subtract data**
 ```python
-from matrixscreener.experiment import attribute_as_int
+from matrixscreener.experiment import attribute
 
 # get all channels
-channels = [attribute_as_int(image, 'C') for image in scan.images]
+channels = [attribute(image, 'C') for image in scan.images]
 min_ch, max_ch = min(channels), max(channels)
 ```
 
