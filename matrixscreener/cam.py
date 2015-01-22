@@ -65,10 +65,10 @@ def bytes_as_dict(msg):
     cmds = OrderedDict()
     for cmd in cmd_strings:
         unpacked = cmd.split(':')
-        # handle string not well formated
+        # handle string not well formated (ex filenames with c:\)
         if len(unpacked) > 2:
             key = unpacked[0]
-            val = unpacked[1:]
+            val = ':'.join(unpacked[1:])
         elif len(unpacked) < 2:
             continue
         else:
