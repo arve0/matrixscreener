@@ -132,19 +132,17 @@ class CAM:
 
 
     def receive(self):
-        "Receive message from socket interface."
+        "Receive message from socket interface as list of OrderedDict."
 
         try:
-            msg = self.socket.recv(self.buffer_size)
+            incomming = self.socket.recv(self.buffer_size)
         except socket.error:
             return None
 
-        # assume the first message is what we want
-        msg = msg.splitlines()
-        assert len(msg) == 1
-        msg = msg[0]
-
-        return bytes_as_dict(msg)
+        # split received messages
+        # return as list of several messages received
+        msgs = incomming.splitlines()
+        return [bytes_as_dict(msg) for msg in msgs]
 
 
     # convinience functions for commands
