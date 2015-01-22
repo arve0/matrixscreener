@@ -85,7 +85,7 @@ class CAM:
                        ('app', 'matrix')]
         self.prefix_bytes = b'/cli:python-matrixscreener /app:matrix '
         self.buffer_size = 1024
-        self.delay = 50e-3 # wait 50ms after sending commands
+        self.delay = 1e-2 # wait 100ms after sending commands
         self.connect()
 
 
@@ -223,4 +223,5 @@ class CAM:
             ('cmd', 'getinfo'),
             ('dev', str(about))
         ]
-        return self.send(cmd)
+        response = self.send(cmd)
+        return response[0] # assume we want first response
