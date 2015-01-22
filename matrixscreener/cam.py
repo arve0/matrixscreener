@@ -60,15 +60,19 @@ def bytes_as_dict(msg):
     collections.OrderedDict
         With /key:val => dict[key] = val.
     """
-    # special case: exception
-    if msg[0:11] == b'/exception:':
-        return OrderedDict({'exception': msg[12:]})
-
     # decode bytes, assume '/' in start
     cmd_strings = msg.decode()[1:].split(r' /')
     cmds = OrderedDict()
     for cmd in cmd_strings:
-        key, val = cmd.split(':')
+        unpacked = cmd.split(':')
+        # handle string not well formated
+        if len(unpacked) > 2:
+            key = unpacked[0]
+            val = unpacked[1:]
+        else if len(unpacked) < 2:
+            continue
+        else:
+            key,val = unpacked
         cmds[key] = val
     return cmds
 
