@@ -69,7 +69,7 @@ def bytes_as_dict(msg):
         if len(unpacked) > 2:
             key = unpacked[0]
             val = unpacked[1:]
-        else if len(unpacked) < 2:
+        elif len(unpacked) < 2:
             continue
         else:
             key,val = unpacked
