@@ -92,8 +92,8 @@ class CAM:
     def connect(self):
         "Connects to LASAF through a CAM-socket."
         self.socket = socket.socket()
-        self.socket.settimeout(False) # non-blocking
         self.socket.connect((self.host, self.port))
+        self.socket.settimeout(False) # non-blocking
         sleep(self.delay) # wait for response
         self.welcome_msg = self.socket.recv(self.buffer_size) # receive welcome message
 
