@@ -1,6 +1,6 @@
 # encoding: utf-8
 """
-Access matrix scans from Leica LAS AF MatrixScreener (Data Explorer)
+Access matrix scans from Leica LAS AF MatrixScreener (Data Exporter)
 through an object.
 """
 
