@@ -42,3 +42,27 @@ def test_echo(monkeypatch):
     sent   = tuples_as_dict(cam.prefix + cmd)
 
     assert sent == echoed
+
+def test_commands(monkeypatch):
+    "short hand commands should work as intended"
+    # mock socket
+    monkeypatch.setattr("socket.socket", EchoSocket)
+
+    # setup cam
+    cam = CAM()
+
+    # monkeypathced EchoSocket will never flush
+    def flush():
+        pass
+    cam.flush = flush
+
+    # get_information
+    cmd = cam.prefix + [
+        ('cmd', 'getinfo'),
+        ('dev', 'stage')
+    ]
+
+    information = cam.get_information()
+    should_be = tuples_as_dict(cmd)
+
+    assert information == should_be
