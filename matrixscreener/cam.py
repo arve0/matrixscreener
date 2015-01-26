@@ -228,4 +228,7 @@ class CAM:
             ('dev', str(about))
         ]
         response = self.send(cmd)
-        return response[0] # assume we want first response
+        if len(response) == 0:
+            return None
+        else:
+            return response[0] # assume we want first response
