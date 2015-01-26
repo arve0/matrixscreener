@@ -15,6 +15,9 @@ class EchoSocket:
     def connect(self, where):
         pass
 
+    def settimeout(self, timeout):
+        pass
+
 # TEST
 #- key (here cli) overrided if defined several times
 #- prefix added
@@ -26,12 +29,16 @@ def test_echo(monkeypatch):
 
     # setup cam
     cam = CAM()
-    cam.connect()
 
     cmd = [('cli', 'custom'), ('cmd', 'enableall'), ('value', 'true'),
            ('integer', 1234), ('float', 0.00234)]
 
-    echoed = bytes_as_dict(cam.send(cmd))
-    sent = tuples_as_dict(cam.prefix + cmd)
+    # monkeypathced EchoSocket will never flush
+    def flush():
+        pass
+    cam.flush = flush
+
+    echoed = cam.send(cmd)[0]
+    sent   = tuples_as_dict(cam.prefix + cmd)
 
     assert sent == echoed
