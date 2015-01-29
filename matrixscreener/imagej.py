@@ -41,15 +41,20 @@ def stitch_macro(folder, filenames, x_size, y_size,
     filenames : string
         Filenames of images.
         Example: *field-X{xx}-Y{yy}/image-X{xx}-Y{yy}.ome.tif*
-    x_size, y_size : int
-        Size of grid, number of images in x and y direction.
+    x_size : int
+        Size of grid, number of images in x direction.
+    y_size : int
+        Size of grid, number of images in y direction.
     output_filename : string
         Filename of fused image relative to given path. Example: *../image.tif*
         Default: *stitched.tif*
-    x_start, y_start : int
-        Which number to start with.
+    x_start : int
+        Which x position grid start with.
+    y_start : int
+        Which y position grid start with.
     overlap : number
-        Amount of overlap in images.
+        Tile overlap in percent. ImageJ will find the optimal overlap, but a
+        precise overlap assumption will decrase computation time.  
 
     Returns
     -------
