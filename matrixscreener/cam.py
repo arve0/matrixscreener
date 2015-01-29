@@ -172,6 +172,7 @@ class CAM:
                fieldx=1, fieldy=1, value='true'):
         "Enable a given scan field."
         cmd = [
+            ('cmd', 'enable'),
             ('slide', str(slide)),
             ('wellx', str(wellx)),
             ('welly', str(welly)),
