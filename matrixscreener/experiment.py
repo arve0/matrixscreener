@@ -5,10 +5,12 @@ through an object.
 """
 
 # imports
-import os, glob, re
+import os, glob, re, pydebug
 from collections import namedtuple
 from .imagej import stitch_macro, run_imagej
 
+# debug with `DEBUG=matrixscreener python script.py`
+debug = pydebug.debug('matrixscreener')
 
 
 # variables in case custom folders
@@ -66,7 +68,12 @@ class Experiment:
     @property
     def images(self):
         "List of paths to images."
-        return glob.glob(self._image_path)
+        tifs = _pattern(self._image_path, extension='tif')
+        pngs = _pattern(self._image_path, extension='png')
+        imgs = []
+        imgs.extend(glob.glob(tifs))
+        imgs.extend(glob.glob(pngs))
+        return imgs
 
     def __str__(self):
         return 'matrixscreener.Experiment({})'.format(self.path)
@@ -190,6 +197,164 @@ def stitch(path, output_folder=None):
 
     return output_files
 
+def compress(images, delete_tif=False):
+    """Lossless compression. Save images as PNG and TIFF tags to json. Process
+    can be reversed with `decompress`.
+
+    Parameters
+    ----------
+    images : list of filenames
+        Images to lossless compress.
+    delete_tif : bool
+        Wheter to delete original images.
+
+    Returns
+    -------
+    list of filenames
+        List of compressed files.
+    """
+    from PIL import Image
+    from os import path, remove
+    import json
+    from copy import copy
+
+    filenames = copy(images) # as images property will change when looping
+
+    compressed_images = []
+    for orig_filename in filenames:
+        debug('compressing {}'.format(orig_filename))
+        try:
+            filename, extension = path.splitext(orig_filename)
+            # remove last occurrence of .ome
+            filename = filename.rsplit('.ome', 1)[0]
+            new_filename = filename + '.png'
+            # check if png exists
+            if path.isfile(new_filename):
+                compressed_images.append(new_filename)
+                msg = "Aborting compress, PNG already exists: {}".format(orig_filename)
+                raise AssertionError(msg)
+            if extension != '.tif':
+                msg = "Aborting compress, not a TIFF: {}".format(orig_filename)
+                raise AssertionError(msg)
+
+            # open image, load and close file pointer
+            img = Image.open(orig_filename)
+            img.load() # load img-data before switching mode, also closes fp
+
+            # check if image is palette-mode
+            palette = False
+            if img.mode == 'P':
+                palette = img.getpalette()
+                # switch to luminance to keep data intact
+                debug('palette-mode switched to luminance')
+                img.mode = 'L'
+
+            # compress/save
+            debug('saving to {}'.format(new_filename))
+            img.save(new_filename)
+            compressed_images.append(new_filename)
+
+            # get tags and save them as json
+            tags = img.tag.as_dict()
+            with open(filename + '.json', 'w') as f:
+                if palette:
+                    # keep palette
+                    tags['palette'] = palette
+                json.dump(tags, f)
+
+            if delete_tif:
+                remove(orig_filename)
+
+        except (IOError, AssertionError) as e:
+            # print error - continue
+            print('matrixscreener {}'.format(e))
+
+    return compressed_images
+
+
+
+def decompress(images, delete_png=False, delete_json=False):
+    """Reverse compression from tif to png and save them in original format
+    (ome.tif). TIFF-tags are gotten from json-files named the same as given
+    images.
+
+
+    Parameters
+    ----------
+    images : list of filenames
+        Image to decompress.
+    delete_png : bool
+        Wheter to delete PNG images.
+    delete_json : bool
+        Wheter to delete TIFF-tags stored in json files on compress.
+
+    Returns
+    -------
+    list of filenames
+        List of decompressed files.
+    """
+    from PIL import Image
+    from PIL.ImagePalette import ImagePalette
+    from os import path, remove
+    import json
+    from copy import copy
+    filenames = copy(images) # as images property will change when looping
+
+    decompressed_images = []
+    for orig_filename in filenames:
+        debug('decompressing {}'.format(orig_filename))
+        try:
+            filename, extension = path.splitext(orig_filename)
+            new_filename = filename + '.ome.tif'
+            # check if tif exists
+            if path.isfile(new_filename):
+                decompressed_images.append(new_filename)
+                msg = "Aborting decompress, TIFF already exists: {}".format(orig_filename)
+                raise AssertionError(msg)
+            if extension != '.png':
+                msg = "Aborting decompress, not a PNG: {}".format(orig_filename)
+                raise AssertionError(msg)
+
+            # open image, load and close file pointer
+            img = Image.open(orig_filename)
+            img.load() # load img-data before switching mode, also closes fp
+
+            # get tags from json
+            info = {}
+            with open(filename + '.json', 'r') as f:
+                tags = json.load(f)
+                # convert dictionary to original types (lost in json conversion)
+                for tag,val in tags.items():
+                    if tag == 'palette':
+                        # hack hack
+                        continue
+                    if type(val) == list:
+                        val = tuple(val)
+                    if type(val[0]) == list:
+                        # list of list
+                        val = tuple(tuple(x) for x in val)
+                    info[int(tag)] = val
+
+            # check for color map
+            if 'palette' in tags:
+                img.putpalette(tags['palette'])
+
+            # save as tif
+            debug('saving to {}'.format(new_filename))
+            img.save(new_filename, tiffinfo=info)
+            decompressed_images.append(new_filename)
+
+            if delete_png:
+                remove(orig_filename)
+            if delete_json:
+                remove(filename + '.json')
+
+        except (IOError, AssertionError) as e:
+            # print error - continue
+            print('matrixscreener {}'.format(e))
+
+    return decompressed_images
+
 
 def attribute(path, name):
     """Returns the two numbers found behind --[A-Z] in path. If several matches
@@ -272,9 +437,28 @@ def attributes(path):
 
 
 # helper functions
-def _pattern(*names):
-    "Returns globbing pattern for name1/name2/../lastname + '--*'"
-    return os.path.join(*names) + '--*'
+def _pattern(*names, **kwargs):
+    """Returns globbing pattern for name1/name2/../lastname + '--*' or
+    name1/name2/../lastname + extension if parameter `extension` it set.
+
+    Parameters
+    ----------
+    names : strings
+        Which path to join. Example: _pattern('path', 'to', 'experiment') will
+        return `path/to/experiment--*`.
+    extension : string
+        If other extension then --* is wanted.
+        Example: _pattern('path', 'to', 'image', extension='*.png') will return
+        `path/to/image*.png`.
+
+    Returns
+    -------
+    string
+        Joined glob pattern string.
+    """
+    if 'extension' not in kwargs:
+        kwargs['extension'] = '--*'
+    return os.path.join(*names) + kwargs['extension']
 
 
 def _set_path(self, path):
