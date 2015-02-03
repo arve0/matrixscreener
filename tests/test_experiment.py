@@ -18,6 +18,7 @@ def test_stitch(tmpdir, experiment):
 
 
 def test_looping(experiment):
+    "It should be able to loop through wells, fields and images."
     for well in experiment.wells:
         assert type(well) == str
     for field in experiment.fields:
