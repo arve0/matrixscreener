@@ -54,7 +54,7 @@ def stitch_macro(folder, filenames, x_size, y_size,
         Which y position grid start with.
     overlap : number
         Tile overlap in percent. ImageJ will find the optimal overlap, but a
-        precise overlap assumption will decrase computation time.  
+        precise overlap assumption will decrase computation time.
 
     Returns
     -------
@@ -130,7 +130,7 @@ def run_imagej(macro):
             debug('stderr:' + line)
 
     if proc.returncode != 0 and not debugging:
-        print('matrixscreener - ERROR: ImageJ exited with code {}.'.format(proc.returncode))
-        print('matrixscreener - Try running script with DEBUG=matrixscreener python script.py')
+        print('matrixscreener ERROR: ImageJ exited with code {}.'.format(proc.returncode))
+        print('matrixscreener Try running script with `DEBUG=matrixscreener python script.py`')
 
     return proc.returncode
