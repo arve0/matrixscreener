@@ -231,7 +231,7 @@ def compress(images, delete_tif=False):
             # check if png exists
             if path.isfile(new_filename):
                 compressed_images.append(new_filename)
-                msg = "Aborting compress, PNG already exists: {}".format(orig_filename)
+                msg = "Aborting compress, PNG already exists: {}".format(new_filename)
                 raise AssertionError(msg)
             if extension != '.tif':
                 msg = "Aborting compress, not a TIFF: {}".format(orig_filename)
