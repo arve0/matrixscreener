@@ -11,7 +11,7 @@ else:
 from setuptools import setup, find_packages
 
 setup(name='matrixscreener',
-      version='0.3.1',
+      version='0.4.0',
       description='Python API for Leica LAS AF MatrixScreener',
       author='Arve Seljebu',
       author_email='arve.seljebu@gmail.com',
