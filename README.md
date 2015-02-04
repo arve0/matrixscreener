@@ -3,14 +3,15 @@ This is a python module for interfacing with *Leica LAS AF MatrixScreener*.
 It can read experiments and communicate with the microscope over network.
 
 The module can be used to:
+
 - stitch wells from an experiment exported with the *LAS AF Data Exporter*
 - batch compress images lossless
 - programmatically select slides/wells/fields/images given by attributes like
-  - slide (S)
-  - well position (U, V)
-  - field position (X, Y)
-  - z-stack position (Z)
-  - channel (C)
+    - slide (S)
+    - well position (U, V)
+    - field position (X, Y)
+    - z-stack position (Z)
+    - channel (C)
 - read experiment data from OME-XML
 
 The module is developed on Mac OS X, but should work on Linux and Windows too.
@@ -129,7 +130,7 @@ print(pngs)
 See also [this notebook](http://nbviewer.ipython.org/github/arve0/matrixscreener/tree/master/notebooks/compress.ipynb).
 
 ## Dependencies ##
-- ImageJ with Grid stitching plugin (fiji is recommended)
+- ImageJ with Grid stitching plugin ([fiji](http://fiji.sc/) is recommended)
 
 
 ## Develop ##
@@ -150,10 +151,9 @@ tox
 All commands should be documented in docstrings in
 [numpy format](https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt).
 
-An [online](http://matrixscreener.readthedocs.org) version is available.
-
-It can also be read with [pydoc](https://docs.python.org/3.4/library/pydoc.html)
-or any editor that does autocomplete with docstrings.
+API reference is available [online](http://matrixscreener.readthedocs.org),
+can be read with [pydoc](https://docs.python.org/3.4/library/pydoc.html)
+or any editor/repl that does autocomplete with docstrings.
 
 In example:
 ```

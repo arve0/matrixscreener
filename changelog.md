@@ -1,3 +1,7 @@
+# v 0.4.0
+- add compress/decompress function
+- fix missing /cmd:enable for enable method
+
 # v 0.3.1
 - connect upon initialization
 - fix parse errors in `bytes_as_dict`
