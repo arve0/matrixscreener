@@ -2,10 +2,16 @@
 This is a python module for interfacing with *Leica LAS AF MatrixScreener*.
 It can read experiments and communicate with the microscope over network.
 
-For example, the module can be used to stitch wells from an experiment exported
-with the *LAS AF Data Exporter*, as well as programmatically selecting
-slides/wells/fields/images given by position attributes (U, V, X, Y, z-stack),
-channel, etc.
+The module can be used to:
+- stitch wells from an experiment exported with the *LAS AF Data Exporter*
+- batch compress images lossless
+- programmatically select slides/wells/fields/images given attributes like
+  - slide (S)
+  - well position (U, V)
+  - field position (X, Y)
+  - z-stack position (Z)
+  - channel (C)
+- read experiment data from OME-XML
 
 The module is developed on Mac OS X, but should work on Linux and Windows too.
 If you find any bugs, please report them as an
@@ -15,6 +21,7 @@ request are also welcome.
 
 ## Features ##
 - Access experiment as a python object
+- Compress to PNGs without loosing precision, metadata or colormap
 - ImageJ stitching
 - Communicate with microscope over CAM TCP/IP socket
 
@@ -111,6 +118,15 @@ response = cam.send(command)
 print(response)
 ```
 
+**batch lossless compress of experiment**
+```
+import matrixscreener as ms
+
+e = ms.experiment.Experiment('/path/to/experiment')
+pngs = ms.experiment.compress(e.images)
+print(pngs)
+```
+See also [this notebook](http://nbviewer.ipython.org/github/arve0/matrixscreener/tree/master/notebooks/compress.ipynb).
 
 ## Dependencies ##
 - ImageJ with Grid stitching plugin (fiji is recommended)
