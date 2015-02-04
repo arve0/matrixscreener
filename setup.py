@@ -18,5 +18,5 @@ setup(name='matrixscreener',
       license='MIT',
       url='https://github.com/arve0/matrixscreener',
       packages=find_packages(),
-      install_requires=['pydebug'],
+      install_requires=['pydebug', 'Pillow'],
       long_description=long_description)

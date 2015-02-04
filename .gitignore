@@ -10,3 +10,4 @@ doc/_build
 doc/_static
 doc/_templates
 .tox
+.ipynb_checkpoints
