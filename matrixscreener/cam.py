@@ -3,81 +3,6 @@ from collections import OrderedDict
 import socket
 
 
-def tuples_as_bytes(cmds):
-    """Format list of tuples to CAM message with format /key:val.
-
-    Parameters
-    ----------
-    cmds : list of tuples
-        List of commands as tuples.
-        Example: [('cmd', 'val'), ('cmd2', 'val2')]
-
-    Returns
-    -------
-    bytes
-        Sequence of /key:val.
-    """
-    cmds = OrderedDict(cmds) # override equal keys
-    tmp = []
-    for key,val in cmds.items():
-        key = str(key)
-        val = str(val)
-        tmp.append('/' + key + ':' + val)
-    return ' '.join(tmp).encode()
-
-
-def tuples_as_dict(_list):
-    """Translate a list of tuples to OrderedDict with key and val
-    as strings.
-
-    Parameters
-    ----------
-    _list : list of tuples
-        Example: [('cmd', 'val'), ('cmd2', 'val2')]
-
-    Returns
-    -------
-    collections.OrderedDict
-    """
-    _dict = OrderedDict()
-    for key,val in _list:
-        key = str(key)
-        val = str(val)
-        _dict[key] = val
-    return _dict
-
-
-def bytes_as_dict(msg):
-    """Parse CAM message to OrderedDict based on format /key:val.
-
-    Parameters
-    ----------
-    msg : bytes
-        Sequence of /key:val.
-
-    Returns
-    -------
-    collections.OrderedDict
-        With /key:val => dict[key] = val.
-    """
-    # decode bytes, assume '/' in start
-    cmd_strings = msg.decode()[1:].split(r' /')
-    cmds = OrderedDict()
-    for cmd in cmd_strings:
-        unpacked = cmd.split(':')
-        # handle string not well formated (ex filenames with c:\)
-        if len(unpacked) > 2:
-            key = unpacked[0]
-            val = ':'.join(unpacked[1:])
-        elif len(unpacked) < 2:
-            continue
-        else:
-            key,val = unpacked
-        cmds[key] = val
-    return cmds
-
-
-
 class CAM:
     "Driver for LASAF Computer Assisted Microscopy."
 
@@ -172,6 +97,7 @@ class CAM:
                fieldx=1, fieldy=1, value='true'):
         "Enable a given scan field."
         cmd = [
+            ('cmd', 'enable'),
             ('slide', str(slide)),
             ('wellx', str(wellx)),
             ('welly', str(welly)),
@@ -232,3 +158,82 @@ class CAM:
             return None
         else:
             return response[0] # assume we want first response
+
+
+
+##
+# Helper methods
+##
+
+def tuples_as_bytes(cmds):
+    """Format list of tuples to CAM message with format /key:val.
+
+    Parameters
+    ----------
+    cmds : list of tuples
+        List of commands as tuples.
+        Example: [('cmd', 'val'), ('cmd2', 'val2')]
+
+    Returns
+    -------
+    bytes
+        Sequence of /key:val.
+    """
+    cmds = OrderedDict(cmds) # override equal keys
+    tmp = []
+    for key,val in cmds.items():
+        key = str(key)
+        val = str(val)
+        tmp.append('/' + key + ':' + val)
+    return ' '.join(tmp).encode()
+
+
+def tuples_as_dict(_list):
+    """Translate a list of tuples to OrderedDict with key and val
+    as strings.
+
+    Parameters
+    ----------
+    _list : list of tuples
+        Example: [('cmd', 'val'), ('cmd2', 'val2')]
+
+    Returns
+    -------
+    collections.OrderedDict
+    """
+    _dict = OrderedDict()
+    for key,val in _list:
+        key = str(key)
+        val = str(val)
+        _dict[key] = val
+    return _dict
+
+
+def bytes_as_dict(msg):
+    """Parse CAM message to OrderedDict based on format /key:val.
+
+    Parameters
+    ----------
+    msg : bytes
+        Sequence of /key:val.
+
+    Returns
+    -------
+    collections.OrderedDict
+        With /key:val => dict[key] = val.
+    """
+    # decode bytes, assume '/' in start
+    cmd_strings = msg.decode()[1:].split(r' /')
+    cmds = OrderedDict()
+    for cmd in cmd_strings:
+        unpacked = cmd.split(':')
+        # handle string not well formated (ex filenames with c:\)
+        if len(unpacked) > 2:
+            key = unpacked[0]
+            val = ':'.join(unpacked[1:])
+        elif len(unpacked) < 2:
+            continue
+        else:
+            key,val = unpacked
+        cmds[key] = val
+    return cmds
