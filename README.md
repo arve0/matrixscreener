@@ -5,7 +5,7 @@ It can read experiments and communicate with the microscope over network.
 The module can be used to:
 - stitch wells from an experiment exported with the *LAS AF Data Exporter*
 - batch compress images lossless
-- programmatically select slides/wells/fields/images given attributes like
+- programmatically select slides/wells/fields/images given by attributes like
   - slide (S)
   - well position (U, V)
   - field position (X, Y)
