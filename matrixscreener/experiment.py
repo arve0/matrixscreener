@@ -241,26 +241,27 @@ def compress(images, delete_tif=False):
             img = Image.open(orig_filename)
             img.load() # load img-data before switching mode, also closes fp
 
+            # get tags and save them as json
+            tags = img.tag.as_dict()
+            with open(filename + '.json', 'w') as f:
+                if img.mode == 'P':
+                    # keep palette
+                    tags['palette'] = img.getpalette()
+                json.dump(tags, f)
+
             # check if image is palette-mode
-            palette = False
             if img.mode == 'P':
-                palette = img.getpalette()
                 # switch to luminance to keep data intact
                 debug('palette-mode switched to luminance')
                 img.mode = 'L'
+            if img.mode == 'I;16':
+                # https://github.com/python-pillow/Pillow/issues/1099
+                img = img.convert(mode='I')
 
             # compress/save
             debug('saving to {}'.format(new_filename))
             img.save(new_filename)
             compressed_images.append(new_filename)
-
-            # get tags and save them as json
-            tags = img.tag.as_dict()
-            with open(filename + '.json', 'w') as f:
-                if palette:
-                    # keep palette
-                    tags['palette'] = palette
-                json.dump(tags, f)
 
             if delete_tif:
                 remove(orig_filename)
