@@ -4,14 +4,13 @@ Stitch images with ImageJ.
 
 * ``matrixscreener.imagej._bin`` should be set if you are on Windows or Linux.
 """
-import pydebug, subprocess, os
+import pydebug, subprocess, os, fijibin
 from tempfile import NamedTemporaryFile
 
 # debug with DEBUG=matrixscreener python script.py
 debug = pydebug.debug('matrixscreener')
 
-# lazy hardcode, TODO windows, linux
-_bin = '/Applications/Fiji.app/Contents/MacOS/ImageJ-macosx'
+_bin = fijibin.BIN
 
 def stitch_macro(folder, filenames, x_size, y_size,
                  output_filename='stitched.tif',
@@ -84,7 +83,8 @@ def stitch_macro(folder, filenames, x_size, y_size,
     macro.append('subpixel_accuracy')
     macro.append('computation_parameters=[Save computation time (but use more RAM)]')
     # use display, such that we can specify output filename
-    macro.append('image_output=[Fused and display]");')
+    # this is 'Fused and display' for previous stitching version!!
+    macro.append('image_output=[Fuse and display]");')
     macro.append('selectWindow("Fused");')
     macro.append('run("Save", "save=[{}]");'.format(output_filename))
     macro.append('close();')
@@ -119,7 +119,7 @@ def run_imagej(macro):
         m.write(macro)
         m.flush() # make sure macro is written before running ImageJ
 
-        cmd = [_bin, '--headless', m.name]
+        cmd = [_bin, '--headless', '-macro', m.name]
         proc = subprocess.Popen(cmd, stdout=subprocess.PIPE,
                                 stderr=subprocess.PIPE, env=env)
         out, err = proc.communicate()
