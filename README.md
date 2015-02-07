@@ -23,7 +23,7 @@ request are also welcome.
 ## Features ##
 - Access experiment as a python object
 - Compress to PNGs without loosing precision, metadata or colormap
-- ImageJ stitching
+- ImageJ stitching (Fiji is installed via fijibin)
 - Communicate with microscope over CAM TCP/IP socket
 
 
@@ -43,7 +43,7 @@ Experiment = matrixscreener.experiment.Experiment
 # path should contain AditionalData and slide--S*
 scan = Experiment('path/to/experiment')
 
-print(matrixscreener.imagej._bin) # default is for fiji on mac os x
+print(matrixscreener.imagej._bin) # Fiji installed via package fijibin
 matrixscreener.imagej._bin = '/path/to/imagej'
 
 # if path is omitted, experiment path is used for output files
@@ -129,9 +129,6 @@ print(pngs)
 ```
 See also [this notebook](http://nbviewer.ipython.org/github/arve0/matrixscreener/tree/master/notebooks/compress.ipynb).
 
-## Dependencies ##
-- ImageJ with Grid stitching plugin ([fiji](http://fiji.sc/) is recommended)
-
 
 ## Develop ##
 ```
@@ -141,11 +138,19 @@ cd matrixscreener
 ./setup.py install
 ```
 
+
 ## Testing ##
 ```
 pip install tox
 tox
 ```
+
+**single test**
+```
+pip install pytest numpy
+py.test -k testname tests/test_experiment.py
+```
+
 
 ## API Reference ##
 All commands should be documented in docstrings in
