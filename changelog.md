@@ -1,3 +1,12 @@
+# v 0.4.1
+- Experiment.compress method
+- Experiment.stitched property
+  - stitched images now uses same format as original files
+    (stitched--UXX-VXX...png) so that attributes(filename) can be used
+- Include Fiji with pypi package fijibin
+- more elaborate tests
+- support for 16 bit ome.tif
+
 # v 0.4.0
 - add compress/decompress function
 - fix missing /cmd:enable for enable method
