@@ -8,15 +8,15 @@ if os.path.exists('README.rst'):
 else:
     long_description = ''
 
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(name='matrixscreener',
-      version='0.4.0',
+      version='0.4.1',
       description='Python API for Leica LAS AF MatrixScreener',
       author='Arve Seljebu',
       author_email='arve.seljebu@gmail.com',
       license='MIT',
       url='https://github.com/arve0/matrixscreener',
-      packages=find_packages(),
-      install_requires=['pydebug', 'Pillow'],
+      packages=['matrixscreener'],
+      install_requires=['pydebug', 'Pillow', 'fijibin'],
       long_description=long_description)
