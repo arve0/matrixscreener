@@ -3,11 +3,19 @@
 Access matrix scans from Leica LAS AF MatrixScreener (Data Exporter)
 through an object.
 """
-
+##
 # imports
-import os, glob, re, pydebug
+##
+import os, re, pydebug
+from glob import glob
 from collections import namedtuple
 from .imagej import stitch_macro, run_imagej
+
+# compress
+from PIL import Image
+from PIL.ImagePalette import ImagePalette
+import json
+from copy import copy
 
 # debug with `DEBUG=matrixscreener python script.py`
 debug = pydebug.debug('matrixscreener')
@@ -53,17 +61,17 @@ class Experiment:
     @property
     def slides(self):
         "List of paths to slides."
-        return glob.glob(self._slide_path)
+        return glob(self._slide_path)
 
     @property
     def wells(self):
         "List of paths to wells."
-        return glob.glob(self._well_path)
+        return glob(self._well_path)
 
     @property
     def fields(self):
         "List of paths to fields."
-        return glob.glob(self._field_path)
+        return glob(self._field_path)
 
     @property
     def images(self):
@@ -71,12 +79,20 @@ class Experiment:
         tifs = _pattern(self._image_path, extension='tif')
         pngs = _pattern(self._image_path, extension='png')
         imgs = []
-        imgs.extend(glob.glob(tifs))
-        imgs.extend(glob.glob(pngs))
+        imgs.extend(glob(tifs))
+        imgs.extend(glob(pngs))
         return imgs
+
+    @property
+    def stitched(self):
+        "List of stitched images if they are in experiment folder."
+        return glob(_pattern(self.path, 'stitched'))
 
     def __str__(self):
         return 'matrixscreener.Experiment({})'.format(self.path)
+
+    def __repr__(self):
+        return self.__str__()
 
     def stitch(self, folder=None):
         """Stitches all wells in experiment with ImageJ. Stitched images are
@@ -92,9 +108,10 @@ class Experiment:
         Returns
         -------
         list
-            Filenames of stitched images. Files which already exists are also
-            returned.
+            Filenames of stitched images. Files which already exists before
+            stitching are also returned.
         """
+        debug('stitching ' + self.__str__())
         if not folder:
             folder = self.path
 
@@ -103,6 +120,28 @@ class Experiment:
             output_files.extend(stitch(well, folder))
 
         return output_files
+
+    def compress(self, delete_tif=False, folder=None):
+        """Lossless compress all images in experiment to PNG. If folder is
+        omitted, images will not be moved.
+
+        Images which already exists in PNG are omitted.
+
+        Parameters
+        ----------
+        folder : string
+            Where to store PNGs. Defaults to the folder they are in.
+        delete_tif : bool
+            If set to truthy value, ome.tifs will be deleted after compression.
+
+        Returns
+        -------
+        list
+            Filenames of PNG images. Files which already exists before
+            compression are also returned.
+        """
+        return compress(self.images, delete_tif=delete_tif, folder=folder)
+
 
 
 # methods
@@ -121,9 +160,10 @@ def stitch(path, output_folder=None):
     list
         Filenames for stitched images.
     """
+    debug('stitching ' + path + ' to ' + output_folder)
     output_folder = output_folder or path
 
-    fields = glob.glob(_pattern(path, _field))
+    fields = glob(_pattern(path, _field))
 
     # assume we have rectangle of fields
     xs = [attribute(field, 'X') for field in fields]
@@ -135,7 +175,7 @@ def stitch(path, output_folder=None):
 
     # assume all fields are the same
     # and get properties from images in first field
-    images = glob.glob(_pattern(fields[0], _image))
+    images = glob(_pattern(fields[0], _image))
 
     # assume attributes are the same on all images
     attr = attributes(images[0])
@@ -152,8 +192,14 @@ def stitch(path, output_folder=None):
         if z not in z_stacks:
             z_stacks.append(z)
 
+    debug('channels ' + str(channels))
+    debug('z-stacks ' + str(z_stacks))
 
     # create macro
+    _, extension = os.path.splitext(images[-1])
+    if extension == '.tif':
+        # assume .ome.tif
+        extension = '.ome.tif'
     macro = []
     output_files = []
     for Z in z_stacks:
@@ -170,12 +216,16 @@ def stitch(path, output_folder=None):
                     '--T' + attr.T +
                     '--Z' + Z +
                     '--C' + C +
-                    '.ome.tif')
+                    extension)
+            debug('filenames ' + filenames)
 
-            output_file = 'u{}v{}ch{}z{}.tif'.format(attr.u, attr.v, int(C), int(Z))
+            cur_attr = attributes(filenames)._asdict()
+            output_file = 'stitched--U{U}--V{V}--C{C}--Z{Z}.png'.format(**cur_attr)
+            debug('output_file ' + output_file)
 
             relpath = os.path.relpath(output_folder, path)
             rel_filename = os.path.join(relpath, output_file)
+            debug('rel_filename ' + rel_filename)
 
             output = os.path.join(output_folder, output_file)
             output_files.append(output)
@@ -187,6 +237,10 @@ def stitch(path, output_folder=None):
                     output_filename=rel_filename,
                     x_start=x_min, y_start=y_min))
 
+    # exit immediately
+    macro.append('eval("script", "System.exit(0);");')
+    debug('macro ' + ' '.join(macro))
+
     # stitch images with ImageJ
     if len(macro) != 0:
         run_imagej(' '.join(macro))
@@ -197,7 +251,7 @@ def stitch(path, output_folder=None):
 
     return output_files
 
-def compress(images, delete_tif=False):
+def compress(images, delete_tif=False, folder=None):
     """Lossless compression. Save images as PNG and TIFF tags to json. Process
     can be reversed with `decompress`.
 
@@ -213,10 +267,9 @@ def compress(images, delete_tif=False):
     list of filenames
         List of compressed files.
     """
-    from PIL import Image
-    from os import path, remove
-    import json
-    from copy import copy
+    if type(images) == str:
+        # only one image
+        return compress([images])
 
     filenames = copy(images) # as images property will change when looping
 
@@ -224,12 +277,19 @@ def compress(images, delete_tif=False):
     for orig_filename in filenames:
         debug('compressing {}'.format(orig_filename))
         try:
-            filename, extension = path.splitext(orig_filename)
+            new_filename, extension = os.path.splitext(orig_filename)
             # remove last occurrence of .ome
-            filename = filename.rsplit('.ome', 1)[0]
-            new_filename = filename + '.png'
+            new_filename = new_filename.rsplit('.ome', 1)[0]
+
+            # if compressed file should be put in specified folder
+            if folder:
+                basename = os.path.basename(new_filename)
+                new_filename = os.path.join(folder, basename + '.png')
+            else:
+                new_filename = new_filename + '.png'
+
             # check if png exists
-            if path.isfile(new_filename):
+            if os.path.isfile(new_filename):
                 compressed_images.append(new_filename)
                 msg = "Aborting compress, PNG already exists: {}".format(new_filename)
                 raise AssertionError(msg)
@@ -243,7 +303,7 @@ def compress(images, delete_tif=False):
 
             # get tags and save them as json
             tags = img.tag.as_dict()
-            with open(filename + '.json', 'w') as f:
+            with open(new_filename[:-4] + '.json', 'w') as f:
                 if img.mode == 'P':
                     # keep palette
                     tags['palette'] = img.getpalette()
@@ -264,7 +324,7 @@ def compress(images, delete_tif=False):
             compressed_images.append(new_filename)
 
             if delete_tif:
-                remove(orig_filename)
+                os.remove(orig_filename)
 
         except (IOError, AssertionError) as e:
             # print error - continue
@@ -274,7 +334,7 @@ def compress(images, delete_tif=False):
 
 
 
-def decompress(images, delete_png=False, delete_json=False):
+def decompress(images, delete_png=False, delete_json=False, folder=None):
     """Reverse compression from tif to png and save them in original format
     (ome.tif). TIFF-tags are gotten from json-files named the same as given
     images.
@@ -294,21 +354,27 @@ def decompress(images, delete_png=False, delete_json=False):
     list of filenames
         List of decompressed files.
     """
-    from PIL import Image
-    from PIL.ImagePalette import ImagePalette
-    from os import path, remove
-    import json
-    from copy import copy
+    if type(images) == str:
+        # only one image
+        return decompress([images])
+
     filenames = copy(images) # as images property will change when looping
 
     decompressed_images = []
     for orig_filename in filenames:
         debug('decompressing {}'.format(orig_filename))
         try:
-            filename, extension = path.splitext(orig_filename)
-            new_filename = filename + '.ome.tif'
+            filename, extension = os.path.splitext(orig_filename)
+
+            # if decompressed file should be put in specified folder
+            if folder:
+                basename = os.path.basename(filename)
+                new_filename = os.path.join(folder, basename + '.ome.tif')
+            else:
+                new_filename = filename + '.ome.tif'
+
             # check if tif exists
-            if path.isfile(new_filename):
+            if os.path.isfile(new_filename):
                 decompressed_images.append(new_filename)
                 msg = "Aborting decompress, TIFF already exists: {}".format(orig_filename)
                 raise AssertionError(msg)
@@ -346,9 +412,9 @@ def decompress(images, delete_png=False, delete_json=False):
             decompressed_images.append(new_filename)
 
             if delete_png:
-                remove(orig_filename)
+                os.remove(orig_filename)
             if delete_json:
-                remove(filename + '.json')
+                os.remove(filename + '.json')
 
         except (IOError, AssertionError) as e:
             # print error - continue
