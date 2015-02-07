@@ -1,20 +1,33 @@
 import pytest
+from py import path
 
-@pytest.fixture(scope='session')
-def experiment():
+@pytest.fixture
+def experiment(tmpdir):
+    "'experiment--test' in tmpdir. Returns Experiment object."
     from matrixscreener.experiment import Experiment
-    from os import path
+    e = path.local(__file__).dirpath().join('experiment--test')
+    e.copy(tmpdir.mkdir('experiment'))
 
-    folder = path.join(path.dirname(__file__), 'experiment--test')
-    return Experiment(folder)
+    return Experiment(tmpdir.join('experiment').strpath)
+
+
+@pytest.fixture
+def ometif16bit(tmpdir):
+    "16 bit ome.tif image in tmpdir. Returns py.path.local object of image."
+    image = path.local(__file__).dirpath().join('images', '16bit.ome.tif')
+    image.copy(tmpdir)
+
+    return tmpdir.join(image.basename)
 
 
 def test_stitch(tmpdir, experiment):
     "It should stitch images without error."
-    files = experiment.stitch(tmpdir.strpath)
+    files = experiment.stitch(tmpdir.mkdir('stitched').strpath)
 
+    # returned files same as output
+    assert files == tmpdir.join('stitched').listdir()
     # both channels stitched
-    assert files == tmpdir.listdir()
+    assert len(files) == 2
 
 
 def test_looping(experiment):
@@ -26,51 +39,79 @@ def test_looping(experiment):
     for image in experiment.images:
         assert type(image) == str
 
-def test_compression(experiment):
+
+def test_compression(tmpdir, experiment):
     "It should compress and decompress experiment without dataloss."
-    import matrixscreener as ms
+    from matrixscreener.experiment import decompress
     from PIL import Image
     import numpy as np
-    from copy import copy
-    from tempfile import mkdtemp # python 2.7 support
-    from os import path, rename, remove, removedirs
 
-    def replace(src, dst):
-        # short hand for replace in python 3.3
-        remove(dst)
-        rename(src,dst)
+    # compress
+    pngs = experiment.compress(folder=tmpdir.mkdir('pngs').strpath)
 
-    # make a copy of filenames for easier looping
-    tifs = copy(experiment.images)
-    pngs = ms.experiment.compress(experiment.images)
+    # reported output is actually written and the same amount
+    assert pngs == tmpdir.join('pngs').listdir('*.png')
+    assert len(pngs) == len(experiment.images)
 
-    tmp = mkdtemp()
-    origs = [] # keep data for decompress test
+    # keep data for decompress test
+    origs = []
+    orig_tags = []
 
     # check that compression is lossless
-    for i,(tif,png) in enumerate(zip(tifs, pngs)):
-        origs.append(np.array(Image.open(tif)))
+    for tif,png in zip(experiment.images, pngs):
+        img = Image.open(tif)
+        orig = np.array(img)
+        origs.append(orig)
+        orig_tags.append(img.tag.as_dict())
         compressed = np.array(Image.open(png))
 
-        # move tifs to tmp directory
-        basename = path.basename(tif)
-        rename(tif, path.join(tmp, basename))
+        # is lossless?
+        assert np.all(orig == compressed)
 
-        # print some debugging
-        print('check if png image data is identical ' + basename)
-        assert np.all(origs[i] == compressed)
+    new_tifs = decompress(pngs, folder=tmpdir.mkdir('new_tifs').strpath)
 
-    # we are finished with pngs -> delete them on decompress
-    ms.experiment.decompress(experiment.images,
-                             delete_png=True, delete_json=True)
+    # reported output is actually written and the same amount as original
+    assert new_tifs == tmpdir.join('new_tifs').listdir()
+    assert len(new_tifs) == len(experiment.images)
+
+    # orig and decompressed images have same file size
+    for orig,new_tif in zip(experiment.images, new_tifs):
+        assert path.local(orig).size() == path.local(new_tif).size()
 
     # check that decompression is lossless
-    for tif,orig in zip(tifs, origs):
-        decompressed = np.array(Image.open(tif))
-        assert np.all(orig == decompressed)
-        # move back
-        basename = path.basename(tif)
-        print('move back image ' + basename)
-        replace(path.join(tmp, basename), tif)
+    for tif,orig,orig_tag in zip(new_tifs, origs, orig_tags):
+        img = Image.open(tif)
+        decompressed = np.array(img)
 
-    removedirs(tmp)
+        # compress->decompress is lossless?
+        assert np.all(orig == decompressed)
+
+        # check if TIFF-tags are intact
+        tag = img.tag.as_dict()
+        assert tag == orig_tag
+
+
+def test_stitch_png(tmpdir, experiment):
+    "It should stitch compressed images."
+    experiment.compress(delete_tif=True)
+    files = experiment.stitch(folder=tmpdir.mkdir('stitched').strpath)
+
+    # returned files same as output
+    assert files == tmpdir.join('stitched').listdir()
+    # both channels stitched
+    assert len(files) == 2
+
+
+def test_16bit(ometif16bit):
+    "It should compress and decompress 16 bit TIFF without dataloss."
+    from matrixscreener.experiment import compress
+    from PIL import Image
+    import numpy as np
+
+    tif = ometif16bit.strpath
+    png = compress(tif)[0]
+
+    tif_data = np.array(Image.open(tif))
+    png_data = np.array(Image.open(png))
+
+    assert np.all(tif_data == png_data)
