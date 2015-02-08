@@ -145,10 +145,15 @@ pip install tox
 tox
 ```
 
-**single test**
+**specific test, here compression test**
 ```
 pip install pytest numpy
-py.test -k testname tests/test_experiment.py
+py.test -k compression tests/test_experiment.py
+```
+
+**specific test with extra output, jump into pdb upon error**
+```
+DEBUG=matrixscreener py.test -k compression tests/test_experiment.py --pdb -s
 ```
 
 
