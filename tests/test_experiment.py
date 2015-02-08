@@ -25,7 +25,7 @@ def test_stitch(tmpdir, experiment):
     files = experiment.stitch(tmpdir.mkdir('stitched').strpath)
 
     # returned files same as output
-    assert files == tmpdir.join('stitched').listdir()
+    assert files == tmpdir.join('stitched').listdir(sort=True)
     # both channels stitched
     assert len(files) == 2
 
@@ -50,7 +50,7 @@ def test_compression(tmpdir, experiment):
     pngs = experiment.compress(folder=tmpdir.mkdir('pngs').strpath)
 
     # reported output is actually written and the same amount
-    assert pngs == tmpdir.join('pngs').listdir('*.png')
+    assert pngs == tmpdir.join('pngs').listdir('*.png', sort=True)
     assert len(pngs) == len(experiment.images)
 
     # keep data for decompress test
@@ -71,7 +71,7 @@ def test_compression(tmpdir, experiment):
     new_tifs = decompress(pngs, folder=tmpdir.mkdir('new_tifs').strpath)
 
     # reported output is actually written and the same amount as original
-    assert new_tifs == tmpdir.join('new_tifs').listdir()
+    assert new_tifs == tmpdir.join('new_tifs').listdir(sort=True)
     assert len(new_tifs) == len(experiment.images)
 
     # orig and decompressed images have similar file size
@@ -102,7 +102,7 @@ def test_stitch_png(tmpdir, experiment):
     files = experiment.stitch(folder=tmpdir.mkdir('stitched').strpath)
 
     # returned files same as output
-    assert files == tmpdir.join('stitched').listdir()
+    assert files == tmpdir.join('stitched').listdir(sort=True)
     # both channels stitched
     assert len(files) == 2
 
