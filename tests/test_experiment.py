@@ -20,7 +20,7 @@ def ometif16bit(tmpdir):
     return tmpdir.join(image.basename)
 
 
-def test_stitch(tmpdir, experiment):
+def test_stitching(tmpdir, experiment):
     "It should stitch images without error."
     files = experiment.stitch(tmpdir.mkdir('stitched').strpath)
 
