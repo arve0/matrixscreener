@@ -123,9 +123,9 @@ def run_imagej(macro):
                                 stderr=subprocess.PIPE, env=env)
         out, err = proc.communicate()
 
-        for line in out.decode().splitlines():
+        for line in out.decode('latin1', errors='ignore').splitlines():
             debug('stdout:' + line)
-        for line in err.decode().splitlines():
+        for line in err.decode('latin1', errors='ignore').splitlines():
             debug('stderr:' + line)
 
     if proc.returncode != 0 and not debugging:
