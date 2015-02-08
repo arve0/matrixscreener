@@ -164,8 +164,8 @@ def stitch(path, output_folder=None):
     list
         Filenames for stitched images.
     """
-    debug('stitching ' + path + ' to ' + output_folder)
     output_folder = output_folder or path
+    debug('stitching ' + path + ' to ' + output_folder)
 
     fields = glob(_pattern(path, _field))
 
@@ -225,21 +225,17 @@ def stitch(path, output_folder=None):
 
             cur_attr = attributes(filenames)._asdict()
             output_file = 'stitched--U{U}--V{V}--C{C}--Z{Z}.png'.format(**cur_attr)
-            debug('output_file ' + output_file)
-
-            relpath = os.path.relpath(output_folder, path)
-            rel_filename = os.path.join(relpath, output_file)
-            debug('rel_filename ' + rel_filename)
 
             output = os.path.join(output_folder, output_file)
+            debug('output ' + output)
             output_files.append(output)
             if os.path.isfile(output):
                 # file already exists
+                print('matrixscreener stitched file already exists {}'.format(output))
                 continue
-            macro.append(stitch_macro(
-                    path, filenames, fields_x, fields_y,
-                    output_filename=rel_filename,
-                    x_start=x_min, y_start=y_min))
+            macro.append(stitch_macro(path, filenames, fields_x, fields_y,
+                                      output_filename=output,
+                                      x_start=x_min, y_start=y_min))
 
     # exit immediately
     macro.append('eval("script", "System.exit(0);");')

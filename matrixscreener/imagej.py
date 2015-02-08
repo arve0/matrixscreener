@@ -12,8 +12,7 @@ debug = pydebug.debug('matrixscreener')
 
 _bin = fijibin.BIN
 
-def stitch_macro(folder, filenames, x_size, y_size,
-                 output_filename='stitched.tif',
+def stitch_macro(folder, filenames, x_size, y_size, output_filename,
                  x_start=0, y_start=0, overlap=10):
     """
     Creates a ImageJ Grid/Collection stitching macro. Parameters are the same as
@@ -45,8 +44,7 @@ def stitch_macro(folder, filenames, x_size, y_size,
     y_size : int
         Size of grid, number of images in y direction.
     output_filename : string
-        Filename of fused image relative to given path. Example: *../image.tif*
-        Default: *stitched.tif*
+        Where to store fused image. Should be `.png`.
     x_start : int
         Which x position grid start with.
     y_start : int
@@ -60,8 +58,6 @@ def stitch_macro(folder, filenames, x_size, y_size,
     string
         IJM-macro.
     """
-
-    output_filename = os.path.join(folder, output_filename)
 
     macro = []
     macro.append('run("Grid/Collection stitching",')
@@ -85,8 +81,11 @@ def stitch_macro(folder, filenames, x_size, y_size,
     # use display, such that we can specify output filename
     # this is 'Fused and display' for previous stitching version!!
     macro.append('image_output=[Fuse and display]");')
+    # save to png
     macro.append('selectWindow("Fused");')
-    macro.append('run("Save", "save=[{}]");'.format(output_filename))
+    macro.append('run("PNG ...", "save={}'.format(output_filename))
+    macro.append('imageiosaveas.codecname=png')
+    macro.append('imageiosaveas.filename={}");'.format(output_filename))
     macro.append('close();')
 
     return ' '.join(macro)
