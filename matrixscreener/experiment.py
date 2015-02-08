@@ -7,7 +7,6 @@ through an object.
 # imports
 ##
 import os, re, pydebug
-from glob import glob
 from collections import namedtuple
 from .imagej import stitch_macro, run_imagej
 
@@ -20,6 +19,11 @@ from copy import copy
 # debug with `DEBUG=matrixscreener python script.py`
 debug = pydebug.debug('matrixscreener')
 
+# monkeypatch glob for consistent cross platform behavior
+def glob(pattern):
+    "Sorted glob."
+    from glob import glob as sysglob
+    return sorted(sysglob(pattern))
 
 # variables in case custom folders
 _slide = 'slide'
