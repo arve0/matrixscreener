@@ -74,10 +74,12 @@ def test_compression(tmpdir, experiment):
     assert new_tifs == tmpdir.join('new_tifs').listdir()
     assert len(new_tifs) == len(experiment.images)
 
-    # orig and decompressed images have same file size
+    # orig and decompressed images have similar file size
     for orig,new_tif in zip(experiment.images, new_tifs):
-        assert path.local(orig).size() == path.local(new_tif).size()
+        diff = abs(path.local(orig).size() - path.local(new_tif).size())
+        assert diff < 1024
 
+    omit_tags = [273, 278, 279]
     # check that decompression is lossless
     for tif,orig,orig_tag in zip(new_tifs, origs, orig_tags):
         img = Image.open(tif)
@@ -88,6 +90,9 @@ def test_compression(tmpdir, experiment):
 
         # check if TIFF-tags are intact
         tag = img.tag.as_dict()
+        for omit in omit_tags:
+            del tag[omit]
+            del orig_tag[omit]
         assert tag == orig_tag
 
 
