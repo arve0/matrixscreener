@@ -23,7 +23,7 @@ request are also welcome.
 ## Features ##
 - Access experiment as a python object
 - Compress to PNGs without loosing precision, metadata or colormap
-- ImageJ stitching (Fiji is installed via fijibin)
+- ImageJ stitching (Fiji is installed via [fijibin](https://github.com/arve0/fijibin))
 - Communicate with microscope over CAM TCP/IP socket
 
 
