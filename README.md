@@ -1,5 +1,5 @@
 # matrixscreener #
-This is a python module for interfacing with *Leica LAS AF MatrixScreener*.
+This is a python module for interfacing with *Leica LAS AF/X Matrix Screener*.
 It can read experiments and communicate with the microscope over network.
 
 The module can be used to:
