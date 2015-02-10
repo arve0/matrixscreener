@@ -1,3 +1,8 @@
+# v 0.4.2
+- fix new image filename format (four characters for some attributes)
+- use absolute paths for slides, wells, etc
+- escape paths in imagej macro
+
 # v 0.4.1
 - Experiment.compress method
 - Experiment.stitched property
