@@ -54,7 +54,7 @@ class Experiment:
         """
         _set_path(self, path)
 
-        self._slide_path = _pattern(path, _slide)
+        self._slide_path = _pattern(self.path, _slide)
         self._well_path = _pattern(self._slide_path, _chamber)
         self._field_path = _pattern(self._well_path, _field)
         self._image_path = _pattern(self._field_path, _image)
@@ -246,8 +246,10 @@ def stitch(path, output_folder=None):
         run_imagej(' '.join(macro))
 
     # remove files which are not created
-    output_files = [filename for filename in output_files
-                        if os.path.isfile(filename)]
+    for i,filename in enumerate(output_files):
+        if not os.path.isfile(filename):
+            print('error stitching {}'.format(filename))
+            del output_files[i]
 
     return output_files
 
@@ -481,7 +483,8 @@ def attributes(path):
     path = '/folder/file--X00-X01.tif' returns
     namedtuple('attributes', 'X x')('01', 1)
     """
-    matches = re.findall('--([A-Z]{1})([0-9]{2})', path)
+    # number of charcters set to numbers have changed in LAS AF X !!
+    matches = re.findall('--([A-Z]{1})([0-9]{2,4})', path)
 
     keys = []
     values = []
