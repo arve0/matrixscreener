@@ -83,9 +83,9 @@ def stitch_macro(folder, filenames, x_size, y_size, output_filename,
     macro.append('image_output=[Fuse and display]");')
     # save to png
     macro.append('selectWindow("Fused");')
-    macro.append('run("PNG ...", "save={}'.format(output_filename))
+    macro.append('run("PNG ...", "save=[{}]'.format(output_filename))
     macro.append('imageiosaveas.codecname=png')
-    macro.append('imageiosaveas.filename={}");'.format(output_filename))
+    macro.append('imageiosaveas.filename=[{}]");'.format(output_filename))
     macro.append('close();')
 
     return ' '.join(macro)
