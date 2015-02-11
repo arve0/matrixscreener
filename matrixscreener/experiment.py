@@ -11,10 +11,11 @@ from collections import namedtuple
 from .imagej import stitch_macro, run_imagej
 
 # compress
+import json, multiprocessing
 from PIL import Image
 from PIL.ImagePalette import ImagePalette
-import json
 from copy import copy
+from multiprocessing import Pool
 
 # debug with `DEBUG=matrixscreener python script.py`
 debug = pydebug.debug('matrixscreener')
@@ -30,6 +31,10 @@ _slide = 'slide'
 _chamber = 'chamber'
 _field = 'field'
 _image = 'image'
+try:
+    _pools = multiprocessing.cpu_count()
+except NotImplementedError:
+    _pools = 4
 
 
 
@@ -252,8 +257,60 @@ def stitch(path, output_folder=None):
             del output_files[i]
 
     return output_files
-
 def compress(images, delete_tif=False, folder=None):
+    """Lossless compression. Save images as PNG and TIFF tags to json. Can be
+    reversed with `decompress`. Will run in multiprocessing, where
+    number of workers is decided by `matrixscreener.experiment._pools`.
+
+    Parameters
+    ----------
+    images : list of filenames
+        Images to lossless compress.
+    delete_tif : bool
+        Wheter to delete original images.
+    folder : string
+        Where to store images. Basename will be kept.
+
+    Returns
+    -------
+    list of filenames
+        List of compressed files.
+    """
+    if type(images) == str:
+        # only one image
+        return compress_blocking([images], delete_tif, folder)
+    if len(images) < 2*_pools:
+        # do not care to split small work load
+        return compress_blocking(images, delete_tif, folder)
+
+    filenames = copy(images) # as images property will change when looping
+    size = len(filenames)
+
+    # split work load
+    per_thread = size // _pools
+    splitted = []
+    for i in range(_pools):
+        start = i * per_thread
+        end = (i+1) * per_thread
+        if i == (_pools - 1):
+        # make sure we get all items, let last worker do a litte more
+            end = size
+        splitted.append(filenames[start:end])
+
+    # start compression
+    results = []
+    compressed = []
+    with Pool(_pools) as p:
+        for s in splitted:
+            res = p.apply_async(compress_blocking, (s,delete_tif,folder))
+            results.append(res)
+        for res in results:
+            compressed.extend(res.get())
+
+    return compressed
+
+
+def compress_blocking(images, delete_tif=False, folder=None):
     """Lossless compression. Save images as PNG and TIFF tags to json. Process
     can be reversed with `decompress`.
 
@@ -271,7 +328,7 @@ def compress(images, delete_tif=False, folder=None):
     """
     if type(images) == str:
         # only one image
-        return compress([images])
+        return compress_blocking([images], delete_tif, folder)
 
     filenames = copy(images) # as images property will change when looping
 
