@@ -1,3 +1,6 @@
+# v 0.5.1
+- require fijibin>=0.0.3
+
 # v 0.5.0
 - do compression and stitching with multiprocessing
 - move imagej submodule to fijibin
