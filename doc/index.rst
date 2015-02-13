@@ -30,9 +30,9 @@ submodule: matrixscreener.experiment
 
 
 ********************************
-submodule: matrixscreener.imagej
+submodule: matrixscreener.utils
 ********************************
-.. automodule:: matrixscreener.imagej
+.. automodule:: matrixscreener.utils
     :members:
     :undoc-members:
     :show-inheritance:
