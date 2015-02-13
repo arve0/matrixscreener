@@ -6,21 +6,20 @@ through an object.
 ##
 # imports
 ##
-import os, re, pydebug
+import os, re, pydebug, fijibin.macro
 from collections import namedtuple
-from .imagej import stitch_macro, run_imagej
+from .utils import chop, apply_async
 
 # compress
-import json, multiprocessing
+import json
 from PIL import Image
 from PIL.ImagePalette import ImagePalette
 from copy import copy
-from multiprocessing import Pool
 
 # debug with `DEBUG=matrixscreener python script.py`
 debug = pydebug.debug('matrixscreener')
 
-# monkeypatch glob for consistent cross platform behavior
+# glob for consistent cross platform behavior
 def glob(pattern):
     "Sorted glob."
     from glob import glob as sysglob
@@ -31,11 +30,6 @@ _slide = 'slide'
 _chamber = 'chamber'
 _field = 'field'
 _image = 'image'
-try:
-    _pools = multiprocessing.cpu_count()
-except NotImplementedError:
-    _pools = 4
-
 
 
 # classes
@@ -46,7 +40,7 @@ class Experiment:
         Parameters
         ----------
         path : string
-            Path to matrix scan containing 'slide-SXX' and 'AdditinalData'.
+            Path to matrix scan containing ``slide-SXX`` and ``AdditinalData``.
 
         Attributes
         ----------
@@ -124,9 +118,16 @@ class Experiment:
         if not folder:
             folder = self.path
 
-        output_files = []
+        # create list of macros and files
+        macros = []
+        files = []
         for well in self.wells:
-            output_files.extend(stitch(well, folder))
+            f,m = stitch_macro(well, folder)
+            macros.extend(m)
+            files.extend(f)
+
+        output_files = apply_async(fijibin.macro.run, macro=(macros, True),
+                                   output_files=(files,True))
 
         return output_files
 
@@ -149,13 +150,13 @@ class Experiment:
             Filenames of PNG images. Files which already exists before
             compression are also returned.
         """
-        return compress(self.images, delete_tif=delete_tif, folder=folder)
+        return compress(self.images, delete_tif, folder)
 
 
 
 # methods
-def stitch(path, output_folder=None):
-    """Stitch well given by path.
+def stitch_macro(path, output_folder=None):
+    """Create fiji-macros for stitching all channels and z-stacks for a well.
 
     Parameters
     ----------
@@ -166,8 +167,8 @@ def stitch(path, output_folder=None):
 
     Returns
     -------
-    list
-        Filenames for stitched images.
+    output_files, macros : tuple
+        Tuple with filenames and macros for stitched well.
     """
     output_folder = output_folder or path
     debug('stitching ' + path + ' to ' + output_folder)
@@ -209,7 +210,7 @@ def stitch(path, output_folder=None):
     if extension == '.tif':
         # assume .ome.tif
         extension = '.ome.tif'
-    macro = []
+    macros = []
     output_files = []
     for Z in z_stacks:
         for C in channels:
@@ -238,29 +239,18 @@ def stitch(path, output_folder=None):
                 # file already exists
                 print('matrixscreener stitched file already exists {}'.format(output))
                 continue
-            macro.append(stitch_macro(path, filenames, fields_x, fields_y,
-                                      output_filename=output,
-                                      x_start=x_min, y_start=y_min))
+            macros.append(fijibin.macro.stitch(path, filenames,
+                                  fields_x, fields_y,
+                                  output_filename=output,
+                                  x_start=x_min, y_start=y_min))
 
-    # exit immediately
-    macro.append('eval("script", "System.exit(0);");')
-    debug('macro ' + ' '.join(macro))
+    return (output_files, macros)
 
-    # stitch images with ImageJ
-    if len(macro) != 0:
-        run_imagej(' '.join(macro))
 
-    # remove files which are not created
-    for i,filename in enumerate(output_files):
-        if not os.path.isfile(filename):
-            print('error stitching {}'.format(filename))
-            del output_files[i]
-
-    return output_files
 def compress(images, delete_tif=False, folder=None):
     """Lossless compression. Save images as PNG and TIFF tags to json. Can be
     reversed with `decompress`. Will run in multiprocessing, where
-    number of workers is decided by `matrixscreener.experiment._pools`.
+    number of workers is decided by ``matrixscreener.experiment._pools``.
 
     Parameters
     ----------
@@ -279,35 +269,11 @@ def compress(images, delete_tif=False, folder=None):
     if type(images) == str:
         # only one image
         return compress_blocking([images], delete_tif, folder)
-    if len(images) < 2*_pools:
-        # do not care to split small work load
-        return compress_blocking(images, delete_tif, folder)
 
     filenames = copy(images) # as images property will change when looping
-    size = len(filenames)
 
-    # split work load
-    per_thread = size // _pools
-    splitted = []
-    for i in range(_pools):
-        start = i * per_thread
-        end = (i+1) * per_thread
-        if i == (_pools - 1):
-        # make sure we get all items, let last worker do a litte more
-            end = size
-        splitted.append(filenames[start:end])
-
-    # start compression
-    results = []
-    compressed = []
-    with Pool(_pools) as p:
-        for s in splitted:
-            res = p.apply_async(compress_blocking, (s,delete_tif,folder))
-            results.append(res)
-        for res in results:
-            compressed.extend(res.get())
-
-    return compressed
+    return apply_async(compress_blocking, images=(filenames, True),
+                       delete_tif=(delete_tif, False), folder=(folder, False))
 
 
 def compress_blocking(images, delete_tif=False, folder=None):
@@ -594,23 +560,3 @@ def _set_path(self, path):
     self.path = os.path.abspath(path)
     self.dirname = os.path.dirname(path)
     self.basename = os.path.basename(path)
-
-
-def _between(before, after, string):
-    """Strip string and return whats between before and after as integer.
-
-    Parameters
-    ----------
-    before : string
-        String to match before wanted portion
-    after : string
-        String to match after wanted portion
-    string : string
-        String to parse
-
-    Returns
-    -------
-    int
-        Partion between before and after as integer.
-    """
-    return int(string.split(before)[1].split(after)[0])
