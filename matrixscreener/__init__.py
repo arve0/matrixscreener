@@ -1,7 +1,7 @@
 """
 Interfacing with Leica LAS AF MatrixScreener.
 """
-__all__ = [ 'cam', 'experiment', 'imagej',]
-from matrixscreener import cam, experiment, imagej
+__all__ = [ 'cam', 'experiment']
+from matrixscreener import cam, experiment
 
 VERSION = '0.4.2'
