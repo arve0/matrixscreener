@@ -1,3 +1,7 @@
+# v 0.5.0
+- do compression and stitching with multiprocessing
+- move imagej submodule to fijibin
+
 # v 0.4.2
 - fix new image filename format (four characters for some attributes)
 - use absolute paths for slides, wells, etc
