@@ -49,4 +49,3 @@
 | maf + save | save mark and find list to xml |
 | maf + toselected | assign mark and find list to given well |
 | maf + toall | assign mark and find list to all wells |
-|
