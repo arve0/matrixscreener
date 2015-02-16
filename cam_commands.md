@@ -24,7 +24,7 @@
 | add           | add scan field to CAM list |
 | stopwaitingforcam | close *Waiting for External Command* dialog and continue experiment |
 | skip          | close *Waiting for External Command* and stop, continue or leave pattern |
-| skip          | **doesn't need wait for ext. command**: continue with next job, continue with next scan field, continue with next well or go to lower CAM level |
+| skip          | **doesn't need wait for ext. command**: continue with next job, scan field or well, or go to lower CAM level |
 
 ### Settings
 | **cmd**       | **description**   |
