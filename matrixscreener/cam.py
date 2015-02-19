@@ -1,6 +1,9 @@
 from time import sleep
 from collections import OrderedDict
-import socket
+import socket, pydebug
+
+# debug with `DEBUG=matrixscreener python script.py`
+debug = pydebug.debug('matrixscreener')
 
 
 class CAM:
@@ -14,7 +17,7 @@ class CAM:
                        ('app', 'matrix')]
         self.prefix_bytes = b'/cli:python-matrixscreener /app:matrix '
         self.buffer_size = 1024
-        self.delay = 1e-2 # wait 100ms after sending commands
+        self.delay = 5e-2 # wait 50ms after sending commands
         self.connect()
 
 
@@ -29,14 +32,16 @@ class CAM:
 
     def flush(self):
         "Flush incomming socket messages."
+        debug('flushing incomming socket messages')
         try:
             while(True):
-                self.socket.recv(self.buffer_size)
+                msg = self.socket.recv(self.buffer_size)
+                debug(b'< ' + msg)
         except socket.error:
             pass
 
 
-    def send(self, commands):
+    def send(self, commands, delay=None):
         """Send commands to LASAF through CAM-socket.
 
         Paramenters
@@ -53,10 +58,15 @@ class CAM:
         """
         self.flush() # discard any waiting messages
         if type(commands) == bytes:
-            self.socket.send(self.prefix_bytes + commands)
+            msg = self.prefix_bytes + commands
         else:
-            self.socket.send(tuples_as_bytes(self.prefix + commands))
-        sleep(self.delay)
+            msg = tuples_as_bytes(self.prefix + commands)
+        debug(b'> ' + msg)
+        self.socket.send(msg)
+        if delay:
+            sleep(delay)
+        else:
+            sleep(self.delay)
         return self.receive()
 
 
@@ -65,6 +75,7 @@ class CAM:
 
         try:
             incomming = self.socket.recv(self.buffer_size)
+            debug(b'< ' + incomming)
         except socket.error:
             return None
 
