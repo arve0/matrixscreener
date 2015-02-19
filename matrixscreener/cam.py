@@ -105,7 +105,7 @@ class CAM:
 
 
     def enable(self, slide=0, wellx=1, welly=1,
-               fieldx=1, fieldy=1, value='true'):
+               fieldx=1, fieldy=1):
         "Enable a given scan field."
         cmd = [
             ('cmd', 'enable'),
@@ -114,14 +114,24 @@ class CAM:
             ('welly', str(welly)),
             ('fieldx', str(fieldx)),
             ('fieldy', str(fieldy)),
-            ('value', str(value))
+            ('value', 'true')
         ]
         return self.send(cmd)
 
 
-    def disable(self, **kwargs):
-        "Shorthand for CAM.enable(value='false')."
-        return self.enable(value='false', **kwargs)
+    def disable(self, slide=0, wellx=1, welly=1,
+               fieldx=1, fieldy=1):
+        "Disable a given scan field."
+        cmd = [
+            ('cmd', 'enable'),
+            ('slide', str(slide)),
+            ('wellx', str(wellx)),
+            ('welly', str(welly)),
+            ('fieldx', str(fieldx)),
+            ('fieldy', str(fieldy)),
+            ('value', 'false')
+        ]
+        return self.send(cmd)
 
 
     def enable_all(self):
