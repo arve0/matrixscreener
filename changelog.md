@@ -1,3 +1,7 @@
+# v 0.5.2
+- explicit disable
+- debug in cam-module
+
 # v 0.5.1
 - require fijibin>=0.0.3
 
