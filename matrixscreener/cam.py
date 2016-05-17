@@ -1,15 +1,20 @@
-from time import sleep
+"""Control microscope through LASAF Computer Assisted Microscopy."""
+import select
+import socket
 from collections import OrderedDict
-import socket, pydebug
+from time import sleep, time
+
+import pydebug
 
 # debug with `DEBUG=matrixscreener python script.py`
-debug = pydebug.debug('matrixscreener')
+DEBUG = pydebug.debug('matrixscreener')
 
 
-class CAM:
-    "Driver for LASAF Computer Assisted Microscopy."
+class CAM(object):
+    """Driver for LASAF Computer Assisted Microscopy."""
 
     def __init__(self, host='127.0.0.1', port=8895):
+        """Set up instance."""
         self.host = host
         self.port = port
         # prefix for all commands
@@ -17,29 +22,34 @@ class CAM:
                        ('app', 'matrix')]
         self.prefix_bytes = b'/cli:python-matrixscreener /app:matrix '
         self.buffer_size = 1024
-        self.delay = 5e-2 # wait 50ms after sending commands
+        self.delay = 5e-2  # wait 50ms after sending commands
+        self.timeout = 10.0
         self.connect()
 
-
     def connect(self):
-        "Connects to LASAF through a CAM-socket."
+        """Connect to LASAF through a CAM-socket."""
         self.socket = socket.socket()
         self.socket.connect((self.host, self.port))
-        self.socket.settimeout(False) # non-blocking
-        sleep(self.delay) # wait for response
-        self.welcome_msg = self.socket.recv(self.buffer_size) # receive welcome message
-
+        self.socket.settimeout(False)  # non-blocking
+        sleep(self.delay)  # wait for response
+        self.welcome_msg = self.socket.recv(
+            self.buffer_size)  # receive welcome message
 
     def flush(self):
-        "Flush incomming socket messages."
-        debug('flushing incomming socket messages')
+        """Flush incomming socket messages."""
+        DEBUG('flushing incomming socket messages')
         try:
-            while(True):
+            while True:
                 msg = self.socket.recv(self.buffer_size)
-                debug(b'< ' + msg)
+                DEBUG(b'< ' + msg)
         except socket.error:
             pass
 
+    def _check_socket(self):
+        """Check if socket is readable."""
+        available_socks = select.select(
+            [self.socket], [self.socket], [self.socket])
+        return available_socks[0]
 
     def send(self, commands, delay=None):
         """Send commands to LASAF through CAM-socket.
@@ -56,12 +66,12 @@ class CAM:
         OrderedDict
             Response message from LAS AF as an OrderedDict.
         """
-        self.flush() # discard any waiting messages
-        if type(commands) == bytes:
+        self.flush()  # discard any waiting messages
+        if isinstance(commands, bytes):
             msg = self.prefix_bytes + commands
         else:
             msg = tuples_as_bytes(self.prefix + commands)
-        debug(b'> ' + msg)
+        DEBUG(b'> ' + msg)
         self.socket.send(msg)
         if delay:
             sleep(delay)
@@ -69,44 +79,47 @@ class CAM:
             sleep(self.delay)
         return self.receive()
 
-
     def receive(self):
-        "Receive message from socket interface as list of OrderedDict."
-
-        try:
-            incomming = self.socket.recv(self.buffer_size)
-            debug(b'< ' + incomming)
-        except socket.error:
-            return None
+        """Receive message from socket interface as list of OrderedDict."""
+        begin = time()
+        incomming = ''
+        while self.socket:
+            if time() - begin > self.timeout:
+                break
+            try:
+                if not self._check_socket():
+                    sleep(0.02)
+                    continue
+                incomming = self.socket.recv(self.buffer_size)
+                DEBUG(b'< ' + incomming)
+                break
+            except socket.error:
+                return None
 
         # split received messages
         # return as list of several messages received
         msgs = incomming.splitlines()
         return [bytes_as_dict(msg) for msg in msgs]
 
-
     # convinience functions for commands
     def start_scan(self):
-        "Starts the matrix scan."
+        """Start the matrix scan."""
         cmd = [('cmd', 'startscan')]
         return self.send(cmd)
 
-
     def stop_scan(self):
-        "Stops the matrix scan."
+        """Stop the matrix scan."""
         cmd = [('cmd', 'stopscan')]
         return self.send(cmd)
 
-
     def pause_scan(self):
-        "Pauses the matrix scan."
+        """Pause the matrix scan."""
         cmd = [('cmd', 'pausescan')]
         return self.send(cmd)
 
-
     def enable(self, slide=0, wellx=1, welly=1,
                fieldx=1, fieldy=1):
-        "Enable a given scan field."
+        """Enable a given scan field."""
         cmd = [
             ('cmd', 'enable'),
             ('slide', str(slide)),
@@ -118,10 +131,9 @@ class CAM:
         ]
         return self.send(cmd)
 
-
     def disable(self, slide=0, wellx=1, welly=1,
-               fieldx=1, fieldy=1):
-        "Disable a given scan field."
+                fieldx=1, fieldy=1):
+        """Disable a given scan field."""
         cmd = [
             ('cmd', 'enable'),
             ('slide', str(slide)),
@@ -133,21 +145,18 @@ class CAM:
         ]
         return self.send(cmd)
 
-
     def enable_all(self):
-        "Enable all scan fields."
+        """Enable all scan fields."""
         cmd = [('cmd', 'enableall'), ('value', 'true')]
         return self.send(cmd)
 
-
     def disable_all(self):
-        "Disable all scan fields."
+        """Disable all scan fields."""
         cmd = [('cmd', 'enableall'), ('value', 'false')]
         return self.send(cmd)
 
-
     def save_template(self, filename="{ScanningTemplate}matrixscreener.xml"):
-        "Save scanning template to filename."
+        """Save scanning template to filename."""
         cmd = [
             ('sys', '0'),
             ('cmd', 'save'),
@@ -155,10 +164,10 @@ class CAM:
         ]
         return self.send(cmd)
 
-
     def load_template(self, filename="{ScanningTemplate}matrixscreener.xml"):
-        """Load scanning template from filename. Template needs to exist
-        in database, otherwise it will not load.
+        """Load scanning template from filename.
+
+        Template needs to exist in database, otherwise it will not load.
         """
         cmd = [
             ('sys', '0'),
@@ -167,9 +176,8 @@ class CAM:
         ]
         return self.send(cmd)
 
-
     def get_information(self, about='stage'):
-        "Get information about given keyword. Defaults to stage."
+        """Get information about given keyword. Defaults to stage."""
         cmd = [
             ('cmd', 'getinfo'),
             ('dev', str(about))
@@ -178,8 +186,7 @@ class CAM:
         if len(response) == 0:
             return None
         else:
-            return response[0] # assume we want first response
-
+            return response[0]  # assume we want first response
 
 
 ##
@@ -200,9 +207,9 @@ def tuples_as_bytes(cmds):
     bytes
         Sequence of /key:val.
     """
-    cmds = OrderedDict(cmds) # override equal keys
+    cmds = OrderedDict(cmds)  # override equal keys
     tmp = []
-    for key,val in cmds.items():
+    for key, val in cmds.items():
         key = str(key)
         val = str(val)
         tmp.append('/' + key + ':' + val)
@@ -210,8 +217,9 @@ def tuples_as_bytes(cmds):
 
 
 def tuples_as_dict(_list):
-    """Translate a list of tuples to OrderedDict with key and val
-    as strings.
+    """Translate a list of tuples to OrderedDict.
+
+    Key and val are strings.
 
     Parameters
     ----------
@@ -223,7 +231,7 @@ def tuples_as_dict(_list):
     collections.OrderedDict
     """
     _dict = OrderedDict()
-    for key,val in _list:
+    for key, val in _list:
         key = str(key)
         val = str(val)
         _dict[key] = val
@@ -255,6 +263,6 @@ def bytes_as_dict(msg):
         elif len(unpacked) < 2:
             continue
         else:
-            key,val = unpacked
+            key, val = unpacked
         cmds[key] = val
     return cmds
