@@ -184,3 +184,31 @@ pydoc matrixscreener.cam
 pydoc matrixscreener.experiment
 pydoc matrixscreener.imagej
 ```
+
+## Release procedure
+- Update changelog.md
+- Update version in `__init__.py`, `setup.py` and `doc/conf.py`
+- Git commit and tag version
+- Create [.pypirc](https://docs.python.org/3.5/distutils/packageindex.html#the-pypirc-file)
+  if missing.
+
+	```
+	[distutils]
+	index-servers=
+			pypi
+			pypitest
+
+	[pypitest]
+	repository = https://testpypi.python.org/pypi
+	username = username
+	password = password
+
+	[pypi]
+	repository = https://pypi.python.org/pypi
+	username = username
+	password = password
+	```
+
+- `./generate-rst.sh` (pandoc needed)
+- Stage release: `python setup.py sdist bdist_wheel upload -r pypitest`
+- Release: `python setup.py sdist bdist_wheel upload`
