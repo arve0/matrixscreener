@@ -1,3 +1,15 @@
+# DEPRECIATED #
+This software has been split up in smaller modules:
+
+- [leicacam](https://github.com/arve0/leicacam):
+  Communicate with Leica microscopes.
+- [leicaexperiment](https://github.com/arve0/leicaexperiment):
+  Read Leica LAS Matrix Screener experiments.
+- [leicascanningtemplate](https://github.com/arve0/leicascanningtemplate):
+  Read Leica matrix screener scanning templates.
+- [leicaautomator](https://github.com/arve0/leicaautomator):
+  Attempt at fully automating a microscope scan.
+
 # matrixscreener #
 This is a python module for interfacing with *Leica LAS AF/X Matrix Screener*.
 It can read experiments and communicate with the microscope over network.
