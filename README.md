@@ -2,11 +2,11 @@
 This software has been split up in smaller modules:
 
 - [leicacam](https://github.com/arve0/leicacam):
-  Communicate with Leica microscopes.
+  Communicate with Leica microscopes over CAM TCP/IP socket.
 - [leicaexperiment](https://github.com/arve0/leicaexperiment):
-  Read Leica LAS Matrix Screener experiments.
+  Read Leica LAS Matrix Screener experiments (output from scans).
 - [leicascanningtemplate](https://github.com/arve0/leicascanningtemplate):
-  Read Leica matrix screener scanning templates.
+  Read Leica matrix screener scanning templates (define wells etc).
 - [leicaautomator](https://github.com/arve0/leicaautomator):
   Attempt at fully automating a microscope scan.
 
