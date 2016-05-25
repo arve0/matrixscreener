@@ -1,3 +1,6 @@
+# v 0.6.1
+- readme on pypi, because...
+
 # v 0.6.0
 - receive will wait until timeout for command
 
