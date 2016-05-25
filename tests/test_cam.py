@@ -1,8 +1,12 @@
-from matrixscreener.cam import *
+"""Test cam module."""
 import pytest
 
-class EchoSocket:
-    "Dummy echo socket for mocking."
+from matrixscreener.cam import *
+
+
+class EchoSocket(object):
+    """Dummy echo socket for mocking."""
+
     msg = ''
 
     def send(self, msg):
@@ -18,12 +22,17 @@ class EchoSocket:
     def settimeout(self, timeout):
         pass
 
+    def fileno(self):
+        return 0
+
 # TEST
-#- key (here cli) overrided if defined several times
-#- prefix added
-#- types (integer, float) should be converted to strings
+# key (here cli) overrided if defined several times
+# prefix added
+# types (integer, float) should be converted to strings
+
+
 def test_echo(monkeypatch):
-    "Prefix + command sent should be same as echoed socket message."
+    """Prefix + command sent should be same as echoed socket message."""
     # mock socket
     monkeypatch.setattr("socket.socket", EchoSocket)
 
@@ -39,12 +48,13 @@ def test_echo(monkeypatch):
     cam.flush = flush
 
     echoed = cam.send(cmd)[0]
-    sent   = tuples_as_dict(cam.prefix + cmd)
+    sent = tuples_as_dict(cam.prefix + cmd)
 
     assert sent == echoed
 
+
 def test_commands(monkeypatch):
-    "short hand commands should work as intended"
+    """Short hand commands should work as intended."""
     # mock socket
     monkeypatch.setattr("socket.socket", EchoSocket)
 
