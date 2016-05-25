@@ -1,3 +1,6 @@
+# v 0.6.0
+- receive will wait until timeout for command
+
 # v 0.5.2
 - explicit disable
 - debug in cam-module
